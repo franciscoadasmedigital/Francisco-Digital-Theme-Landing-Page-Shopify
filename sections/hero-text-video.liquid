@@ -1,0 +1,267 @@
+{% comment %}
+  Section: Hero con texto + video YouTube (estilo parecido a la imagen)
+  Tema: Dawn
+  Archivo: sections/hero-text-video.liquid
+{% endcomment %}
+
+{{ 'section-hero-text-video.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign heading = section.settings.heading
+  assign subtext  = section.settings.subtext
+  assign youtube  = section.settings.youtube_url
+
+  comment
+    Extraer ID de YouTube desde varias formas:
+    - https://www.youtube.com/watch?v=VIDEOID
+    - https://youtu.be/VIDEOID
+    - https://www.youtube.com/embed/VIDEOID
+  endcomment
+  assign yt_id = ''
+  if youtube contains 'watch?v='
+    assign yt_id = youtube | split: 'watch?v=' | last | split: '&' | first
+  elsif youtube contains 'youtu.be/'
+    assign yt_id = youtube | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first
+  elsif youtube contains '/embed/'
+    assign yt_id = youtube | split: '/embed/' | last | split: '?' | first | split: '&' | first
+  endif
+-%}
+
+<section
+  class="fd-hero-tv color-{{ section.settings.color_scheme }}{% if section.settings.full_width %} fd-hero-tv--full{% endif %}"
+  style="
+    --fd-pad-top: {{ section.settings.padding_top }}px;
+    --fd-pad-bottom: {{ section.settings.padding_bottom }}px;
+    --fd-accent: {{ section.settings.accent_color }};
+    --fd-card-bg: {{ section.settings.card_bg }};
+    --fd-bg-1: {{ section.settings.bg_1 }};
+    --fd-bg-2: {{ section.settings.bg_2 }};
+  "
+>
+  <div class="fd-hero-tv__bg" aria-hidden="true"></div>
+
+  <div class="page-width fd-hero-tv__wrap">
+    <div class="fd-hero-tv__grid">
+      <div class="fd-hero-tv__content">
+        {%- if heading != blank -%}
+          <h1 class="fd-hero-tv__heading {{ section.settings.heading_size }}">
+            {{ heading | escape }}
+          </h1>
+        {%- endif -%}
+
+        {%- if subtext != blank -%}
+          <div class="fd-hero-tv__text rte">
+            {{ subtext }}
+          </div>
+        {%- endif -%}
+
+        <div class="fd-hero-tv__actions">
+          {%- if section.settings.primary_label != blank and section.settings.primary_link != blank -%}
+            <a
+              class="fd-hero-tv__btn fd-hero-tv__btn--primary"
+              href="{{ section.settings.primary_link }}"
+              {% if section.settings.primary_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+            >
+              {{ section.settings.primary_label | escape }}
+              <span class="fd-hero-tv__arrow" aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
+            <a
+              class="fd-hero-tv__btn fd-hero-tv__btn--ghost"
+              href="{{ section.settings.secondary_link }}"
+              {% if section.settings.secondary_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+            >
+              {{ section.settings.secondary_label | escape }}
+              <span class="fd-hero-tv__arrow" aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="fd-hero-tv__media">
+        <div class="fd-hero-tv__video-card">
+          {%- if yt_id != blank -%}
+            <div class="fd-hero-tv__video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/{{ yt_id }}?rel=0&modestbranding=1"
+                title="{{ section.settings.video_title | escape }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          {%- else -%}
+            <div class="fd-hero-tv__placeholder">
+              <p><strong>Agrega un link de YouTube válido</strong> en la configuración de la sección.</p>
+              <p>Ej: https://www.youtube.com/watch?v=XXXXXXXXXXX</p>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero texto + video",
+  "tag": "section",
+  "class": "section fd-hero-text-video",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Ancho completo (fondo)",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de colores",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Creamos Tiendas y Paginas Web que Venden"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Tamaño del título",
+      "default": "h0",
+      "options": [
+        { "value": "h0", "label": "Muy grande" },
+        { "value": "h1", "label": "Grande" },
+        { "value": "h2", "label": "Medio" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Texto",
+      "default": "<p>Diseñamos y desarrollamos Ecommerce en Shopify, Tiendanube y Jumpseller. Además creamos Landing Page que convierten visitas en clientes.</p>"
+    },
+
+    {
+      "type": "header",
+      "content": "Botón principal"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Texto",
+      "default": "Cotizar por WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "primary_new_tab",
+      "label": "Abrir en nueva pestaña",
+      "default": true
+    },
+
+    {
+      "type": "header",
+      "content": "Botón secundario"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Texto",
+      "default": "Ver servicios"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "secondary_new_tab",
+      "label": "Abrir en nueva pestaña",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "youtube_url",
+      "label": "URL de YouTube",
+      "info": "Pega un link tipo youtu.be/ID o youtube.com/watch?v=ID"
+    },
+    {
+      "type": "text",
+      "id": "video_title",
+      "label": "Título accesible del video",
+      "default": "Video de presentación"
+    },
+
+    {
+      "type": "header",
+      "content": "Estilo (fondo)"
+    },
+    {
+      "type": "color",
+      "id": "bg_1",
+      "label": "Fondo base",
+      "default": "#08110B"
+    },
+    {
+      "type": "color",
+      "id": "bg_2",
+      "label": "Fondo secundario",
+      "default": "#0B1C10"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Acento (botón)",
+      "default": "#22C55E"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Fondo tarjeta video",
+      "default": "rgba(0,0,0,0.25)"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero texto + video YouTube"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,124 @@
+.fd-hero-tv{
+  position: relative;
+  padding-top: var(--fd-pad-top);
+  padding-bottom: var(--fd-pad-bottom);
+  overflow: hidden;
+}
+
+.fd-hero-tv--full{
+  width: 100%;
+}
+
+.fd-hero-tv__bg{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 400px at 70% 30%, rgba(34,197,94,0.18), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0 12%, transparent 12% 100%),
+    linear-gradient(315deg, rgba(255,255,255,0.06) 0 10%, transparent 10% 100%),
+    linear-gradient(0deg, var(--fd-bg-1), var(--fd-bg-2));
+  transform: translateZ(0);
+}
+
+.fd-hero-tv__wrap{
+  position: relative;
+  z-index: 1;
+}
+
+.fd-hero-tv__grid{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+}
+
+.fd-hero-tv__heading{
+  color: rgb(var(--color-foreground));
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+.fd-hero-tv__text{
+  color: rgba(var(--color-foreground), 0.85);
+  max-width: 56ch;
+  margin-bottom: 20px;
+}
+
+.fd-hero-tv__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+}
+
+.fd-hero-tv__btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform .15s ease, opacity .15s ease, background-color .15s ease, border-color .15s ease;
+  will-change: transform;
+}
+
+.fd-hero-tv__btn:hover{ transform: translateY(-1px); }
+
+.fd-hero-tv__btn--primary{
+  background: var(--fd-accent);
+  color: #0b140d;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.fd-hero-tv__btn--ghost{
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  border: 1px solid rgba(var(--color-foreground), 0.28);
+}
+
+.fd-hero-tv__arrow{
+  font-size: 1.05em;
+  opacity: 0.9;
+}
+
+.fd-hero-tv__video-card{
+  background: var(--fd-card-bg);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.fd-hero-tv__video{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.35);
+}
+
+.fd-hero-tv__video iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fd-hero-tv__placeholder{
+  border-radius: 12px;
+  padding: 18px;
+  background: rgba(0,0,0,0.35);
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+@media (max-width: 989px){
+  .fd-hero-tv__grid{
+    grid-template-columns: 1fr;
+  }
+  .fd-hero-tv__text{
+    max-width: 65ch;
+  }
+}
