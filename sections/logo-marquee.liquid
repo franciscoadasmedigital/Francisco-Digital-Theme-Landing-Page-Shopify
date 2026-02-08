@@ -1,0 +1,184 @@
+{% comment %}
+  Logo marquee section for Shopify Dawn.
+  Infinite, seamless scrolling by duplicating the track.
+{% endcomment %}
+
+{% style %}
+  .logo-marquee-{{ section.id }} {
+    --marquee-duration: {{ section.settings.speed | default: 20 }}s;
+    --logo-gap: {{ section.settings.gap | default: 40 }}px;
+    padding-top: {{ section.settings.padding_top | default: 24 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 24 }}px;
+    overflow: hidden;
+  }
+
+  .logo-marquee-{{ section.id }} .logo-marquee__viewport {
+    overflow: hidden;
+  }
+
+  .logo-marquee-{{ section.id }} .logo-marquee__inner {
+    display: flex;
+    width: max-content;
+    animation: logo-marquee-scroll-{{ section.id }} var(--marquee-duration) linear infinite;
+    will-change: transform;
+  }
+
+  .logo-marquee-{{ section.id }} .logo-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    flex: 0 0 auto;
+    padding-right: var(--logo-gap);
+  }
+
+  .logo-marquee-{{ section.id }} .logo-marquee__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-marquee-{{ section.id }} .logo-marquee__image {
+    width: var(--logo-width);
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  @keyframes logo-marquee-scroll-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-{{ section.id }} .logo-marquee__inner {
+      animation: none;
+    }
+  }
+{% endstyle %}
+
+<div class="logo-marquee-{{ section.id }}">
+  <div class="logo-marquee__viewport" role="presentation">
+    <div class="logo-marquee__inner">
+      <div class="logo-marquee__track">
+        {% for block in section.blocks %}
+          <div class="logo-marquee__item" style="--logo-width: {{ block.settings.logo_width | default: 140 }}px;" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: block.settings.logo_width | times: 2 | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'logo-marquee__image' }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="logo-marquee__track" aria-hidden="true">
+        {% for block in section.blocks %}
+          <div class="logo-marquee__item" style="--logo-width: {{ block.settings.logo_width | default: 140 }}px;">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: block.settings.logo_width | times: 2 | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'logo-marquee__image' }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Logo Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 6,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Velocidad (segundos por ciclo)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Separacion entre logos",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "min": 60,
+          "max": 320,
+          "step": 4,
+          "unit": "px",
+          "label": "Ancho del logo",
+          "default": 140
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Marquee",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
