@@ -57,13 +57,6 @@
     "logo_marquee_89AHja": {
       "type": "logo-marquee",
       "blocks": {
-        "logo_CDdXWG": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Logo_de_Farmavitalid.png",
-            "logo_width": 140
-          }
-        },
         "logo_LKBmD9": {
           "type": "logo",
           "settings": {
@@ -74,6 +67,7 @@
         "logo_cLVHQm": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
             "logo_width": 140
           }
         },
@@ -85,14 +79,13 @@
         }
       },
       "block_order": [
-        "logo_CDdXWG",
         "logo_LKBmD9",
         "logo_cLVHQm",
         "logo_pdn69L"
       ],
       "name": "Logo Marquee",
       "settings": {
-        "speed": 20,
+        "speed": 6,
         "gap": 40,
         "padding_top": 24,
         "padding_bottom": 24
