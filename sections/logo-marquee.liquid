@@ -66,9 +66,11 @@
     <div class="logo-marquee__inner">
       <div class="logo-marquee__track">
         {% for block in section.blocks %}
-          <div class="logo-marquee__item" style="--logo-width: {{ block.settings.logo_width | default: 140 }}px;" {{ block.shopify_attributes }}>
+          {% assign logo_width = block.settings.logo_width | default: 140 %}
+          {% assign image_width = logo_width | times: 2 %}
+          <div class="logo-marquee__item" style="--logo-width: {{ logo_width }}px;" {{ block.shopify_attributes }}>
             {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: block.settings.logo_width | times: 2 | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
+              {{ block.settings.image | image_url: width: image_width | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
             {% else %}
               {{ 'image' | placeholder_svg_tag: 'logo-marquee__image' }}
             {% endif %}
@@ -78,9 +80,11 @@
 
       <div class="logo-marquee__track" aria-hidden="true">
         {% for block in section.blocks %}
-          <div class="logo-marquee__item" style="--logo-width: {{ block.settings.logo_width | default: 140 }}px;">
+          {% assign logo_width = block.settings.logo_width | default: 140 %}
+          {% assign image_width = logo_width | times: 2 %}
+          <div class="logo-marquee__item" style="--logo-width: {{ logo_width }}px;">
             {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: block.settings.logo_width | times: 2 | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
+              {{ block.settings.image | image_url: width: image_width | image_tag: class: 'logo-marquee__image', loading: 'lazy' }}
             {% else %}
               {{ 'image' | placeholder_svg_tag: 'logo-marquee__image' }}
             {% endif %}
