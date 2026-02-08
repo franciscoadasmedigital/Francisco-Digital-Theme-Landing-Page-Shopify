@@ -68,6 +68,37 @@
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
 
+  .header__cta {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  .header__cta-link {
+    background-color: #7eac14;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    line-height: 1;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+
+  .header__cta-link:hover {
+    background-color: #6a9411;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .header__cta-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -284,6 +315,18 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
+
+      <div class="header__cta">
+        <a
+          class="header__cta-link"
+          href="https://wa.me/56988100871"
+          target="_blank"
+          rel="noopener"
+          aria-label="Cotizar por WhatsApp"
+        >
+          Cotizar
+        </a>
+      </div>
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
