@@ -119,75 +119,10 @@
     outline-offset: 2px;
   }
 
-  .header__search-inline {
-    display: flex;
-    align-items: center;
-    flex: 1 1 260px;
-    max-width: 520px;
-    margin: 0 1.5rem;
-  }
-
-  .header__search-field {
-    position: relative;
-    width: 100%;
-  }
-
-  .header__search-input {
-    width: 100%;
-    border: 1px solid #e5e5e5;
-    border-radius: 999px;
-    padding: 0.65rem 2.8rem 0.65rem 1.1rem;
-    font-size: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  }
-
-  .header__search-input::placeholder {
-    color: #9aa1a9;
-  }
-
-  .header__search-input:focus-visible {
-    outline: 2px solid #2fa44a;
-    outline-offset: 2px;
-  }
-
-  .header__search-button {
-    position: absolute;
-    right: 0.35rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-    border: 1px solid #2fa44a;
-    background: #ffffff;
-    color: #2fa44a;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .header__search-button:hover {
-    background: #f4fff6;
-  }
-
-  .header__search-button svg {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
       padding-top: 0.5rem;
-    }
-  }
-
-  @media screen and (max-width: 989px) {
-    .header__search-inline {
-      display: none;
     }
   }
 </style>
@@ -338,21 +273,6 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-
-    <div class="header__search-inline">
-      <form action="{{ routes.search_url }}" method="get" role="search" class="header__search-field">
-        <input
-          class="header__search-input"
-          type="search"
-          name="q"
-          placeholder="Buscar..."
-          aria-label="Buscar"
-        >
-        <button class="header__search-button" type="submit" aria-label="Buscar">
-          <span class="svg-wrapper">{{ 'icon-search.svg' | inline_asset_content }}</span>
-        </button>
-      </form>
-    </div>
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
