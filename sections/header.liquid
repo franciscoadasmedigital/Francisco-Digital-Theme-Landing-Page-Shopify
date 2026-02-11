@@ -244,6 +244,49 @@
     }
   }
 
+  .menu-drawer__services-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    text-decoration: none;
+  }
+
+  .menu-drawer__services-logo {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    flex: 0 0 auto;
+  }
+
+  .menu-drawer__services-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: max-content;
+  }
+
+  .menu-drawer__services-title {
+    display: block;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #121212;
+  }
+
+  .menu-drawer__services-description {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: #80839a;
+    max-width: 22rem;
+    white-space: normal;
+  }
+
+  .menu-drawer__services-item > .svg-wrapper {
+    display: none;
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;

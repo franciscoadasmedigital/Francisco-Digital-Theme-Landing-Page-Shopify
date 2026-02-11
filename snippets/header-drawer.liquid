@@ -50,19 +50,66 @@
                             {{ link.title | escape }}
                           </button>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                            {%- assign is_services_drawer_menu = false -%}
+                            {%- if link.handle == 'servicios' -%}
+                              {%- assign is_services_drawer_menu = true -%}
+                            {%- endif -%}
                             {%- for childlink in link.links -%}
                               <li>
                                 {%- if childlink.links == blank -%}
-                                  <a
-                                    id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                    href="{{ childlink.url }}"
-                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                    {% if childlink.current %}
-                                      aria-current="page"
-                                    {% endif %}
-                                  >
-                                    {{ childlink.title | escape }}
-                                  </a>
+                                  {%- if is_services_drawer_menu -%}
+                                    {%- assign service_logo = '' -%}
+                                    {%- assign service_description = '' -%}
+
+                                    {%- case forloop.index -%}
+                                      {%- when 1 -%}
+                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_shopify.png?v=1770847170' -%}
+                                        {%- assign service_description = 'Creamos tu tienda Ecommerce lista para vender, con diseño profesional y optimizada para convertir cada visita en venta.' -%}
+                                      {%- when 2 -%}
+                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_pagina_web.png?v=1770847170' -%}
+                                        {%- assign service_description = 'Diseñamos páginas web estratégicas y optimizadas para captar clientes y convertir visitas en resultados.' -%}
+                                      {%- when 3 -%}
+                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_rediseno.png?v=1770847169' -%}
+                                        {%- assign service_description = 'Transformamos tu sitio actual en una experiencia moderna, rápida y optimizada para vender más.' -%}
+                                    {%- endcase -%}
+
+                                    <a
+                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                      href="{{ childlink.url }}"
+                                      class="menu-drawer__menu-item menu-drawer__services-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if childlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {%- if service_logo != '' -%}
+                                        <img
+                                          class="menu-drawer__services-logo"
+                                          src="{{ service_logo }}"
+                                          alt=""
+                                          width="44"
+                                          height="44"
+                                          loading="lazy"
+                                        >
+                                      {%- endif -%}
+                                      <span class="menu-drawer__services-copy">
+                                        <span class="menu-drawer__services-title">{{ childlink.title | escape }}</span>
+                                        {%- if service_description != '' -%}
+                                          <span class="menu-drawer__services-description">{{ service_description }}</span>
+                                        {%- endif -%}
+                                      </span>
+                                    </a>
+                                  {%- else -%}
+                                    <a
+                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                      href="{{ childlink.url }}"
+                                      class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if childlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {{ childlink.title | escape }}
+                                    </a>
+                                  {%- endif -%}
                                 {%- else -%}
                                   <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
                                     <summary
