@@ -5,7 +5,7 @@
 .list-menu--disclosure {
   position: absolute;
   min-width: 100%;
-  width: 20rem;
+  width: 44rem;
   border: 1px solid rgba(var(--color-foreground), 0.2);
 }
 
@@ -28,3 +28,4 @@
   width: 10rem;
   padding: 0.5rem;
 }
+
