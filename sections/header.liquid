@@ -119,6 +119,100 @@
     outline-offset: 2px;
   }
 
+  .header__submenu--services {
+    min-width: 76rem;
+    max-width: 82rem;
+    padding: 1.2rem 0;
+  }
+
+  .header__submenu--services > li + li {
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .header__submenu--services .header__services-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 2.4rem;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    white-space: normal;
+  }
+
+  .header__submenu--services .header__services-item:hover,
+  .header__submenu--services .header__services-item:focus-visible {
+    background-color: rgba(var(--color-foreground), 0.03);
+    text-decoration: none;
+  }
+
+  .header__submenu--services .header__services-logo {
+    width: 7.2rem;
+    height: 7.2rem;
+    object-fit: contain;
+    flex: 0 0 auto;
+  }
+
+  .header__submenu--services .header__services-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .header__submenu--services .header__services-title {
+    font-size: 4rem;
+    line-height: 1.05;
+    font-weight: 500;
+    color: #121212;
+    text-decoration: none;
+  }
+
+  .header__submenu--services .header__services-description {
+    font-size: 2.95rem;
+    line-height: 1.2;
+    color: #80839a;
+    max-width: 62rem;
+  }
+
+  .header__submenu--services .header__services-item:hover .header__services-title,
+  .header__submenu--services .header__services-item:hover .header__services-description {
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .header__submenu--services {
+      min-width: 68rem;
+      max-width: 72rem;
+    }
+
+    .header__submenu--services .header__services-title {
+      font-size: 3.4rem;
+    }
+
+    .header__submenu--services .header__services-description {
+      font-size: 2.6rem;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .header__submenu--services {
+      min-width: 56rem;
+      max-width: 60rem;
+    }
+
+    .header__submenu--services .header__services-logo {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+
+    .header__submenu--services .header__services-title {
+      font-size: 2.8rem;
+    }
+
+    .header__submenu--services .header__services-description {
+      font-size: 2.2rem;
+    }
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;

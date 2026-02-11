@@ -27,23 +27,71 @@
               </summary>
               <ul
                 id="HeaderMenu-MenuList-{{ forloop.index }}"
-                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup{% if link.handle == 'servicios' %} header__submenu--services{% endif %}"
                 role="list"
                 tabindex="-1"
               >
+                {%- assign is_services_menu = false -%}
+                {%- if link.handle == 'servicios' -%}
+                  {%- assign is_services_menu = true -%}
+                {%- endif -%}
+
                 {%- for childlink in link.links -%}
                   <li>
                     {%- if childlink.links == blank -%}
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
+                      {%- if is_services_menu -%}
+                        {%- assign service_logo = '' -%}
+                        {%- assign service_description = '' -%}
+
+                        {%- case forloop.index -%}
+                          {%- when 1 -%}
+                            {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_shopify.png?v=1770847170' -%}
+                            {%- assign service_description = 'Creamos tu tienda Ecommerce lista para vender, con diseño profesional y optimizada para convertir cada visita en venta.' -%}
+                          {%- when 2 -%}
+                            {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_pagina_web.png?v=1770847170' -%}
+                            {%- assign service_description = 'Diseñamos páginas web estratégicas y optimizadas para captar clientes y convertir visitas en resultados.' -%}
+                          {%- when 3 -%}
+                            {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_rediseno.png?v=1770847169' -%}
+                            {%- assign service_description = 'Transformamos tu sitio actual en una experiencia moderna, rápida y optimizada para vender más.' -%}
+                        {%- endcase -%}
+
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="header__menu-item header__services-item link link--text focus-inset{% if childlink.current %} list-menu__item--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {%- if service_logo != '' -%}
+                            <img
+                              class="header__services-logo"
+                              src="{{ service_logo }}"
+                              alt=""
+                              width="72"
+                              height="72"
+                              loading="lazy"
+                            >
+                          {%- endif -%}
+                          <span class="header__services-copy">
+                            <span class="header__services-title">{{ childlink.title | escape }}</span>
+                            {%- if service_description != '' -%}
+                              <span class="header__services-description">{{ service_description }}</span>
+                            {%- endif -%}
+                          </span>
+                        </a>
+                      {%- else -%}
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                      {%- endif -%}
                     {%- else -%}
                       <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
                         <summary
