@@ -287,6 +287,17 @@
     display: none;
   }
 
+  .section-header .header-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    transition: background-color 0.25s ease, background 0.25s ease;
+  }
+
+  .section-header.scrolled-past-header .header-wrapper {
+    background: #121212 !important;
+    background-color: #121212 !important;
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
