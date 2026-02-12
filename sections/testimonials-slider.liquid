@@ -1,0 +1,227 @@
+{% schema %}
+{
+  "name": "Testimonials Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Background color",
+      "default": "#0f001f"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "company",
+          "label": "Company name",
+          "default": "Optica Visur"
+        },
+        {
+          "type": "text",
+          "id": "username",
+          "label": "Instagram username",
+          "default": "@optica.visur"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial text",
+          "default": "Muy conforme con los servicios..."
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="testimonial-section" style="background: {{ section.settings.section_bg }}">
+  <div class="testimonial-wrapper">
+    <div class="testimonial-slider">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          
+          <div class="testimonial-header">
+            <div>
+              <h3>{{ block.settings.company }}</h3>
+              <div class="stars">
+                {% for i in (1..block.settings.stars) %}
+                  ★
+                {% endfor %}
+              </div>
+              <span class="username">{{ block.settings.username }}</span>
+            </div>
+
+            <div class="instagram-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M7 2H17C20.3 2 22 3.7 22 7V17C22 20.3 20.3 22 17 22H7C3.7 22 2 20.3 2 17V7C2 3.7 3.7 2 7 2Z" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+
+          <p class="testimonial-text">
+            {{ block.settings.text }}
+          </p>
+
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="testimonial-dots"></div>
+  </div>
+</section>
+
+<style>
+.testimonial-section {
+  padding: 60px 20px;
+}
+
+.testimonial-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  background: #f4f4f4;
+  border-radius: 16px;
+  padding: 24px;
+  min-width: 320px;
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.testimonial-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.stars {
+  color: #f5a623;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.username {
+  font-size: 14px;
+  color: #666;
+}
+
+.testimonial-text {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.instagram-icon {
+  color: #333;
+}
+
+/* Desktop */
+@media screen and (min-width: 990px) {
+  .testimonial-slider {
+    overflow: visible;
+  }
+
+  .testimonial-card {
+    flex: 1;
+    min-width: unset;
+  }
+}
+
+/* Hide scrollbar */
+.testimonial-slider::-webkit-scrollbar {
+  display: none;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector(".testimonial-slider");
+  const dotsContainer = document.querySelector(".testimonial-dots");
+  const cards = document.querySelectorAll(".testimonial-card");
+
+  if (!slider || cards.length <= 1) return;
+
+  cards.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if(index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener("click", () => {
+      slider.scrollTo({
+        left: cards[index].offsetLeft,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  slider.addEventListener("scroll", () => {
+    const scrollLeft = slider.scrollLeft;
+    cards.forEach((card, index) => {
+      const dot = dotsContainer.children[index];
+      if (Math.abs(card.offsetLeft - scrollLeft) < 50) {
+        dotsContainer.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
+        dot.classList.add("active");
+      }
+    });
+  });
+});
+</script>
+
+<style>
+.testimonial-dots {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 4px;
+  background: #999;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #ff4d4d;
+}
+</style>
