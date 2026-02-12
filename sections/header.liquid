@@ -287,10 +287,21 @@
     display: none;
   }
 
+  .section-header {
+    background: transparent !important;
+    background-color: transparent !important;
+    transition: background-color 0.25s ease, background 0.25s ease;
+  }
+
   .section-header .header-wrapper {
     background: transparent !important;
     background-color: transparent !important;
     transition: background-color 0.25s ease, background 0.25s ease;
+  }
+
+  .section-header.scrolled-past-header {
+    background: #121212 !important;
+    background-color: #121212 !important;
   }
 
   .section-header.scrolled-past-header .header-wrapper {
