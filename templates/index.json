@@ -36,7 +36,7 @@
     },
     "custom_liquid_6XPCB4": {
       "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+      "name": "Liquid Marquesina Logos",
       "settings": {
         "custom_liquid": "{%- comment -%}\n  ✅ MARQUESINA LOGOS (Custom Liquid) - Dawn\n  - Loop infinito (sin salto) duplicando el set de logos\n  - Edita:\n    1) VELOCIDAD: --fd-duration (segundos)\n    2) ALTURA GENERAL: --fd-logo-h (px) y --fd-logo-h-mobile\n    3) TAMAÑO POR LOGO: en cada item (style=\"--fd-container-w: ...\")\n{%- endcomment -%}\n\n<style>\n  .fd-logo-marquee {\n    /* ✅ 1) VELOCIDAD (más bajo = más rápido) */\n    --fd-duration: 20s;\n\n    /* ✅ 2) TAMAÑO GENERAL (altura de todos los logos) */\n    --fd-logo-h: 90px;\n    --fd-logo-h-mobile: 32px;\n\n    --fd-gap: 94px;\n    --fd-gap-mobile: 28px;\n\n    --fd-bg: transparent; /* puedes poner #0b0710 si quieres fondo oscuro */\n    --fd-padding-y: 18px;\n\n    background: var(--fd-bg);\n    padding: var(--fd-padding-y) 0;\n    overflow: hidden;\n    position: relative;\n  }\n\n  /* Fade en bordes (opcional) */\n  .fd-logo-marquee::before,\n  .fd-logo-marquee::after{\n    content:\"\";\n    position:absolute; top:0; bottom:0;\n    width:80px;\n    z-index:2;\n    pointer-events:none;\n  }\n  .fd-logo-marquee::before{\n    left:0;\n    background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));\n  }\n  .fd-logo-marquee::after{\n    right:0;\n    background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));\n  }\n\n  .fd-logo-marquee__wrap{ width:100%; overflow:hidden; }\n  .fd-logo-marquee__track{\n    display:flex;\n    width:max-content;\n    will-change:transform;\n    animation: fdMarquee var(--fd-duration) linear infinite;\n  }\n\n  .fd-logo-marquee__group{\n    display:flex;\n    align-items:center;\n    gap: var(--fd-gap);\n    padding-left: var(--fd-gap);\n  }\n\n  .fd-logo-marquee__item{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    flex:0 0 auto;\n\n    /* ✅ 3) TAMAÑO POR LOGO: ancho del \"slot\" (ajústalo por item) */\n    width: calc(var(--fd-container-w, 14) * 1%);\n  }\n\n  .fd-logo-marquee__logo{\n    height: var(--fd-logo-h);\n    width:auto;\n    max-width:100%;\n    object-fit:contain;\n    display:block;\n    opacity: .95;\n\n    /* Si usas fondo oscuro y los logos son oscuros, descomenta:\n       filter: brightness(0) invert(1);\n    */\n  }\n\n  @media (max-width: 749px){\n    .fd-logo-marquee::before, .fd-logo-marquee::after{ width:50px; }\n    .fd-logo-marquee__group{ gap: var(--fd-gap-mobile); padding-left: var(--fd-gap-mobile); }\n    .fd-logo-marquee__logo{ height: var(--fd-logo-h-mobile); }\n  }\n\n  /* Seamless: como el track tiene 2 grupos idénticos, mover -50% cierra perfecto */\n  @keyframes fdMarquee{\n    0%{ transform: translateX(0); }\n    100%{ transform: translateX(-50%); }\n  }\n\n  /* Pausa al hover (opcional) */\n  .fd-logo-marquee[data-pause=\"true\"]:hover .fd-logo-marquee__track{\n    animation-play-state: paused;\n  }\n\n  /* Reduce motion */\n  @media (prefers-reduced-motion: reduce){\n    .fd-logo-marquee__track{ animation: none; }\n  }\n</style>\n\n<div class=\"fd-logo-marquee\" data-pause=\"false\" aria-label=\"Marquesina de logos\">\n  <div class=\"fd-logo-marquee__wrap\">\n    <div class=\"fd-logo-marquee__track\">\n\n      <!-- GRUPO 1 -->\n      <div class=\"fd-logo-marquee__group\" aria-hidden=\"false\">\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 16;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Farmavitalid.png?v=1770512273\"\n            alt=\"Farmavitalid\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 14;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Piedras_Lajas.png?v=1770512272\"\n            alt=\"Piedras Lajas\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 13;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_Dopets__SIN_FONDO.png?v=1770510415\"\n            alt=\"Dopets\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 14;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Instrucontrol.png?v=1770512272\"\n            alt=\"Instrucontrol\"\n            loading=\"lazy\">\n        </div>\n      </div>\n\n      <!-- GRUPO 2 (DUPLICADO EXACTO para loop infinito sin salto) -->\n      <div class=\"fd-logo-marquee__group\" aria-hidden=\"true\">\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 16;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Farmavitalid.png?v=1770512273\"\n            alt=\"\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 14;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Piedras_Lajas.png?v=1770512272\"\n            alt=\"\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 13;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_Dopets__SIN_FONDO.png?v=1770510415\"\n            alt=\"\"\n            loading=\"lazy\">\n        </div>\n\n        <div class=\"fd-logo-marquee__item\" style=\"--fd-container-w: 14;\">\n          <img\n            class=\"fd-logo-marquee__logo\"\n            src=\"https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_de_Instrucontrol.png?v=1770512272\"\n            alt=\"\"\n            loading=\"lazy\">\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>",
         "color_scheme": "scheme-4",
@@ -53,49 +53,11 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
-    },
-    "logo_marquee_89AHja": {
-      "type": "logo-marquee",
-      "blocks": {
-        "logo_LKBmD9": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Favicon_Fa_Digital.png",
-            "logo_width": 140
-          }
-        },
-        "logo_cLVHQm": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Logo_Dopets.jpg",
-            "logo_width": 140
-          }
-        },
-        "logo_pdn69L": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 140
-          }
-        }
-      },
-      "block_order": [
-        "logo_LKBmD9",
-        "logo_cLVHQm",
-        "logo_pdn69L"
-      ],
-      "name": "Logo Marquee",
-      "settings": {
-        "speed": 6,
-        "gap": 40,
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
     "custom_liquid_6XPCB4",
-    "custom_liquid_cB4cJx",
-    "logo_marquee_89AHja"
+    "custom_liquid_cB4cJx"
   ]
 }
