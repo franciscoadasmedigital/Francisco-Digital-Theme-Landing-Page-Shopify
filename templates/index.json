@@ -63,12 +63,23 @@
         "padding_top": 0,
         "padding_bottom": 52
       }
+    },
+    "custom_liquid_TmKnmx": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"fd-trusted\">\n  <h2 class=\"fd-trusted__title\">\n    <span>Negocios que</span>\n    \n    <span class=\"fd-circle-hand\">\n      confiaron\n      <svg viewBox=\"0 0 320 120\" preserveAspectRatio=\"none\">\n        <path d=\"M20,60 \n                 Q40,10 160,15 \n                 Q300,25 300,60 \n                 Q300,100 160,105 \n                 Q40,110 20,60 Z\" />\n      </svg>\n    </span>\n  </h2>\n</div>\n\n<style>\n.fd-trusted{\n  width:100%;\n  max-width:1100px;\n  margin:0 auto;\n  padding:clamp(30px,4vw,70px) 16px;\n  text-align:center;\n}\n\n.fd-trusted__title{\n  margin:0;\n  font-weight:900;\n  font-size:clamp(36px,6vw,72px);\n  letter-spacing:-0.02em;\n  line-height:1.1;\n  color:#111;\n}\n\n.fd-circle-hand{\n  position:relative;\n  display:inline-block;\n  margin-left:10px;\n  color:#ff4d4d; /* rojo estilo imagen */\n}\n\n.fd-circle-hand svg{\n  position:absolute;\n  left:-25px;\n  top:-35px;\n  width:calc(100% + 50px);\n  height:calc(100% + 70px);\n  pointer-events:none;\n}\n\n.fd-circle-hand path{\n  fill:none;\n  stroke:#ff2f5e;\n  stroke-width:6;\n  stroke-linecap:round;\n  stroke-linejoin:round;\n  stroke-dasharray:1000;\n  stroke-dashoffset:1000;\n  animation:drawCircle 1.2s cubic-bezier(.77,0,.18,1) forwards;\n}\n\n@keyframes drawCircle{\n  to{\n    stroke-dashoffset:0;\n  }\n}\n\n/* Accesibilidad */\n@media (prefers-reduced-motion: reduce){\n  .fd-circle-hand path{\n    animation:none;\n    stroke-dashoffset:0;\n  }\n}\n</style>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
     "custom_liquid_6XPCB4",
     "custom_liquid_cB4cJx",
-    "custom_liquid_BYhbGN"
+    "custom_liquid_BYhbGN",
+    "custom_liquid_TmKnmx"
   ]
 }
