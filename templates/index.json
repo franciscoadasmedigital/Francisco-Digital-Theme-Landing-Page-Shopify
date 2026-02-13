@@ -70,6 +70,7 @@
         "testimonial_TNFWrL": {
           "type": "testimonial",
           "settings": {
+            "logo": "shopify://shop_images/Logo_Dopets.jpg",
             "company": "Optica Visur",
             "username": "@optica.visur",
             "text": "Muy conforme con los servicios...",
