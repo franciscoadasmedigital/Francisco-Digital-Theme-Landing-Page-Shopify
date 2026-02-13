@@ -67,13 +67,40 @@
     "testimonials_slider_Ti9gdb": {
       "type": "testimonials-slider",
       "blocks": {
+        "testimonial_6tRMQ3": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        },
+        "testimonial_DCREjN": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        },
+        "testimonial_YEbX8U": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        },
         "testimonial_TNFWrL": {
           "type": "testimonial",
           "settings": {
             "logo": "shopify://shop_images/Logo_Dopets.jpg",
-            "company": "Optica Visur",
-            "username": "@optica.visur",
-            "text": "Muy conforme con los servicios...",
+            "company": "Dopets",
+            "username": "@dopets.cl",
+            "text": "Muy conforme con los servicios que me presto",
             "stars": 5
           }
         },
@@ -97,6 +124,9 @@
         }
       },
       "block_order": [
+        "testimonial_6tRMQ3",
+        "testimonial_DCREjN",
+        "testimonial_YEbX8U",
         "testimonial_TNFWrL",
         "testimonial_894rae",
         "testimonial_AqqhUm"
