@@ -63,12 +63,54 @@
         "padding_top": 0,
         "padding_bottom": 52
       }
+    },
+    "testimonials_slider_Ti9gdb": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "testimonial_TNFWrL": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        },
+        "testimonial_894rae": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        },
+        "testimonial_AqqhUm": {
+          "type": "testimonial",
+          "settings": {
+            "company": "Optica Visur",
+            "username": "@optica.visur",
+            "text": "Muy conforme con los servicios...",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_TNFWrL",
+        "testimonial_894rae",
+        "testimonial_AqqhUm"
+      ],
+      "name": "Testimonials Slider",
+      "settings": {
+        "section_bg": "#ffffff"
+      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
     "custom_liquid_6XPCB4",
     "custom_liquid_cB4cJx",
-    "custom_liquid_BYhbGN"
+    "custom_liquid_BYhbGN",
+    "testimonials_slider_Ti9gdb"
   ]
 }
