@@ -1,6 +1,6 @@
 {% schema %}
 {
-  "name": "Testimonials Slider",
+  "name": "Testimonials Slider Pro",
   "settings": [
     {
       "type": "color",
@@ -14,6 +14,11 @@
       "type": "testimonial",
       "name": "Testimonial",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Company Logo"
+        },
         {
           "type": "text",
           "id": "company",
@@ -46,87 +51,108 @@
   ],
   "presets": [
     {
-      "name": "Testimonials Slider"
+      "name": "Testimonials Slider Pro"
     }
   ]
 }
 {% endschema %}
 
-<section class="testimonial-section" style="background: {{ section.settings.section_bg }}">
+<section id="testimonial-section-{{ section.id }}" class="testimonial-section" style="background: {{ section.settings.section_bg }}">
   <div class="testimonial-wrapper">
+    
     <div class="testimonial-slider">
       {% for block in section.blocks %}
-        <div class="testimonial-card" {{ block.shopify_attributes }}>
+      <div class="testimonial-card" {{ block.shopify_attributes }}>
+        
+        <div class="logo-area">
+          {% if block.settings.logo != blank %}
+            <img 
+              src="{{ block.settings.logo | image_url: width: 80 }}" 
+              alt="{{ block.settings.company }}"
+              class="company-logo"
+            >
+          {% endif %}
           
-          <div class="testimonial-header">
-            <div>
-              <h3>{{ block.settings.company }}</h3>
-              <div class="stars">
-                {% for i in (1..block.settings.stars) %}
-                  ★
-                {% endfor %}
-              </div>
-              <span class="username">{{ block.settings.username }}</span>
+          <div class="company-info">
+            <h3>{{ block.settings.company }}</h3>
+            
+            <div class="stars">
+              {% for i in (1..block.settings.stars) %}
+                ★
+              {% endfor %}
             </div>
 
-            <div class="instagram-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M7 2H17C20.3 2 22 3.7 22 7V17C22 20.3 20.3 22 17 22H7C3.7 22 2 20.3 2 17V7C2 3.7 3.7 2 7 2Z" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-              </svg>
-            </div>
+            <span class="username">{{ block.settings.username }}</span>
           </div>
-
-          <p class="testimonial-text">
-            {{ block.settings.text }}
-          </p>
-
         </div>
+
+        <p class="testimonial-text">
+          {{ block.settings.text }}
+        </p>
+
+      </div>
       {% endfor %}
     </div>
 
     <div class="testimonial-dots"></div>
+
   </div>
 </section>
 
 <style>
 .testimonial-section {
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .testimonial-wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .testimonial-slider {
   display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  transition: transform 0.6s ease;
 }
 
 .testimonial-card {
   background: #f4f4f4;
   border-radius: 16px;
   padding: 24px;
-  min-width: 320px;
-  flex: 0 0 320px;
-  scroll-snap-align: start;
-  position: relative;
+  box-sizing: border-box;
 }
 
-.testimonial-header {
+/* Desktop 3 columnas */
+@media screen and (min-width: 990px) {
+  .testimonial-card {
+    width: 33.3333%;
+  }
+}
+
+/* Mobile 1 columna */
+@media screen and (max-width: 989px) {
+  .testimonial-card {
+    width: 100%;
+  }
+}
+
+.logo-area {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
+  align-items: center;
+  gap: 14px;
 }
 
-.testimonial-card h3 {
+.company-logo {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.company-info h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -142,86 +168,108 @@
 }
 
 .testimonial-text {
-  margin-top: 16px;
+  margin-top: 18px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #333;
 }
 
-.instagram-icon {
-  color: #333;
+/* Dots */
+.testimonial-dots {
+  margin-top: 25px;
+  text-align: center;
 }
 
-/* Desktop */
-@media screen and (min-width: 990px) {
-  .testimonial-slider {
-    overflow: visible;
-  }
-
-  .testimonial-card {
-    flex: 1;
-    min-width: unset;
-  }
+.testimonial-dots span {
+  height: 9px;
+  width: 9px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Hide scrollbar */
-.testimonial-slider::-webkit-scrollbar {
-  display: none;
+.testimonial-dots span.active {
+  background: #7EAC14;
 }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const slider = document.querySelector(".testimonial-slider");
-  const dotsContainer = document.querySelector(".testimonial-dots");
-  const cards = document.querySelectorAll(".testimonial-card");
+(function() {
 
-  if (!slider || cards.length <= 1) return;
+  function initTestimonialSlider(sectionId) {
+    const section = document.getElementById("testimonial-section-" + sectionId);
+    if (!section) return;
 
-  cards.forEach((_, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if(index === 0) dot.classList.add("active");
-    dotsContainer.appendChild(dot);
+    const slider = section.querySelector(".testimonial-slider");
+    const dotsContainer = section.querySelector(".testimonial-dots");
+    const cards = section.querySelectorAll(".testimonial-card");
 
-    dot.addEventListener("click", () => {
-      slider.scrollTo({
-        left: cards[index].offsetLeft,
-        behavior: "smooth"
-      });
-    });
-  });
+    if (!slider || cards.length === 0) return;
 
-  slider.addEventListener("scroll", () => {
-    const scrollLeft = slider.scrollLeft;
-    cards.forEach((card, index) => {
-      const dot = dotsContainer.children[index];
-      if (Math.abs(card.offsetLeft - scrollLeft) < 50) {
-        dotsContainer.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
-        dot.classList.add("active");
+    let currentIndex = 0;
+    let visibleCards = window.innerWidth >= 990 ? 3 : 1;
+    let totalSlides = Math.ceil(cards.length / visibleCards);
+
+    function updateSlider() {
+      visibleCards = window.innerWidth >= 990 ? 3 : 1;
+      totalSlides = Math.ceil(cards.length / visibleCards);
+
+      const cardWidth = cards[0].offsetWidth;
+      slider.style.transform = `translateX(-${currentIndex * cardWidth * visibleCards}px)`;
+
+      dotsContainer.querySelectorAll("span").forEach(dot => dot.classList.remove("active"));
+      if (dotsContainer.children[currentIndex]) {
+        dotsContainer.children[currentIndex].classList.add("active");
       }
+    }
+
+    function createDots() {
+      dotsContainer.innerHTML = "";
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", function() {
+          currentIndex = i;
+          updateSlider();
+        });
+
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+      }
+      updateSlider();
+    }
+
+    createDots();
+    updateSlider();
+
+    setInterval(nextSlide, 5000);
+
+    window.addEventListener("resize", function() {
+      currentIndex = 0;
+      createDots();
+      updateSlider();
     });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    initTestimonialSlider("{{ section.id }}");
   });
-});
+
+  document.addEventListener("shopify:section:load", function(event) {
+    if (event.detail.sectionId === "{{ section.id }}") {
+      initTestimonialSlider("{{ section.id }}");
+    }
+  });
+
+})();
 </script>
-
-<style>
-.testimonial-dots {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.dot {
-  height: 8px;
-  width: 8px;
-  margin: 0 4px;
-  background: #999;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #ff4d4d;
-}
-</style>
