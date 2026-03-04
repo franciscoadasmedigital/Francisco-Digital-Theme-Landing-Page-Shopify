@@ -75,10 +75,59 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "services_section_PhEUbV": {
+      "type": "services-section",
+      "blocks": {
+        "service_W4Jeqy": {
+          "type": "service",
+          "settings": {
+            "title": "E-commerce Shopify",
+            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
+            "icon_bg": "#10b981"
+          }
+        },
+        "service_Xtc77a": {
+          "type": "service",
+          "settings": {
+            "title": "Landing Pages WP",
+            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
+            "icon_bg": "#4f46e5"
+          }
+        },
+        "service_6XaLrW": {
+          "type": "service",
+          "settings": {
+            "title": "Webs Corporativas",
+            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
+            "icon_bg": "#6366f1"
+          }
+        }
+      },
+      "block_order": [
+        "service_W4Jeqy",
+        "service_Xtc77a",
+        "service_6XaLrW"
+      ],
+      "name": "Nuestros Servicios Pro",
+      "settings": {
+        "title_start": "Nuestros",
+        "title_accent": "Servicios",
+        "description": "No hacemos simples páginas web. Construimos herramientas estratégicas para el crecimiento de tu negocio.",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f8fafc",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
-    "marquee_brands_wXd467"
+    "marquee_brands_wXd467",
+    "services_section_PhEUbV"
   ]
 }
