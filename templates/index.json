@@ -11,7 +11,6 @@
   "sections": {
     "hero_text_video_gWq46E": {
       "type": "hero-text-video",
-      "disabled": true,
       "name": "Hero texto + video YouTube",
       "settings": {
         "full_width": true,
