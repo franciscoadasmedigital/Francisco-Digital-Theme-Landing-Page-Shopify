@@ -177,6 +177,8 @@
           "type": "project",
           "settings": {
             "category": "Shopify",
+            "badge_color": "#ffffff",
+            "badge_text_color": "#1e293b",
             "title": "Fashion Store",
             "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
             "link": ""
@@ -186,6 +188,8 @@
           "type": "project",
           "settings": {
             "category": "WordPress",
+            "badge_color": "#ffffff",
+            "badge_text_color": "#1e293b",
             "title": "Landing Page B2B",
             "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
             "link": ""
@@ -206,6 +210,115 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "testimonials_carousel_FUpzyk": {
+      "type": "testimonials-carousel",
+      "blocks": {
+        "testimonial_a9QqiW": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Óptica Visur",
+            "handle": "@optica.visur",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_A6VcTm": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Elite Solutions",
+            "handle": "@elitesolutions.cl",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_fHce83": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Madratek",
+            "handle": "@Madratekstore",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_a9QqiW",
+        "testimonial_A6VcTm",
+        "testimonial_fHce83"
+      ],
+      "name": "Testimonios Carrusel",
+      "settings": {
+        "title_start": "Negocios que",
+        "title_accent": "confiaron",
+        "subtitle": "Algunos comentarios:",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f1f5f9",
+        "text_color": "#0f172a",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "pricing_section_fwzPpr": {
+      "type": "pricing-section",
+      "blocks": {
+        "plan_6x7m4U": {
+          "type": "plan",
+          "settings": {
+            "is_highlighted": false,
+            "badge_text": "Más contratado",
+            "title": "Página Informativa",
+            "price": "399",
+            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "button_text": "Conoce más",
+            "link": ""
+          }
+        },
+        "plan_N6Vh9J": {
+          "type": "plan",
+          "settings": {
+            "is_highlighted": true,
+            "badge_text": "Más contratado",
+            "title": "Landing Page",
+            "price": "799",
+            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "button_text": "Conoce más",
+            "link": ""
+          }
+        },
+        "plan_i4MLYn": {
+          "type": "plan",
+          "settings": {
+            "is_highlighted": false,
+            "badge_text": "Más contratado",
+            "title": "Tienda Online",
+            "price": "1.299",
+            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "button_text": "Conoce más",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "plan_6x7m4U",
+        "plan_N6Vh9J",
+        "plan_i4MLYn"
+      ],
+      "name": "Precios Webs",
+      "settings": {
+        "title_start": "Precios",
+        "title_accent": "Webs",
+        "subtitle": "Planes transparentes para cada etapa de tu negocio.",
+        "currency_text": "USD",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#ffffff",
+        "text_color": "#0f172a",
+        "footer_text": "Los valores corresponden a un pago único por desarrollo. Posteriormente, se pueden contratar planes de mantención mensual opcionales.",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
@@ -213,6 +326,8 @@
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
     "methodology_section_ADTkQh",
-    "portafolio_proyectos_hDPbXt"
+    "portafolio_proyectos_hDPbXt",
+    "testimonials_carousel_FUpzyk",
+    "pricing_section_fwzPpr"
   ]
 }
