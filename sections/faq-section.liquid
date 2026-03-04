@@ -1,0 +1,344 @@
+{% comment %}
+  Sección de Preguntas Frecuentes (FAQ) para Shopify Dawn.
+  Incluye acordeones interactivos, diseño responsivo y colores editables.
+{% endcomment %}
+
+<style>
+  .faq-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .faq-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    color: {{ section.settings.text_color }};
+  }
+
+  @media (min-width: 750px) {
+    .faq-title { font-size: 42px; }
+  }
+
+  .faq-accent {
+    background: linear-gradient(to right, {{ section.settings.primary_color }}, {{ section.settings.secondary_color }});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .faq-subtitle {
+    font-size: 18px;
+    color: #64748b;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.is-open {
+    border-color: {{ section.settings.primary_color }};
+    box-shadow: 0 10px 15px -3px {{ section.settings.primary_color }}15;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    transition: color 0.3s ease;
+  }
+
+  .faq-item.is-open .faq-question {
+    color: {{ section.settings.primary_color }};
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.is-open .faq-icon {
+    background: {{ section.settings.primary_color }}15;
+    color: {{ section.settings.primary_color }};
+    transform: rotate(180deg);
+  }
+
+  .faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .faq-answer {
+    padding: 0 24px 24px 24px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4b5563;
+  }
+
+  .faq-answer p { margin: 0; }
+
+  .faq-footer {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .faq-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: {{ section.settings.primary_color }};
+    text-decoration: none;
+    transition: gap 0.3s ease;
+  }
+
+  .faq-link:hover { gap: 12px; }
+</style>
+
+<div id="FaqSection-{{ section.id }}" class="faq-section-{{ section.id }}">
+  <div class="faq-container">
+    
+    <div class="faq-header">
+      <h2 class="faq-title">
+        {{ section.settings.title_start }} 
+        <span class="faq-accent">{{ section.settings.title_accent }}</span>
+      </h2>
+      {% if section.settings.subtitle != blank %}
+        <p class="faq-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="faq-list">
+      {% for block in section.blocks %}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <button class="faq-question" type="button">
+            <span>{{ block.settings.question }}</span>
+            <span class="faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.link_text != blank %}
+      <div class="faq-footer">
+        <a href="{{ section.settings.link_url }}" class="faq-link">
+          {{ section.settings.link_text }}
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtenemos el contenedor usando getElementById para evitar errores con caracteres especiales de Liquid
+    const container = document.getElementById('FaqSection-{{ section.id }}');
+    if (!container) return;
+
+    const faqItems = container.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const wrapper = item.querySelector('.faq-answer-wrapper');
+
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+
+        // Cerrar otros acordeones
+        faqItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            other.querySelector('.faq-answer-wrapper').style.maxHeight = null;
+          }
+        });
+
+        // Alternar el estado actual
+        item.classList.toggle('is-open');
+        if (!isOpen) {
+          wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+        } else {
+          wrapper.style.maxHeight = null;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Acordeón",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cabecera"
+    },
+    {
+      "type": "text",
+      "id": "title_start",
+      "label": "Inicio del Título",
+      "default": "Preguntas"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Palabra Acento",
+      "default": "Frecuentes"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Resolvemos tus dudas antes de dar el siguiente paso."
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Color Primario (Indigo)",
+      "default": "#4f46e5"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Color Secundario (Esmeralda)",
+      "default": "#10b981"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de Sección",
+      "default": "#f8fafc"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color de Texto",
+      "default": "#0f172a"
+    },
+    {
+      "type": "header",
+      "content": "Enlace Inferior"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Texto del enlace",
+      "default": "Escríbenos directamente"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "URL del enlace"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Pregunta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pregunta",
+          "default": "¿Cuánto tiempo tardan en crear mi página?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Respuesta",
+          "default": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Acordeón",
+      "blocks": [
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" }
+      ]
+    }
+  ]
+}
+{% endschema %}
