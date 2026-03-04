@@ -1,0 +1,376 @@
+{% comment %}
+  Sección de Contacto con envío directo a WhatsApp para Shopify Dawn.
+  Diseño de dos columnas: Mensaje (Izquierda) y Formulario (Derecha).
+{% endcomment %}
+
+<style>
+  .contact-wa-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.section_bg }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .wa-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .wa-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (min-width: 990px) {
+    .wa-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Lado Izquierdo (Mensaje) */
+  .wa-info-side {
+    background-color: {{ section.settings.left_bg }};
+    padding: 40px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 750px) {
+    .wa-info-side { padding: 60px 80px; }
+  }
+
+  .wa-info-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #ffffff;
+  }
+
+  @media (min-width: 750px) {
+    .wa-info-title { font-size: 48px; }
+  }
+
+  .wa-info-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 40px;
+  }
+
+  .wa-direct-contact {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .wa-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #818cf8;
+  }
+
+  .wa-direct-label {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+  }
+
+  .wa-direct-value {
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* Lado Derecho (Formulario) */
+  .wa-form-side {
+    background-color: {{ section.settings.right_bg }};
+    padding: 40px;
+  }
+
+  @media (min-width: 750px) {
+    .wa-form-side { padding: 60px 80px; }
+  }
+
+  .wa-form-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 40px;
+  }
+
+  .wa-form-group { margin-bottom: 20px; }
+
+  .wa-form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .wa-form-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .wa-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+  }
+
+  .wa-input, .wa-select, .wa-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .wa-input:focus, .wa-select:focus, .wa-textarea:focus {
+    border-color: {{ section.settings.btn_color }};
+    box-shadow: 0 0 0 2px {{ section.settings.btn_color }}22;
+  }
+
+  .wa-submit-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: {{ section.settings.btn_color }};
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px {{ section.settings.btn_color }}44;
+  }
+
+  .wa-submit-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+</style>
+
+<div class="contact-wa-{{ section.id }}">
+  <div class="wa-container">
+    <div class="wa-grid">
+      
+      <!-- Columna Izquierda: Información -->
+      <div class="wa-info-side">
+        <h2 class="wa-info-title">{{ section.settings.title_left }}</h2>
+        <div class="wa-info-text">{{ section.settings.text_left }}</div>
+        
+        <div class="wa-direct-contact">
+          <div class="wa-icon-box">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          </div>
+          <div>
+            <p class="wa-direct-label">{{ section.settings.direct_label }}</p>
+            <p class="wa-direct-value">{{ section.settings.direct_value }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario -->
+      <div class="wa-form-side">
+        <h3 class="wa-form-title">{{ section.settings.title_right }}</h3>
+        
+        <form id="WhatsAppForm-{{ section.id }}">
+          <div class="wa-form-row wa-form-group">
+            <div>
+              <label class="wa-label">Nombre</label>
+              <input type="text" id="wa-name" class="wa-input" placeholder="Tu nombre" required>
+            </div>
+            <div>
+              <label class="wa-label">Email</label>
+              <input type="email" id="wa-email" class="wa-input" placeholder="tu@email.com" required>
+            </div>
+          </div>
+
+          <div class="wa-form-group">
+            <label class="wa-label">Plataforma de interés</label>
+            <select id="wa-platform" class="wa-select">
+              <option value="Tienda Shopify">Tienda Shopify</option>
+              <option value="Landing Page WordPress">Landing Page WordPress</option>
+              <option value="Web Corporativa WordPress">Web Corporativa WordPress</option>
+              <option value="Necesito asesoría">Aún no lo sé, necesito asesoría</option>
+            </select>
+          </div>
+
+          <div class="wa-form-group">
+            <label class="wa-label">Cuéntanos sobre tu negocio</label>
+            <textarea id="wa-message" class="wa-textarea" rows="4" placeholder="Describe brevemente lo que necesitas..." required></textarea>
+          </div>
+
+          <button type="submit" class="wa-submit-btn">
+            <span>{{ section.settings.btn_text }}</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('WhatsAppForm-{{ section.id }}');
+    const phone = "{{ section.settings.whatsapp_number }}";
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Obtener valores
+      const name = document.getElementById('wa-name').value;
+      const email = document.getElementById('wa-email').value;
+      const platform = document.getElementById('wa-platform').value;
+      const message = document.getElementById('wa-message').value;
+
+      // Formatear mensaje para WhatsApp
+      const text = `Hola! Me gustaría solicitar un presupuesto.%0A%0A` +
+                   `*Nombre:* ${name}%0A` +
+                   `*Email:* ${email}%0A` +
+                   `*Interés:* ${platform}%0A` +
+                   `*Mensaje:* ${message}`;
+
+      // Crear URL y redirigir
+      const waUrl = `https://wa.me/${phone}?text=${text}`;
+      window.open(waUrl, '_blank');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Contacto WhatsApp Pro",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Configuración WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp (solo números con código de país)",
+      "default": "56988100871",
+      "info": "Ejemplo: 56988100871"
+    },
+    {
+      "type": "header",
+      "content": "Lado Izquierdo"
+    },
+    {
+      "type": "text",
+      "id": "title_left",
+      "label": "Título",
+      "default": "¿Listo para escalar tus ventas?"
+    },
+    {
+      "type": "textarea",
+      "id": "text_left",
+      "label": "Texto",
+      "default": "Cuéntanos sobre tu proyecto. Ya sea que necesites migrar a Shopify, optimizar tu e-commerce o crear una Landing Page, estamos listos."
+    },
+    {
+      "type": "text",
+      "id": "direct_label",
+      "label": "Etiqueta contacto directo",
+      "default": "Escríbenos directamente"
+    },
+    {
+      "type": "text",
+      "id": "direct_value",
+      "label": "Valor contacto directo",
+      "default": "hola@tuagencia.com"
+    },
+    {
+      "type": "color",
+      "id": "left_bg",
+      "label": "Fondo Izquierda",
+      "default": "#1e293b"
+    },
+    {
+      "type": "header",
+      "content": "Lado Derecho"
+    },
+    {
+      "type": "text",
+      "id": "title_right",
+      "label": "Título Formulario",
+      "default": "Solicita tu presupuesto"
+    },
+    {
+      "type": "color",
+      "id": "right_bg",
+      "label": "Fondo Derecha",
+      "default": "#e2e2e2"
+    },
+    {
+      "type": "header",
+      "content": "Botón y Estilos"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Texto del Botón",
+      "default": "Enviar Solicitud"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Color del Botón",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Fondo de la Sección",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contacto WhatsApp Pro"
+    }
+  ]
+}
+{% endschema %}
