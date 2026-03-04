@@ -28,9 +28,57 @@
         "video_url": "https://www.youtube.com/watch?v=pRpOoM-As18",
         "video_duration": "02:45"
       }
+    },
+    "marquee_brands_wXd467": {
+      "type": "marquee-brands",
+      "blocks": {
+        "brand_7LCdNT": {
+          "type": "brand",
+          "settings": {
+            "name": "TechNova"
+          }
+        },
+        "brand_UTEqdE": {
+          "type": "brand",
+          "settings": {
+            "name": "EcoLife"
+          }
+        },
+        "brand_MiQk74": {
+          "type": "brand",
+          "settings": {
+            "name": "BeautyCo"
+          }
+        },
+        "brand_YNyE6i": {
+          "type": "brand",
+          "settings": {
+            "name": "UrbanWear"
+          }
+        }
+      },
+      "block_order": [
+        "brand_7LCdNT",
+        "brand_UTEqdE",
+        "brand_MiQk74",
+        "brand_YNyE6i"
+      ],
+      "name": "Marquesina de Marcas",
+      "settings": {
+        "title": "Marcas que confían en nosotros",
+        "bg_color": "#ffffff",
+        "text_color": "#94a3b8",
+        "brand_text_color": "#1e293b",
+        "border_color": "#e2e8f0",
+        "logo_height": 35,
+        "speed": 40,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
-    "hero_text_video_gWq46E"
+    "hero_text_video_gWq46E",
+    "marquee_brands_wXd467"
   ]
 }
