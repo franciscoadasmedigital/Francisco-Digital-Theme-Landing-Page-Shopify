@@ -169,12 +169,50 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "portafolio_proyectos_hDPbXt": {
+      "type": "portafolio-proyectos",
+      "blocks": {
+        "project_V9MfJU": {
+          "type": "project",
+          "settings": {
+            "category": "Shopify",
+            "title": "Fashion Store",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_KKxdNG": {
+          "type": "project",
+          "settings": {
+            "category": "WordPress",
+            "title": "Landing Page B2B",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "project_V9MfJU",
+        "project_KKxdNG"
+      ],
+      "name": "Trabajo Reciente Pro",
+      "settings": {
+        "title": "Nuestro Trabajo Reciente",
+        "subtitle": "Proyectos que han transformado marcas y escalado negocios.",
+        "link_text": "Saber más",
+        "accent_color": "#4f46e5",
+        "bg_color": "#f8fafc",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
-    "methodology_section_ADTkQh"
+    "methodology_section_ADTkQh",
+    "portafolio_proyectos_hDPbXt"
   ]
 }
