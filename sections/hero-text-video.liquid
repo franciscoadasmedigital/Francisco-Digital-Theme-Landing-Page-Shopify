@@ -1,266 +1,444 @@
 {% comment %}
-  Section: Hero con texto + video YouTube (estilo parecido a la imagen)
-  Tema: Dawn
-  Archivo: sections/hero-text-video.liquid
+  Custom Hero Section with Typewriter Effect, Video and Floating Elements.
+  Designed for Shopify Dawn Theme.
 {% endcomment %}
 
-{{ 'section-hero-text-video.css' | asset_url | stylesheet_tag }}
+<style>
+  :root {
+    --hero-indigo: {{ section.settings.primary_color }};
+    --hero-emerald: {{ section.settings.secondary_color }};
+    --hero-text: {{ section.settings.text_color }};
+    --hero-bg: {{ section.settings.bg_color }};
+  }
 
-{%- liquid
-  assign heading = section.settings.heading
-  assign subtext  = section.settings.subtext
-  assign youtube  = section.settings.youtube_url
+  .hero-wrapper-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--hero-bg);
+    padding: 80px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
 
-  comment
-    Extraer ID de YouTube desde varias formas:
-    - https://www.youtube.com/watch?v=VIDEOID
-    - https://youtu.be/VIDEOID
-    - https://www.youtube.com/embed/VIDEOID
-  endcomment
-  assign yt_id = ''
-  if youtube contains 'watch?v='
-    assign yt_id = youtube | split: 'watch?v=' | last | split: '&' | first
-  elsif youtube contains 'youtu.be/'
-    assign yt_id = youtube | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first
-  elsif youtube contains '/embed/'
-    assign yt_id = youtube | split: '/embed/' | last | split: '?' | first | split: '&' | first
-  endif
--%}
+  @media (min-width: 990px) {
+    .hero-wrapper-{{ section.id }} { padding: 120px 40px; }
+  }
 
-<section
-  class="fd-hero-tv color-{{ section.settings.color_scheme }}{% if section.settings.full_width %} fd-hero-tv--full{% endif %}"
-  style="
-    --fd-pad-top: {{ section.settings.padding_top }}px;
-    --fd-pad-bottom: {{ section.settings.padding_bottom }}px;
-    --fd-accent: {{ section.settings.accent_color }};
-    --fd-card-bg: {{ section.settings.card_bg }};
-    --fd-bg-1: {{ section.settings.bg_1 }};
-    --fd-bg-2: {{ section.settings.bg_2 }};
-  "
->
-  <div class="fd-hero-tv__bg" aria-hidden="true"></div>
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
 
-  <div class="page-width fd-hero-tv__wrap">
-    <div class="fd-hero-tv__grid">
-      <div class="fd-hero-tv__content">
-        {%- if heading != blank -%}
-          <h1 class="fd-hero-tv__heading {{ section.settings.heading_size }}">
-            {{ heading | escape }}
-          </h1>
-        {%- endif -%}
+  @media (min-width: 990px) {
+    .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 60px; }
+  }
 
-        {%- if subtext != blank -%}
-          <div class="fd-hero-tv__text rte">
-            {{ subtext }}
-          </div>
-        {%- endif -%}
+  /* Blobs de fondo */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+    animation: blob-anim 10s infinite alternate;
+  }
 
-        <div class="fd-hero-tv__actions">
-          {%- if section.settings.primary_label != blank and section.settings.primary_link != blank -%}
-            <a
-              class="fd-hero-tv__btn fd-hero-tv__btn--primary"
-              href="{{ section.settings.primary_link }}"
-              {% if section.settings.primary_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
-            >
-              {{ section.settings.primary_label | escape }}
-              <span class="fd-hero-tv__arrow" aria-hidden="true">→</span>
-            </a>
-          {%- endif -%}
+  .blob-1 { width: 300px; height: 300px; background: var(--hero-indigo); top: -100px; left: -100px; }
+  .blob-2 { width: 350px; height: 350px; background: var(--hero-emerald); top: 100px; right: -50px; animation-delay: 2s; }
+  .blob-3 { width: 250px; height: 250px; background: var(--hero-indigo); bottom: -50px; left: 30%; animation-delay: 4s; }
 
-          {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
-            <a
-              class="fd-hero-tv__btn fd-hero-tv__btn--ghost"
-              href="{{ section.settings.secondary_link }}"
-              {% if section.settings.secondary_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
-            >
-              {{ section.settings.secondary_label | escape }}
-              <span class="fd-hero-tv__arrow" aria-hidden="true">→</span>
-            </a>
-          {%- endif -%}
-        </div>
+  @keyframes blob-anim {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    100% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  /* Texto e Información */
+  .hero-content { text-align: center; }
+  @media (min-width: 990px) { .hero-content { text-align: left; } }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 100px;
+    color: var(--hero-indigo);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--hero-text);
+    margin-bottom: 24px;
+    min-height: 140px;
+  }
+
+  @media (min-width: 750px) { .hero-title { font-size: 56px; } }
+  @media (min-width: 990px) { .hero-title { font-size: 64px; min-height: 180px; } }
+
+  .gradient-text {
+    background: linear-gradient(to right, var(--hero-indigo), var(--hero-emerald));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cursor {
+    display: inline-block;
+    color: var(--hero-indigo);
+    font-weight: 300;
+    margin-left: 4px;
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .hero-desc {
+    font-size: 18px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 990px) { .hero-desc { margin-left: 0; } }
+
+  .hero-btns { display: flex; flex-direction: column; gap: 16px; }
+  @media (min-width: 600px) { .hero-btns { flex-direction: row; justify-content: center; } }
+  @media (min-width: 990px) { .hero-btns { justify-content: flex-start; } }
+
+  .btn-primary {
+    padding: 16px 32px;
+    background: #0f172a;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover { background: #1e293b; transform: translateY(-2px); }
+
+  .btn-secondary {
+    padding: 16px 32px;
+    background: white;
+    color: #374151 !important;
+    text-decoration: none;
+    border: 2px solid #e5e7eb;
+    border-radius: 100px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover { border-color: #d1d5db; background: #f9fafb; }
+
+  /* Video Container */
+  .video-container {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+  }
+
+  .video-container iframe, .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .play-button {
+    width: 70px;
+    height: 70px;
+    background: rgba(99, 102, 241, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    transition: transform 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .play-button:hover { transform: scale(1.1); background: #4f46e5; }
+
+  .video-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* Figuras flotantes */
+  .float-shape {
+    position: absolute;
+    color: rgba(99, 102, 241, 0.15);
+    pointer-events: none;
+    animation: float-anim 6s ease-in-out infinite;
+  }
+
+  @keyframes float-anim {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+</style>
+
+<div class="hero-wrapper-{{ section.id }}">
+  <!-- Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Geometric Shapes -->
+  <div class="float-shape" style="top: 20%; left: 45%;">
+    <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="15"/></svg>
+  </div>
+  <div class="float-shape" style="bottom: 20%; right: 40%; animation-delay: 2s;">
+    <svg width="35" height="35" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="25" height="25" rx="4"/></svg>
+  </div>
+
+  <div class="hero-container">
+    <!-- Columna Izquierda -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9H3.5a.5.5 0 0 1-.48-.641l2.5-8z"/></svg>
+        <span>{{ section.settings.badge_text }}</span>
       </div>
 
-      <div class="fd-hero-tv__media">
-        <div class="fd-hero-tv__video-card">
-          {%- if yt_id != blank -%}
-            <div class="fd-hero-tv__video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/{{ yt_id }}?rel=0&modestbranding=1"
-                title="{{ section.settings.video_title | escape }}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-          {%- else -%}
-            <div class="fd-hero-tv__placeholder">
-              <p><strong>Agrega un link de YouTube válido</strong> en la configuración de la sección.</p>
-              <p>Ej: https://www.youtube.com/watch?v=XXXXXXXXXXX</p>
-            </div>
-          {%- endif -%}
-        </div>
+      <h1 class="hero-title">
+        {{ section.settings.title_prefix }}
+        <span class="gradient-text" id="typewriter-{{ section.id }}"></span><span class="cursor">|</span>
+      </h1>
+
+      <p class="hero-desc">
+        {{ section.settings.description }}
+      </p>
+
+      <div class="hero-btns">
+        <a href="{{ section.settings.primary_btn_link }}" class="btn-primary">
+          {{ section.settings.primary_btn_text }}
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="{{ section.settings.secondary_btn_link }}" class="btn-secondary">
+          {{ section.settings.secondary_btn_text }}
+        </a>
       </div>
     </div>
+
+    <!-- Columna Derecha -->
+    <div class="video-container">
+      {% if section.settings.video_url contains 'youtube' or section.settings.video_url contains 'vimeo' %}
+        <iframe src="{{ section.settings.video_url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      {% elsif section.settings.html_video != blank %}
+        {{ section.settings.html_video | video_tag: autoplay: true, loop: true, muted: true, controls: true }}
+      {% else %}
+        <div class="video-placeholder" style="background-image: url('{{ section.settings.placeholder_image | img_url: '1000x' }}')">
+           <button class="play-button">
+             <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+           </button>
+           <div class="video-badge">
+             <span>Nuestro proceso de trabajo</span>
+             <span>{{ section.settings.video_duration }}</span>
+           </div>
+        </div>
+      {% endif %}
+    </div>
   </div>
-</section>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('typewriter-{{ section.id }}');
+    const words = "{{ section.settings.words }}".split(',').map(w => w.trim());
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 150;
+
+    function type() {
+      const current = words[wordIndex];
+      
+      if (isDeleting) {
+        el.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 60;
+      } else {
+        el.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 120;
+      }
+
+      if (!isDeleting && charIndex === current.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pausa al terminar de escribir
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    if (words.length > 0) type();
+  });
+</script>
 
 {% schema %}
 {
-  "name": "Hero texto + video",
-  "tag": "section",
-  "class": "section fd-hero-text-video",
+  "name": "Hero Animado Typewriter",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Ancho completo (fondo)",
-      "default": true
+      "type": "header",
+      "content": "Colores"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Esquema de colores",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "primary_color",
+      "label": "Color Primario (Indigo)",
+      "default": "#4f46e5"
     },
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Título",
-      "default": "Creamos Tiendas y Paginas Web que Venden"
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Color Secundario (Esmeralda)",
+      "default": "#10b981"
     },
     {
-      "type": "select",
-      "id": "heading_size",
-      "label": "Tamaño del título",
-      "default": "h0",
-      "options": [
-        { "value": "h0", "label": "Muy grande" },
-        { "value": "h1", "label": "Grande" },
-        { "value": "h2", "label": "Medio" }
-      ]
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de sección",
+      "default": "#f8fafc"
     },
     {
-      "type": "richtext",
-      "id": "subtext",
-      "label": "Texto",
-      "default": "<p>Diseñamos y desarrollamos Ecommerce en Shopify, Tiendanube y Jumpseller. Además creamos Landing Page que convierten visitas en clientes.</p>"
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del título",
+      "default": "#0f172a"
     },
-
     {
       "type": "header",
-      "content": "Botón principal"
+      "content": "Contenido de Texto"
     },
     {
       "type": "text",
-      "id": "primary_label",
-      "label": "Texto",
-      "default": "Cotizar por WhatsApp"
+      "id": "badge_text",
+      "label": "Texto del Badge",
+      "default": "Expertos en E-commerce y Desarrollo Web"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Prefijo del título",
+      "default": "Transformamos tu visión en una "
+    },
+    {
+      "type": "textarea",
+      "id": "words",
+      "label": "Palabras para el efecto (separadas por coma)",
+      "default": "máquina de ventas., tienda de éxito., marca imparable."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario."
+    },
+    {
+      "type": "header",
+      "content": "Botones"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Texto Botón Principal",
+      "default": "Ver Casos de Éxito"
     },
     {
       "type": "url",
-      "id": "primary_link",
-      "label": "Link"
-    },
-    {
-      "type": "checkbox",
-      "id": "primary_new_tab",
-      "label": "Abrir en nueva pestaña",
-      "default": true
-    },
-
-    {
-      "type": "header",
-      "content": "Botón secundario"
+      "id": "primary_btn_link",
+      "label": "Link Botón Principal"
     },
     {
       "type": "text",
-      "id": "secondary_label",
-      "label": "Texto",
-      "default": "Ver servicios"
+      "id": "secondary_btn_text",
+      "label": "Texto Botón Secundario",
+      "default": "Nuestros Servicios"
     },
     {
       "type": "url",
-      "id": "secondary_link",
-      "label": "Link"
+      "id": "secondary_btn_link",
+      "label": "Link Botón Secundario"
     },
-    {
-      "type": "checkbox",
-      "id": "secondary_new_tab",
-      "label": "Abrir en nueva pestaña",
-      "default": false
-    },
-
     {
       "type": "header",
       "content": "Video"
     },
     {
       "type": "text",
-      "id": "youtube_url",
-      "label": "URL de YouTube",
-      "info": "Pega un link tipo youtu.be/ID o youtube.com/watch?v=ID"
+      "id": "video_url",
+      "label": "URL de Video (YouTube/Vimeo)",
+      "info": "Si se llena, ignorará el video subido a Shopify."
+    },
+    {
+      "type": "video",
+      "id": "html_video",
+      "label": "Video subido a Shopify"
+    },
+    {
+      "type": "image_picker",
+      "id": "placeholder_image",
+      "label": "Imagen de portada (si no hay video)"
     },
     {
       "type": "text",
-      "id": "video_title",
-      "label": "Título accesible del video",
-      "default": "Video de presentación"
-    },
-
-    {
-      "type": "header",
-      "content": "Estilo (fondo)"
-    },
-    {
-      "type": "color",
-      "id": "bg_1",
-      "label": "Fondo base",
-      "default": "#08110B"
-    },
-    {
-      "type": "color",
-      "id": "bg_2",
-      "label": "Fondo secundario",
-      "default": "#0B1C10"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Acento (botón)",
-      "default": "#22C55E"
-    },
-    {
-      "type": "color",
-      "id": "card_bg",
-      "label": "Fondo tarjeta video",
-      "default": "rgba(0,0,0,0.25)"
-    },
-
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding superior",
-      "default": 56
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding inferior",
-      "default": 56
+      "id": "video_duration",
+      "label": "Duración mostrada",
+      "default": "02:45"
     }
   ],
   "presets": [
     {
-      "name": "Hero texto + video YouTube"
+      "name": "Hero Animado Typewriter"
     }
   ]
 }
