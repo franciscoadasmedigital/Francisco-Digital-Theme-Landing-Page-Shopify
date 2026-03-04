@@ -1,0 +1,416 @@
+{% comment %}
+  Sección de Tabla de Precios "Webs" para Shopify Dawn.
+  Permite crear tarjetas de precios editables con soporte para planes destacados.
+{% endcomment %}
+
+<style>
+  .pricing-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .pricing-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 750px) {
+    .pricing-title { font-size: 48px; }
+  }
+
+  .pricing-accent {
+    background: linear-gradient(to right, {{ section.settings.primary_color }}, {{ section.settings.secondary_color }});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .pricing-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+
+  @media (min-width: 750px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 990px) {
+    .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pricing-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+
+  .pricing-card--highlighted {
+    border: 2px solid {{ section.settings.primary_color }};
+    box-shadow: 0 25px 50px -12px {{ section.settings.primary_color }}22;
+    z-index: 2;
+  }
+
+  @media (min-width: 990px) {
+    .pricing-card--highlighted { transform: scale(1.05); }
+    .pricing-card--highlighted:hover { transform: scale(1.05) translateY(-5px); }
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, {{ section.settings.primary_color }}, {{ section.settings.secondary_color }});
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    box-shadow: 0 10px 15px -3px {{ section.settings.primary_color }}44;
+  }
+
+  .plan-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+  }
+
+  .plan-price {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .plan-price span {
+    font-size: 16px;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex-grow: 1;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: {{ section.settings.secondary_color }};
+  }
+
+  .plan-button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn--standard {
+    background: #f8fafc;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn--standard:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+  }
+
+  .btn--highlighted {
+    background: {{ section.settings.primary_color }};
+    color: #ffffff !important;
+    box-shadow: 0 10px 15px -3px {{ section.settings.primary_color }}44;
+  }
+
+  .btn--highlighted:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .pricing-footer {
+    margin-top: 48px;
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .pricing-footer p {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>
+
+<div class="pricing-section-{{ section.id }}">
+  <div class="pricing-container">
+    
+    <div class="pricing-header">
+      <h2 class="pricing-title">
+        {{ section.settings.title_start }} 
+        <span class="pricing-accent">{{ section.settings.title_accent }}</span>
+      </h2>
+      {% if section.settings.subtitle != blank %}
+        <p class="pricing-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="pricing-grid">
+      {% for block in section.blocks %}
+        <div class="pricing-card {% if block.settings.is_highlighted %}pricing-card--highlighted{% endif %}" {{ block.shopify_attributes }}>
+          
+          {% if block.settings.is_highlighted and block.settings.badge_text != blank %}
+            <div class="pricing-badge">{{ block.settings.badge_text }}</div>
+          {% endif %}
+
+          <h3 class="plan-name">{{ block.settings.title }}</h3>
+          <div class="plan-price">
+            ${{ block.settings.price }}
+            <span>{{ section.settings.currency_text }}</span>
+          </div>
+
+          <ul class="plan-features">
+            {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
+            {% for feature in features %}
+              {% if feature != blank %}
+                <li class="feature-item">
+                  <svg class="feature-icon" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                  <span>{{ feature | strip }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <a href="{{ block.settings.link }}" class="plan-button {% if block.settings.is_highlighted %}btn--highlighted{% else %}btn--standard{% endif %}">
+            {{ block.settings.button_text }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="pricing-footer">
+        <p>{{ section.settings.footer_text }}</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Precios Webs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido de Cabecera"
+    },
+    {
+      "type": "text",
+      "id": "title_start",
+      "label": "Inicio del Título",
+      "default": "Precios"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Palabra con Acento",
+      "default": "Webs"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Planes transparentes para cada etapa de tu negocio."
+    },
+    {
+      "type": "text",
+      "id": "currency_text",
+      "label": "Texto de Moneda",
+      "default": "USD"
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Color Primario (Índigo)",
+      "default": "#4f46e5"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Color Secundario (Esmeralda)",
+      "default": "#10b981"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de Sección",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color de Texto",
+      "default": "#0f172a"
+    },
+    {
+      "type": "header",
+      "content": "Pie de Sección"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Nota aclaratoria final",
+      "default": "Los valores corresponden a un pago único por desarrollo. Posteriormente, se pueden contratar planes de mantención mensual opcionales."
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan de Precios",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "is_highlighted",
+          "label": "Destacar este plan",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Texto del Badge (si está destacado)",
+          "default": "Más contratado"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nombre del Plan",
+          "default": "Landing Page"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Precio",
+          "default": "799"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Características (una por línea)",
+          "default": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Texto del Botón",
+          "default": "Conoce más"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace del Botón"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Precios Webs",
+      "blocks": [
+        { "type": "plan", "settings": { "title": "Página Informativa", "price": "399" } },
+        { "type": "plan", "settings": { "title": "Landing Page", "price": "799", "is_highlighted": true } },
+        { "type": "plan", "settings": { "title": "Tienda Online", "price": "1.299" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
