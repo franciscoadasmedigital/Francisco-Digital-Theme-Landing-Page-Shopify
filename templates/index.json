@@ -319,6 +319,51 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "faq_section_fannnd": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_tyQRHg": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuánto tiempo tardan en crear mi página?",
+            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+          }
+        },
+        "faq_ybiH8N": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuánto tiempo tardan en crear mi página?",
+            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+          }
+        },
+        "faq_hhMDTx": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuánto tiempo tardan en crear mi página?",
+            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_tyQRHg",
+        "faq_ybiH8N",
+        "faq_hhMDTx"
+      ],
+      "name": "FAQ Acordeón",
+      "settings": {
+        "title_start": "Preguntas",
+        "title_accent": "Frecuentes",
+        "subtitle": "Resolvemos tus dudas antes de dar el siguiente paso.",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f8fafc",
+        "text_color": "#0f172a",
+        "link_text": "Escríbenos directamente",
+        "link_url": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
@@ -328,6 +373,7 @@
     "methodology_section_ADTkQh",
     "portafolio_proyectos_hDPbXt",
     "testimonials_carousel_FUpzyk",
-    "pricing_section_fwzPpr"
+    "pricing_section_fwzPpr",
+    "faq_section_fannnd"
   ]
 }
