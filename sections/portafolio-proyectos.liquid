@@ -1,6 +1,7 @@
 {% comment %}
   Sección de Portafolio "Nuestro Trabajo Reciente" para Shopify Dawn.
   Permite añadir proyectos como bloques con imagen, descripción y links.
+  Ahora con soporte de colores personalizados para las etiquetas de cada bloque.
 {% endcomment %}
 
 <style>
@@ -87,7 +88,6 @@
     position: absolute;
     top: 16px;
     left: 16px;
-    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
     padding: 6px 12px;
     border-radius: 100px;
@@ -95,7 +95,6 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #1e293b;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
@@ -164,7 +163,9 @@
             {% endif %}
             
             {% if block.settings.category != blank %}
-              <span class="portfolio-badge">{{ block.settings.category }}</span>
+              <span class="portfolio-badge" style="background-color: {{ block.settings.badge_color }}; color: {{ block.settings.badge_text_color }};">
+                {{ block.settings.category }}
+              </span>
             {% endif %}
           </div>
           
@@ -264,6 +265,18 @@
           "default": "Shopify"
         },
         {
+          "type": "color",
+          "id": "badge_color",
+          "label": "Color de Fondo de Etiqueta",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Color de Texto de Etiqueta",
+          "default": "#1e293b"
+        },
+        {
           "type": "text",
           "id": "title",
           "label": "Título del Proyecto",
@@ -287,8 +300,8 @@
     {
       "name": "Trabajo Reciente Pro",
       "blocks": [
-        { "type": "project", "settings": { "category": "Shopify", "title": "Fashion Store" } },
-        { "type": "project", "settings": { "category": "WordPress", "title": "Landing Page B2B" } }
+        { "type": "project", "settings": { "category": "Shopify", "title": "Fashion Store", "badge_color": "#10b981", "badge_text_color": "#ffffff" } },
+        { "type": "project", "settings": { "category": "WordPress", "title": "Landing Page B2B", "badge_color": "#4f46e5", "badge_text_color": "#ffffff" } }
       ]
     }
   ]
