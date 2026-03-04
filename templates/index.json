@@ -9,19 +9,8 @@
  */
 {
   "sections": {
-    "custom_liquid_nMF9q8": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<!-- ESTILOS DEL FONDO ANIMADO -->\n<style>\n  .hero-background-wrapper {\n    position: relative;\n    width: 100%;\n    overflow: hidden;\n    background-color: #f8fafc; /* Color de fondo base (slate-50) */\n    padding: 120px 20px; /* Ajusta este padding según el alto de tu banner */\n    z-index: 1;\n  }\n\n  /* Estilo base de las manchas de color */\n  .aurora-blob {\n    position: absolute;\n    border-radius: 50%;\n    mix-blend-mode: multiply;\n    filter: blur(64px);\n    opacity: 0.3;\n    pointer-events: none; /* Evita que bloqueen los clics */\n    animation: blob-float 7s infinite;\n    z-index: -1;\n  }\n\n  /* Mancha 1: Índigo arriba izquierda */\n  .blob-1 {\n    top: 0;\n    left: -40px;\n    width: 288px;\n    height: 288px;\n    background-color: #a5b4fc;\n  }\n\n  /* Mancha 2: Esmeralda arriba derecha */\n  .blob-2 {\n    top: 80px;\n    right: 0;\n    width: 288px;\n    height: 288px;\n    background-color: #6ee7b7;\n    animation-delay: 2s;\n  }\n\n  /* Mancha 3: Índigo abajo centro */\n  .blob-3 {\n    bottom: -32px;\n    left: 33%;\n    width: 288px;\n    height: 288px;\n    background-color: #c7d2fe;\n    animation-delay: 4s;\n  }\n\n  /* Animación de flotación */\n  @keyframes blob-float {\n    0% { transform: translate(0px, 0px) scale(1); }\n    33% { transform: translate(30px, -50px) scale(1.1); }\n    66% { transform: translate(-20px, 20px) scale(0.9); }\n    100% { transform: translate(0px, 0px) scale(1); }\n  }\n</style>\n\n<!-- ESTRUCTURA DEL BANNER -->\n<div class=\"hero-background-wrapper\">\n  \n  <!-- Las luces animadas de fondo -->\n  <div class=\"aurora-blob blob-1\"></div>\n  <div class=\"aurora-blob blob-2\"></div>\n  <div class=\"aurora-blob blob-3\"></div>\n\n  <!-- A PARTIR DE AQUÍ COLOCAS TU CONTENIDO EN SHOPIFY -->\n  <div style=\"position: relative; z-index: 10; text-align: center; max-width: 1200px; margin: 0 auto;\">\n    <h1 style=\"font-size: 3rem; color: #0f172a; font-weight: bold;\">\n      Transformamos tu visión en una máquina de ventas\n    </h1>\n    <!-- El resto de tus textos, botones, etc. -->\n  </div>\n\n</div>",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "hero_text_video_gWq46E": {
       "type": "hero-text-video",
-      "disabled": true,
       "name": "Hero texto + video YouTube",
       "settings": {
         "full_width": true,
@@ -77,7 +66,6 @@
     }
   },
   "order": [
-    "custom_liquid_nMF9q8",
     "hero_text_video_gWq46E",
     "custom_liquid_6XPCB4",
     "custom_liquid_cB4cJx",
