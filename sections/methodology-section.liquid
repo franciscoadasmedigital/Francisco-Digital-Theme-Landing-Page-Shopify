@@ -1,0 +1,337 @@
+{% comment %}
+  Sección de Metodología "Estrategia y Rendimiento" para Shopify Dawn.
+  Incluye pasos editables, imagen con badge flotante y diseño responsivo.
+{% endcomment %}
+
+<style>
+  .methodology-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .methodology-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    border: 1px solid {{ section.settings.accent_color }}33;
+    border-radius: 24px;
+    background: linear-gradient(145deg, {{ section.settings.bg_color }}, #1a2333);
+  }
+
+  @media (max-width: 749px) {
+    .methodology-container { padding: 40px 20px; border-radius: 0; border: none; }
+    .methodology-{{ section.id }} { padding: 0; }
+  }
+
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media (min-width: 990px) {
+    .methodology-grid { grid-template-columns: 1.2fr 0.8fr; }
+  }
+
+  /* Columna de Texto */
+  .meth-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #ffffff;
+  }
+
+  @media (min-width: 750px) { .meth-title { font-size: 42px; } }
+
+  .meth-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .steps-list { display: flex; flex-direction: column; gap: 32px; }
+
+  .step-item { display: flex; gap: 20px; align-items: flex-start; }
+
+  .step-icon-box {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .step-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #f1f5f9;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* Columna de Imagen */
+  .meth-image-wrapper { position: relative; }
+
+  .meth-image {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  }
+
+  .stats-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #0f172a;
+    min-width: 180px;
+    z-index: 2;
+  }
+
+  @media (max-width: 749px) {
+    .stats-badge { bottom: 10px; left: 10px; padding: 12px; min-width: auto; }
+  }
+
+  .stats-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }}22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .stats-info b { font-size: 20px; display: block; line-height: 1; }
+  .stats-info span { font-size: 12px; color: #64748b; font-weight: 500; }
+</style>
+
+<div class="methodology-{{ section.id }}">
+  <div class="methodology-container">
+    <div class="methodology-grid">
+      
+      <!-- Lado Izquierdo: Pasos -->
+      <div class="meth-text-side">
+        <h2 class="meth-title">{{ section.settings.title }}</h2>
+        <div class="meth-description">{{ section.settings.description }}</div>
+        
+        <div class="steps-list">
+          {% for block in section.blocks %}
+            <div class="step-item" {{ block.shopify_attributes }}>
+              <div class="step-icon-box">
+                {% if block.settings.icon == 'search' %}
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                {% elsif block.settings.icon == 'code' %}
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4m8.5-12-5 16"/></svg>
+                {% else %}
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                {% endif %}
+              </div>
+              <div class="step-content">
+                <h4>{{ forloop.index }}. {{ block.settings.title }}</h4>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Lado Derecho: Imagen y Badge -->
+      <div class="meth-image-side">
+        <div class="meth-image-wrapper">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: '800x' }}" alt="Metodología" class="meth-image" loading="lazy">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'meth-image' }}
+          {% endif %}
+
+          <div class="stats-badge">
+            <div class="stats-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="stats-info">
+              <b>{{ section.settings.stats_number }}</b>
+              <span>{{ section.settings.stats_label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Metodología Estratégica",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido Principal"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la Sección",
+      "default": "No es solo diseño, es estrategia y rendimiento."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción general",
+      "default": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen de la derecha"
+    },
+    {
+      "type": "header",
+      "content": "Badge de Estadísticas"
+    },
+    {
+      "type": "text",
+      "id": "stats_number",
+      "label": "Número (ej: 100+)",
+      "default": "100+"
+    },
+    {
+      "type": "text",
+      "id": "stats_label",
+      "label": "Etiqueta (ej: Proyectos Exitosos)",
+      "default": "Proyectos Exitosos"
+    },
+    {
+      "type": "header",
+      "content": "Colores y Diseño"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de Sección",
+      "default": "#0f172a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color de Texto",
+      "default": "#f8fafc"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de Acento (Iconos)",
+      "default": "#6366f1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso de Metodología",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "options": [
+            { "value": "search", "label": "Lupa (Descubrimiento)" },
+            { "value": "code", "label": "Código (Desarrollo)" },
+            { "value": "zap", "label": "Rayo (Optimización)" }
+          ],
+          "default": "search"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título del paso",
+          "default": "Título del paso"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Descripción del paso",
+          "default": "Describe brevemente qué se hace en este paso."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Metodología Estratégica",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y UX",
+            "text": "Analizamos a tu competencia y diseñamos la experiencia del usuario antes de programar."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo Pixel-Perfect",
+            "text": "Implementamos el diseño asegurando código limpio y adaptable a cualquier dispositivo móvil."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Lanzamiento y Optimización",
+            "text": "Pruebas exhaustivas de velocidad e integraciones de analítica para una puesta en marcha sin fallos."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
