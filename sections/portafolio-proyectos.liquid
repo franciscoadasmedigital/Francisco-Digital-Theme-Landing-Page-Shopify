@@ -1,0 +1,296 @@
+{% comment %}
+  Sección de Portafolio "Nuestro Trabajo Reciente" para Shopify Dawn.
+  Permite añadir proyectos como bloques con imagen, descripción y links.
+{% endcomment %}
+
+<style>
+  .portfolio-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 48px;
+  }
+
+  .portfolio-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 750px) {
+    .portfolio-title { font-size: 42px; }
+  }
+
+  .portfolio-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    max-width: 600px;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 750px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .portfolio-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    border-color: {{ section.settings.accent_color }}33;
+  }
+
+  .portfolio-image-box {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .portfolio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .portfolio-card:hover .portfolio-image {
+    transform: scale(1.05);
+  }
+
+  .portfolio-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .portfolio-info {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .portfolio-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .portfolio-card-desc {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: {{ section.settings.accent_color }};
+    text-decoration: none;
+    transition: gap 0.3s ease;
+  }
+
+  .portfolio-link:hover {
+    gap: 12px;
+  }
+
+  .portfolio-link svg {
+    width: 18px;
+    height: 18px;
+  }
+</style>
+
+<div class="portfolio-section-{{ section.id }}">
+  <div class="portfolio-container">
+    
+    <div class="portfolio-header">
+      <h2 class="portfolio-title">{{ section.settings.title }}</h2>
+      {% if section.settings.subtitle != blank %}
+        <p class="portfolio-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="portfolio-grid">
+      {% for block in section.blocks %}
+        <div class="portfolio-card" {{ block.shopify_attributes }}>
+          <div class="portfolio-image-box">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.title }}" class="portfolio-image" loading="lazy">
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'portfolio-image' }}
+            {% endif %}
+            
+            {% if block.settings.category != blank %}
+              <span class="portfolio-badge">{{ block.settings.category }}</span>
+            {% endif %}
+          </div>
+          
+          <div class="portfolio-info">
+            <h3 class="portfolio-card-title">{{ block.settings.title }}</h3>
+            <p class="portfolio-card-desc">{{ block.settings.description }}</p>
+            
+            <a href="{{ block.settings.link }}" class="portfolio-link">
+              {{ section.settings.link_text }}
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trabajo Reciente Pro",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido de Sección"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título Principal",
+      "default": "Nuestro Trabajo Reciente"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Proyectos que han transformado marcas y escalado negocios."
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Texto del enlace",
+      "default": "Saber más"
+    },
+    {
+      "type": "header",
+      "content": "Estilos y Colores"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de Acento (Links)",
+      "default": "#4f46e5"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de Sección",
+      "default": "#f8fafc"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado Superior",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado Inferior",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "project",
+      "name": "Proyecto",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen del Proyecto"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Categoría (Etiqueta)",
+          "default": "Shopify"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título del Proyecto",
+          "default": "Fashion Store Premium"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descripción corta",
+          "default": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace al proyecto"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trabajo Reciente Pro",
+      "blocks": [
+        { "type": "project", "settings": { "category": "Shopify", "title": "Fashion Store" } },
+        { "type": "project", "settings": { "category": "WordPress", "title": "Landing Page B2B" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
