@@ -83,27 +83,33 @@
           "type": "service",
           "settings": {
             "title": "E-commerce Shopify",
-            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "text": "Tiendas online optimizadas para vender más.",
             "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
-            "icon_bg": "#10b981"
+            "custom_svg": "",
+            "card_bg": "#ecfdf5",
+            "accent_color": "#10b981"
           }
         },
         "service_Xtc77a": {
           "type": "service",
           "settings": {
             "title": "Landing Pages WP",
-            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "text": "Tiendas online optimizadas para vender más.",
             "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
-            "icon_bg": "#4f46e5"
+            "custom_svg": "",
+            "card_bg": "#eff6ff",
+            "accent_color": "#10b981"
           }
         },
         "service_6XaLrW": {
           "type": "service",
           "settings": {
             "title": "Webs Corporativas",
-            "description": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
+            "text": "Tiendas online optimizadas para vender más.",
             "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
-            "icon_bg": "#6366f1"
+            "custom_svg": "",
+            "card_bg": "#eef2ff",
+            "accent_color": "#10b981"
           }
         }
       },
@@ -114,11 +120,9 @@
       ],
       "name": "Nuestros Servicios Pro",
       "settings": {
-        "title_start": "Nuestros",
+        "title_prefix": "Nuestros",
         "title_accent": "Servicios",
         "description": "No hacemos simples páginas web. Construimos herramientas estratégicas para el crecimiento de tu negocio.",
-        "primary_color": "#4f46e5",
-        "secondary_color": "#10b981",
         "bg_color": "#f8fafc",
         "padding_top": 80,
         "padding_bottom": 80
