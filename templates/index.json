@@ -123,11 +123,58 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "methodology_section_ADTkQh": {
+      "type": "methodology-section",
+      "blocks": {
+        "step_cpxqQw": {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y UX",
+            "text": "Analizamos a tu competencia y diseñamos la experiencia del usuario antes de programar."
+          }
+        },
+        "step_796CR8": {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo Pixel-Perfect",
+            "text": "Implementamos el diseño asegurando código limpio y adaptable a cualquier dispositivo móvil."
+          }
+        },
+        "step_kM3GPK": {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Lanzamiento y Optimización",
+            "text": "Pruebas exhaustivas de velocidad e integraciones de analítica para una puesta en marcha sin fallos."
+          }
+        }
+      },
+      "block_order": [
+        "step_cpxqQw",
+        "step_796CR8",
+        "step_kM3GPK"
+      ],
+      "name": "Metodología Estratégica",
+      "settings": {
+        "title": "No es solo diseño, es estrategia y rendimiento.",
+        "description": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
+        "stats_number": "100+",
+        "stats_label": "Proyectos Exitosos",
+        "bg_color": "#0f172a",
+        "text_color": "#f8fafc",
+        "accent_color": "#6366f1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "hero_text_video_gWq46E",
     "marquee_brands_wXd467",
-    "services_section_PhEUbV"
+    "services_section_PhEUbV",
+    "methodology_section_ADTkQh"
   ]
 }
