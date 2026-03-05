@@ -11,7 +11,6 @@
   "sections": {
     "hero_text_video_gWq46E": {
       "type": "hero-text-video",
-      "disabled": true,
       "name": "Hero texto + video YouTube",
       "settings": {
         "primary_color": "#4f46e5",
@@ -90,7 +89,7 @@
         "brand_text_color": "#1e293b",
         "border_color": "#e2e8f0",
         "speed": 40,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 40
       }
     },
