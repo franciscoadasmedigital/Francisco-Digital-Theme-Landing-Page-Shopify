@@ -193,10 +193,33 @@
         "project_KKxdNG": {
           "type": "project",
           "settings": {
-            "category": "WordPress",
-            "badge_color": "#ffffff",
-            "badge_text_color": "#1e293b",
-            "title": "Landing Page B2B",
+            "image": "shopify://shop_images/Tienda_Fasmed_-_copia.png",
+            "category": "Shopify",
+            "badge_color": "#12ab78",
+            "badge_text_color": "#ffffff",
+            "title": "Fasmed Insumos Médicos",
+            "description": "Tienda online de insumos médicos con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_j4qmcq": {
+          "type": "project",
+          "settings": {
+            "category": "Shopify",
+            "badge_color": "#12ab78",
+            "badge_text_color": "#ffffff",
+            "title": "Farmavitalid",
+            "description": "Tienda online de Farmacia con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_JPb39W": {
+          "type": "project",
+          "settings": {
+            "category": "Wordpress",
+            "badge_color": "#2d66e3",
+            "badge_text_color": "#ffffff",
+            "title": "Piedras Lajas",
             "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
             "link": ""
           }
@@ -204,7 +227,9 @@
       },
       "block_order": [
         "project_V9MfJU",
-        "project_KKxdNG"
+        "project_KKxdNG",
+        "project_j4qmcq",
+        "project_JPb39W"
       ],
       "name": "Trabajo Reciente Pro",
       "settings": {
