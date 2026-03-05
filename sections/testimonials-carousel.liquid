@@ -92,7 +92,6 @@
     position: relative;
   }
 
-  /* ICONO CORREGIDO */
   .ig-icon {
     position: absolute;
     top: 24px;
@@ -160,6 +159,7 @@
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
+    min-height: 24px;
   }
 
   .dot {
@@ -222,11 +222,7 @@
       {% endfor %}
     </div>
 
-    <div class="slider-dots" id="Dots-{{ section.id }}">
-      {% for block in section.blocks %}
-        <button class="dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></button>
-      {% endfor %}
-    </div>
+    <div class="slider-dots" id="Dots-{{ section.id }}"></div>
 
   </div>
 </div>
@@ -239,38 +235,85 @@
     
     if (!slider || !dotsContainer) return;
 
-    const dots = dotsContainer.querySelectorAll('.dot');
+    let dots = [];
 
-    // SCRIPT DE PAGINACIÓN CORREGIDO
-    const updateActiveDot = () => {
-      const scrollPos = slider.scrollLeft;
+    const initDots = () => {
       const card = slider.querySelector('.testimonial-card');
+      if (!card) return;
+
+      const cardWidth = card.offsetWidth + 24; // Ancho de tarjeta + espacio (gap)
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
       
+      if (cardWidth <= 0 || slider.clientWidth <= 0) return;
+
+      // Calculamos cuántos "pasos" reales de scroll podemos dar
+      let totalDots = Math.round(maxScroll / cardWidth) + 1;
+      if (totalDots < 1) totalDots = 1;
+
+      // Limpiamos los dots anteriores para evitar duplicados en cambios de tamaño
+      dotsContainer.innerHTML = '';
+      dots = [];
+
+      // Si no hay scroll necesario (ej. hay pocas tarjetas), ocultar puntos
+      if (maxScroll <= 0) return;
+
+      for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('button');
+        dot.className = `dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('data-index', i);
+        
+        dot.addEventListener('click', () => {
+          slider.scrollTo({
+            left: cardWidth * i,
+            behavior: 'smooth'
+          });
+        });
+
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      }
+      
+      updateActiveDot();
+    };
+
+    const updateActiveDot = () => {
+      if (dots.length === 0) return;
+      
+      const card = slider.querySelector('.testimonial-card');
       if (!card) return;
       
-      // Calculamos el ancho de una tarjeta individual + el espacio (gap)
-      const cardWidth = card.offsetWidth + 24; 
-      const index = Math.round(scrollPos / cardWidth);
+      const cardWidth = card.offsetWidth + 24;
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
       
+      let index = 0;
+      
+      // Si el usuario llega al tope del scroll, iluminamos el último punto
+      if (Math.abs(slider.scrollLeft - maxScroll) < 10) {
+         index = dots.length - 1;
+      } else {
+         index = Math.round(slider.scrollLeft / cardWidth);
+      }
+      
+      // Asegurar que el índice no desborde
+      index = Math.min(index, dots.length - 1);
+
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
       });
     };
 
-    slider.addEventListener('scroll', updateActiveDot);
+    // Usamos setTimeout para dar tiempo a que los estilos se rendericen y los cálculos sean precisos
+    setTimeout(initDots, 100);
+    
+    slider.addEventListener('scroll', () => {
+      window.requestAnimationFrame(updateActiveDot);
+    });
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const index = parseInt(dot.getAttribute('data-index'));
-        const card = slider.querySelector('.testimonial-card');
-        if (!card) return;
-        
-        const cardWidth = card.offsetWidth + 24; // Card width + gap
-        slider.scrollTo({
-          left: cardWidth * index,
-          behavior: 'smooth'
-        });
-      });
+    // Recalcular los puntos si la pantalla cambia de tamaño (ej. de móvil a escritorio)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(initDots, 250);
     });
   });
 </script>
