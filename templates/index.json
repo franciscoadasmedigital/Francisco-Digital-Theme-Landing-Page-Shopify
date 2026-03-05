@@ -262,6 +262,16 @@
     "testimonials_carousel_FUpzyk": {
       "type": "testimonials-carousel",
       "blocks": {
+        "testimonial_RFnnPg": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/logo-piedra-laja-curico.webp",
+            "name": "Piedra Laja",
+            "handle": "@piedralajacurico",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
         "testimonial_a9QqiW": {
           "type": "testimonial",
           "settings": {
@@ -294,6 +304,7 @@
         }
       },
       "block_order": [
+        "testimonial_RFnnPg",
         "testimonial_a9QqiW",
         "testimonial_A6VcTm",
         "testimonial_fHce83"
@@ -366,9 +377,9 @@
         "secondary_color": "#10b981",
         "bg_color": "#ffffff",
         "text_color": "#0f172a",
-        "footer_text": "Los valores corresponden a un pago único por desarrollo. Posteriormente, se pueden contratar planes de mantención mensual opcionales.",
+        "footer_text": "",
         "padding_top": 28,
-        "padding_bottom": 100
+        "padding_bottom": 68
       }
     },
     "faq_section_fannnd": {
