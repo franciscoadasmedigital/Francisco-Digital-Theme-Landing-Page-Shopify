@@ -137,8 +137,8 @@
         "title_accent": "Servicios",
         "description": "No hacemos simples páginas web. Construimos herramientas estratégicas para el crecimiento de tu negocio.",
         "bg_color": "#f8fafc",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 24,
+        "padding_bottom": 56
       }
     },
     "methodology_section_ADTkQh": {
@@ -251,7 +251,7 @@
         "link_text": "Saber más",
         "accent_color": "#4f46e5",
         "bg_color": "#f8fafc",
-        "padding_top": 80,
+        "padding_top": 28,
         "padding_bottom": 80
       }
     },
@@ -363,7 +363,7 @@
         "bg_color": "#ffffff",
         "text_color": "#0f172a",
         "footer_text": "Los valores corresponden a un pago único por desarrollo. Posteriormente, se pueden contratar planes de mantención mensual opcionales.",
-        "padding_top": 100,
+        "padding_top": 28,
         "padding_bottom": 100
       }
     },
