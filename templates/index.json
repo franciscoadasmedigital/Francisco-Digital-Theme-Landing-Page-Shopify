@@ -249,8 +249,9 @@
         "testimonial_a9QqiW": {
           "type": "testimonial",
           "settings": {
-            "name": "Óptica Visur",
-            "handle": "@optica.visur",
+            "image": "shopify://shop_images/Logo_FarmaVitalid_512x512_fondo_blanco.png",
+            "name": "Farmacia Farmavitalid",
+            "handle": "@farmavitalid",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -258,8 +259,9 @@
         "testimonial_A6VcTm": {
           "type": "testimonial",
           "settings": {
-            "name": "Elite Solutions",
-            "handle": "@elitesolutions.cl",
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Fasmed Insumos Médicos",
+            "handle": "@fasmed.cl",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -267,8 +269,9 @@
         "testimonial_fHce83": {
           "type": "testimonial",
           "settings": {
-            "name": "Madratek",
-            "handle": "@Madratekstore",
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Dopets",
+            "handle": "@dopets.cl",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -288,8 +291,8 @@
         "secondary_color": "#10b981",
         "bg_color": "#f1f5f9",
         "text_color": "#0f172a",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "pricing_section_fwzPpr": {
