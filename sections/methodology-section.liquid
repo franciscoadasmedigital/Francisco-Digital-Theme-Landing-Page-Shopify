@@ -1,6 +1,6 @@
 {% comment %}
   Sección de Metodología "Estrategia y Rendimiento" para Shopify Dawn.
-  Incluye pasos editables, imagen con badge flotante y diseño responsivo.
+  Incluye pasos editables, imagen con badge flotante animado y diseño responsivo.
 {% endcomment %}
 
 <style>
@@ -97,6 +97,7 @@
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
   }
 
+  /* Badge con animación de flotación */
   .stats-badge {
     position: absolute;
     bottom: -20px;
@@ -104,19 +105,21 @@
     background: #ffffff;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     gap: 12px;
     color: #0f172a;
     min-width: 180px;
     z-index: 2;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    animation: floatBadge 6s ease-in-out infinite;
   }
 
   @media (max-width: 749px) {
     .stats-badge { bottom: 10px; left: 10px; padding: 12px; min-width: auto; }
   }
 
+  /* Icono con animación de pulso */
   .stats-icon {
     width: 40px;
     height: 40px;
@@ -126,17 +129,47 @@
     align-items: center;
     justify-content: center;
     color: {{ section.settings.accent_color }};
+    position: relative;
+  }
+
+  .stats-icon::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px solid {{ section.settings.accent_color }};
+    animation: pulseRing 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   }
 
   .stats-info b { font-size: 20px; display: block; line-height: 1; }
   .stats-info span { font-size: 12px; color: #64748b; font-weight: 500; }
+
+  /* Keyframes para las animaciones */
+  @keyframes floatBadge {
+    0% {
+      transform: translateY(0px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    50% {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 40px -5px rgba(0,0,0,0.15), 0 12px 14px -6px rgba(0,0,0,0.1);
+    }
+    100% {
+      transform: translateY(0px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+  }
+
+  @keyframes pulseRing {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
 </style>
 
 <div class="methodology-{{ section.id }}">
   <div class="methodology-container">
     <div class="methodology-grid">
       
-      <!-- Lado Izquierdo: Pasos -->
       <div class="meth-text-side">
         <h2 class="meth-title">{{ section.settings.title }}</h2>
         <div class="meth-description">{{ section.settings.description }}</div>
@@ -162,7 +195,6 @@
         </div>
       </div>
 
-      <!-- Lado Derecho: Imagen y Badge -->
       <div class="meth-image-side">
         <div class="meth-image-wrapper">
           {% if section.settings.image != blank %}
