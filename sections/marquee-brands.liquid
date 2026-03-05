@@ -1,7 +1,7 @@
 {% comment %}
   Custom Marquee Section for Shopify Dawn Theme.
   Allows infinite scrolling of brand logos with hover effects.
-  Optimized for larger logos and seamless looping.
+  Individual logo size control enabled.
 {% endcomment %}
 
 <style>
@@ -34,7 +34,7 @@
     position: relative;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    overflow: hidden; /* Asegurar que no haya scrollbar horizontal */
+    overflow: hidden;
   }
 
   .marquee-content-{{ section.id }} {
@@ -66,10 +66,11 @@
   }
 
   .brand-logo-{{ section.id }} {
-    height: auto; /* Mantener proporción */
-    max-height: {{ section.settings.logo_height }}px; /* Controlar la altura máxima */
+    height: auto; 
+    /* Usamos la variable CSS definida en el HTML, con 80px como respaldo */
+    max-height: var(--logo-height, 80px); 
     width: auto;
-    max-width: 100%; /* Asegurar que no se estiren */
+    max-width: 100%; 
     object-fit: contain;
   }
 
@@ -89,8 +90,10 @@
   @media (max-width: 749px) {
     .brand-name-{{ section.id }} { font-size: 20px; }
     .marquee-content-{{ section.id }} { gap: 40px; }
-    /* Ajuste más conservador para móvil */
-    .brand-logo-{{ section.id }} { max-height: calc({{ section.settings.logo_height | times: 0.6 }}px); }
+    /* Escala el tamaño individual un 30% más pequeño en móviles */
+    .brand-logo-{{ section.id }} { 
+      max-height: calc(var(--logo-height, 80px) * 0.7); 
+    }
   }
 </style>
 
@@ -101,13 +104,10 @@
 
   <div class="marquee-wrapper-{{ section.id }}">
     <div class="marquee-content-{{ section.id }}">
-      {% comment %} 
-        Renderizamos los bloques CUATRO VECES (1..4) para asegurar un efecto infinito 
-        y seamless, sin importar cuántos bloques tenga el usuario. Esto elimina el espacio vacío.
-      {% endcomment %}
       {% for i in (1..4) %}
         {% for block in section.blocks %}
-          <div class="brand-item-{{ section.id }}" {{ block.shopify_attributes }}>
+          {% comment %} Inyectamos la altura elegida como una variable CSS inline {% endcomment %}
+          <div class="brand-item-{{ section.id }}" {{ block.shopify_attributes }} style="--logo-height: {{ block.settings.logo_height }}px;">
             {% if block.settings.logo != blank %}
               <img 
                 src="{{ block.settings.logo | image_url: width: 400 }}" 
@@ -144,7 +144,7 @@
     },
     {
       "type": "header",
-      "content": "Configuración Visual"
+      "content": "Configuración Visual General"
     },
     {
       "type": "color",
@@ -169,16 +169,6 @@
       "id": "border_color",
       "label": "Color de bordes",
       "default": "#e2e8f0"
-    },
-    {
-      "type": "range",
-      "id": "logo_height",
-      "min": 40,
-      "max": 160,
-      "step": 10,
-      "unit": "px",
-      "label": "Altura máxima de logos",
-      "default": 80
     },
     {
       "type": "range",
@@ -226,6 +216,16 @@
           "label": "Logo de la marca"
         },
         {
+          "type": "range",
+          "id": "logo_height",
+          "min": 20,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Altura de este logo",
+          "default": 80
+        },
+        {
           "type": "text",
           "id": "name",
           "label": "Nombre de la marca",
@@ -238,10 +238,10 @@
     {
       "name": "Marquesina de Marcas",
       "blocks": [
-        { "type": "brand", "settings": { "name": "TechNova" } },
-        { "type": "brand", "settings": { "name": "EcoLife" } },
-        { "type": "brand", "settings": { "name": "BeautyCo" } },
-        { "type": "brand", "settings": { "name": "UrbanWear" } }
+        { "type": "brand", "settings": { "name": "TechNova", "logo_height": 80 } },
+        { "type": "brand", "settings": { "name": "EcoLife", "logo_height": 80 } },
+        { "type": "brand", "settings": { "name": "BeautyCo", "logo_height": 80 } },
+        { "type": "brand", "settings": { "name": "UrbanWear", "logo_height": 80 } }
       ]
     }
   ]
