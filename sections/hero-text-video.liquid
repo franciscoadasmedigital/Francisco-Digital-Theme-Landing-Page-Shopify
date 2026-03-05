@@ -1,7 +1,7 @@
 {% comment %}
   Custom Hero Section with Typewriter Effect, Video and Floating Elements.
   Designed for Shopify Dawn Theme.
-  Fix: Resolvido errores de etiquetas HTML sin cerrar y filtro img_url.
+  Fix: Fixed dimensions, HTML tags, img_url deprecation, and added brand colors for Shopify/WordPress.
 {% endcomment %}
 
 <style>
@@ -237,7 +237,7 @@
       </h1>
 
       <p class="hero-desc">
-        {{ section.settings.description }}
+        {{ section.settings.description | replace: 'Shopify', '<span style="color: #059669; font-weight: 600;">Shopify</span>' | replace: 'WordPress', '<span style="color: #2563EB; font-weight: 600;">WordPress</span>' }}
       </p>
 
       <div class="hero-btns">
@@ -372,7 +372,7 @@
       "type": "textarea",
       "id": "description",
       "label": "Descripción",
-      "default": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario."
+      "default": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario y la conversión."
     },
     {
       "type": "header",
