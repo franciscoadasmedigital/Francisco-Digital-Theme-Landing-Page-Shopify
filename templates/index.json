@@ -272,8 +272,20 @@
           "settings": {
             "is_highlighted": false,
             "badge_text": "Más contratado",
-            "title": "Página Informativa",
-            "price": "399",
+            "title": "Landing Page",
+            "price": "200",
+            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "button_text": "Conoce más",
+            "link": "shopify://collections/creacion-de-pagina-web"
+          }
+        },
+        "plan_i4MLYn": {
+          "type": "plan",
+          "settings": {
+            "is_highlighted": false,
+            "badge_text": "Más contratado",
+            "title": "Web Corporativa",
+            "price": "250",
             "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
             "button_text": "Conoce más",
             "link": ""
@@ -284,30 +296,18 @@
           "settings": {
             "is_highlighted": true,
             "badge_text": "Más contratado",
-            "title": "Landing Page",
-            "price": "799",
-            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
-            "button_text": "Conoce más",
-            "link": ""
-          }
-        },
-        "plan_i4MLYn": {
-          "type": "plan",
-          "settings": {
-            "is_highlighted": false,
-            "badge_text": "Más contratado",
             "title": "Tienda Online",
-            "price": "1.299",
+            "price": "450",
             "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
             "button_text": "Conoce más",
-            "link": ""
+            "link": "shopify://collections/creacion-de-e-commerce"
           }
         }
       },
       "block_order": [
         "plan_6x7m4U",
-        "plan_N6Vh9J",
-        "plan_i4MLYn"
+        "plan_i4MLYn",
+        "plan_N6Vh9J"
       ],
       "name": "Precios Webs",
       "settings": {
