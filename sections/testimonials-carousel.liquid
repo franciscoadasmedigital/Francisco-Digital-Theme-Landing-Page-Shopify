@@ -29,16 +29,40 @@
     color: {{ section.settings.text_color }};
     margin-bottom: 10px;
     letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   @media (min-width: 750px) {
     .testimonials-title { font-size: 48px; }
   }
 
+  /* ESTILO Y ANIMACIÓN DEL SUBRAYADO */
   .testimonials-accent {
+    position: relative;
+    display: inline-block;
     background: linear-gradient(to right, {{ section.settings.primary_color }}, {{ section.settings.secondary_color }});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+
+  .testimonials-accent::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px; /* Ajusta la posición vertical de la línea */
+    width: 0;
+    height: 8px; /* Grosor de la línea */
+    background: {{ section.settings.secondary_color }};
+    opacity: 0.3; /* Hace que la línea sea sutil y no tape el texto */
+    border-radius: 4px;
+    z-index: -1;
+    animation: drawLine 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes drawLine {
+    to { width: 100%; }
   }
 
   .testimonials-subtitle {
@@ -54,12 +78,12 @@
     scroll-behavior: smooth;
     gap: 24px;
     padding: 20px 0 40px 0;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .testimonials-slider::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
   }
 
   .testimonial-card {
@@ -153,7 +177,6 @@
     margin: 0;
   }
 
-  /* Dots Navigation */
   .slider-dots {
     display: flex;
     justify-content: center;
@@ -241,20 +264,17 @@
       const card = slider.querySelector('.testimonial-card');
       if (!card) return;
 
-      const cardWidth = card.offsetWidth + 24; // Ancho de tarjeta + espacio (gap)
+      const cardWidth = card.offsetWidth + 24; 
       const maxScroll = slider.scrollWidth - slider.clientWidth;
       
       if (cardWidth <= 0 || slider.clientWidth <= 0) return;
 
-      // Calculamos cuántos "pasos" reales de scroll podemos dar
       let totalDots = Math.round(maxScroll / cardWidth) + 1;
       if (totalDots < 1) totalDots = 1;
 
-      // Limpiamos los dots anteriores para evitar duplicados en cambios de tamaño
       dotsContainer.innerHTML = '';
       dots = [];
 
-      // Si no hay scroll necesario (ej. hay pocas tarjetas), ocultar puntos
       if (maxScroll <= 0) return;
 
       for (let i = 0; i < totalDots; i++) {
@@ -287,14 +307,12 @@
       
       let index = 0;
       
-      // Si el usuario llega al tope del scroll, iluminamos el último punto
       if (Math.abs(slider.scrollLeft - maxScroll) < 10) {
          index = dots.length - 1;
       } else {
          index = Math.round(slider.scrollLeft / cardWidth);
       }
       
-      // Asegurar que el índice no desborde
       index = Math.min(index, dots.length - 1);
 
       dots.forEach((dot, i) => {
@@ -302,14 +320,12 @@
       });
     };
 
-    // Usamos setTimeout para dar tiempo a que los estilos se rendericen y los cálculos sean precisos
     setTimeout(initDots, 100);
     
     slider.addEventListener('scroll', () => {
       window.requestAnimationFrame(updateActiveDot);
     });
 
-    // Recalcular los puntos si la pantalla cambia de tamaño (ej. de móvil a escritorio)
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
