@@ -1,7 +1,7 @@
 {% comment %}
   Custom Hero Section with Typewriter Effect, Video and Floating Elements.
   Designed for Shopify Dawn Theme.
-  Fix: Added customizable video overlay bar with blinked green indicator and image-based Shopify logo.
+  Fix: Added customizable video overlay bar and image-based Shopify logo.
 {% endcomment %}
 
 <style>
@@ -226,7 +226,7 @@
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-    color: #2f3640;
+    color: #374151;
     z-index: 10;
     pointer-events: none; /* Evita que bloquee clics en el video */
   }
@@ -234,23 +234,15 @@
   .video-overlay-bar .dot-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
 
-  /* Punto Verde Animado */
   .video-overlay-bar .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background-color: #10b981;
-    border: 1px solid #10b981; /* NUEVO: Borde sólido del mismo color para asegurar visibilidad */
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.2); /* ACTUALIZADO: Halo de sombra más grande */
-    animation: dot-blink 1.5s ease-in-out infinite; /* Animación de parpadeo */
-  }
-
-  @keyframes dot-blink {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.95); }
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
   }
 
   /* SISTEMA DE FIGURAS FLOTANTES ABUNDANTES */
