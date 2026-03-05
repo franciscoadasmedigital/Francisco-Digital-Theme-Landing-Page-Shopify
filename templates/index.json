@@ -166,11 +166,12 @@
       "settings": {
         "title": "No es solo diseño, es estrategia y rendimiento.",
         "description": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
-        "stats_number": "100+",
+        "image": "shopify://shop_images/original-b113971a091ebeb9d7c02927c7f61dec.webp",
+        "stats_number": "10+",
         "stats_label": "Proyectos Exitosos",
         "bg_color": "#0f172a",
         "text_color": "#f8fafc",
-        "accent_color": "#6366f1",
+        "accent_color": "#10b981",
         "padding_top": 80,
         "padding_bottom": 80
       }
