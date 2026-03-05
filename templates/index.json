@@ -11,6 +11,7 @@
   "sections": {
     "hero_text_video_gWq46E": {
       "type": "hero-text-video",
+      "disabled": true,
       "name": "Hero texto + video YouTube",
       "settings": {
         "primary_color": "#4f46e5",
@@ -180,11 +181,12 @@
         "project_V9MfJU": {
           "type": "project",
           "settings": {
+            "image": "shopify://shop_images/Tienda_Dopets_-_copia.png",
             "category": "Shopify",
-            "badge_color": "#ffffff",
-            "badge_text_color": "#1e293b",
-            "title": "Fashion Store",
-            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "badge_color": "#12ab78",
+            "badge_text_color": "#ffffff",
+            "title": "Dopets",
+            "description": "Tienda online de mascotas con diseño optimizado para conversión móvil e integración de inventario.",
             "link": ""
           }
         },
