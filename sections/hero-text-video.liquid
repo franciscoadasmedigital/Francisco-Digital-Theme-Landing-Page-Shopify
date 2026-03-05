@@ -15,26 +15,38 @@
     position: relative;
     overflow: hidden;
     background-color: var(--hero-bg);
-    padding: 80px 20px;
+    padding: 60px 20px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Asegura un alto mínimo para la sección completa */
+    min-height: 600px; 
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: 990px) {
-    .hero-wrapper-{{ section.id }} { padding: 120px 40px; }
+    .hero-wrapper-{{ section.id }} { padding: 80px 40px; }
   }
 
   .hero-container {
     max-width: 1200px;
+    /* Dimensiones fijas solicitadas */
+    width: 100%;
+    min-height: 538.42px; 
     margin: 0 auto;
     display: grid;
     gap: 40px;
-    align-items: center;
+    /* Alineamos al centro verticalmente para que el movimiento interno no afecte el layout */
+    align-items: center; 
     position: relative;
     z-index: 10;
   }
 
   @media (min-width: 990px) {
-    .hero-container { grid-template-columns: 1.1fr 0.9fr; gap: 60px; }
+    .hero-container { 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 60px;
+      height: 538.42px; /* Forzamos el alto en desktop */
+    }
   }
 
   /* Blobs de fondo */
@@ -59,7 +71,12 @@
   }
 
   /* Texto e Información */
-  .hero-content { text-align: center; }
+  .hero-content { 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   @media (min-width: 990px) { .hero-content { text-align: left; } }
 
   .hero-badge {
@@ -73,25 +90,31 @@
     color: var(--hero-indigo);
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    width: fit-content;
   }
+  @media (max-width: 989px) { .hero-badge { margin-left: auto; margin-right: auto; } }
 
   .hero-title {
-    font-size: 42px;
+    font-size: 38px;
     line-height: 1.1;
     font-weight: 800;
     color: var(--hero-text);
     margin-bottom: 24px;
-    min-height: 140px;
+    margin-top: 0;
+    /* IMPORTANTE: Altura fija para evitar saltos */
+    min-height: 120px; 
+    display: block;
   }
 
-  @media (min-width: 750px) { .hero-title { font-size: 56px; } }
-  @media (min-width: 990px) { .hero-title { font-size: 64px; min-height: 180px; } }
+  @media (min-width: 750px) { .hero-title { font-size: 52px; min-height: 160px; } }
+  @media (min-width: 990px) { .hero-title { font-size: 58px; min-height: 200px; } }
 
   .gradient-text {
     background: linear-gradient(to right, var(--hero-indigo), var(--hero-emerald));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline;
   }
 
   .cursor {
@@ -105,10 +128,10 @@
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
   .hero-desc {
-    font-size: 18px;
+    font-size: 17px;
     color: #4b5563;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -120,7 +143,7 @@
   @media (min-width: 990px) { .hero-btns { justify-content: flex-start; } }
 
   .btn-primary {
-    padding: 16px 32px;
+    padding: 14px 28px;
     background: #0f172a;
     color: white !important;
     text-decoration: none;
@@ -137,7 +160,7 @@
   .btn-primary:hover { background: #1e293b; transform: translateY(-2px); }
 
   .btn-secondary {
-    padding: 16px 32px;
+    padding: 14px 28px;
     background: white;
     color: #374151 !important;
     text-decoration: none;
@@ -159,53 +182,14 @@
     background: #000;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     border: 1px solid #e5e7eb;
+    height: fit-content;
   }
 
   .video-container iframe, .video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .video-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .play-button {
-    width: 70px;
-    height: 70px;
-    background: rgba(99, 102, 241, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
-    transition: transform 0.3s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .play-button:hover { transform: scale(1.1); background: #4f46e5; }
-
-  .video-badge {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px 16px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 600;
+    display: block;
   }
 
   /* Figuras flotantes */
@@ -223,12 +207,10 @@
 </style>
 
 <div class="hero-wrapper-{{ section.id }}">
-  <!-- Blobs -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 
-  <!-- Geometric Shapes -->
   <div class="float-shape" style="top: 20%; left: 45%;">
     <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="15"/></svg>
   </div>
@@ -237,7 +219,6 @@
   </div>
 
   <div class="hero-container">
-    <!-- Columna Izquierda -->
     <div class="hero-content">
       <div class="hero-badge">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9H3.5a.5.5 0 0 1-.48-.641l2.5-8z"/></svg>
@@ -264,21 +245,16 @@
       </div>
     </div>
 
-    <!-- Columna Derecha -->
     <div class="video-container">
       {% if section.settings.video_url contains 'youtube' or section.settings.video_url contains 'vimeo' %}
         <iframe src="{{ section.settings.video_url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       {% elsif section.settings.html_video != blank %}
         {{ section.settings.html_video | video_tag: autoplay: true, loop: true, muted: true, controls: true }}
       {% else %}
-        <div class="video-placeholder" style="background-image: url('{{ section.settings.placeholder_image | img_url: '1000x' }}')">
-           <button class="play-button">
+        <div class="video-placeholder" style="background-image: url('{{ section.settings.placeholder_image | img_url: '1000x' }}'); height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; background-size: cover;">
+           <button class="play-button" style="width: 70px; height: 70px; background: rgba(99, 102, 241, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; border: none; cursor: pointer;">
              <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
            </button>
-           <div class="video-badge">
-             <span>Nuestro proceso de trabajo</span>
-             <span>{{ section.settings.video_duration }}</span>
-           </div>
         </div>
       {% endif %}
     </div>
@@ -295,21 +271,22 @@
     let typeSpeed = 150;
 
     function type() {
+      if (!el) return;
       const current = words[wordIndex];
       
       if (isDeleting) {
         el.textContent = current.substring(0, charIndex - 1);
         charIndex--;
-        typeSpeed = 60;
+        typeSpeed = 50;
       } else {
         el.textContent = current.substring(0, charIndex + 1);
         charIndex++;
-        typeSpeed = 120;
+        typeSpeed = 100;
       }
 
       if (!isDeleting && charIndex === current.length) {
         isDeleting = true;
-        typeSpeed = 2000; // Pausa al terminar de escribir
+        typeSpeed = 2500; 
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
