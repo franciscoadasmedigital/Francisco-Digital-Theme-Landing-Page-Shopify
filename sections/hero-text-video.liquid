@@ -1,1169 +1,618 @@
 {% comment %}
-
   Custom Hero Section with Typewriter Effect, Video and Floating Elements.
-
   Designed for Shopify Dawn Theme.
-
   Fix: Added customizable video overlay bar and image-based Shopify logo.
-
+  Update: Added logic to hide overlay bar when video is clicked.
 {% endcomment %}
 
-
-
 <style>
-
   :root {
-
     --hero-indigo: {{ section.settings.primary_color }};
-
     --hero-emerald: {{ section.settings.secondary_color }};
-
     --hero-text: {{ section.settings.text_color }};
-
     --hero-bg: {{ section.settings.bg_color }};
-
     /* Paleta de colores para el efecto de aurora */
-
     --aurora-1: rgba(79, 70, 229, 0.1);
-
     --aurora-2: rgba(16, 185, 129, 0.1);
-
     --aurora-3: rgba(6, 182, 212, 0.08);
-
     --aurora-4: rgba(236, 72, 153, 0.05);
-
   }
-
-
 
   .hero-wrapper-{{ section.id }} {
-
     position: relative;
-
     overflow: hidden;
-
     background-color: var(--hero-bg);
-
     background: radial-gradient(circle at 10% 20%, var(--aurora-1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, var(--aurora-2) 0%, transparent 50%), var(--hero-bg);
-
     padding: 60px 20px;
-
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
     min-height: 600px;
-
     display: flex;
-
     align-items: center;
-
   }
-
-
 
   @media (min-width: 990px) {
-
     .hero-wrapper-{{ section.id }} { padding: 80px 40px; }
-
   }
-
-
 
   .hero-container {
-
     max-width: 1200px;
-
     width: 100%;
-
     min-height: 538.42px;
-
     margin: 0 auto;
-
     display: grid;
-
     gap: 40px;
-
     align-items: center;
-
     position: relative;
-
     z-index: 10;
-
   }
-
-
 
   @media (min-width: 990px) {
-
     .hero-container {
-
       grid-template-columns: 1.1fr 0.9fr;
-
       gap: 60px;
-
       height: 538.42px;
-
     }
-
   }
-
-
 
   /* Blobs de fondo para el efecto de aurora */
-
   .blob {
-
     position: absolute;
-
     border-radius: 50%;
-
     filter: blur(150px);
-
     opacity: 0.15;
-
     pointer-events: none;
-
     z-index: 1;
-
     animation: blob-anim 15s infinite alternate ease-in-out;
-
   }
-
-
 
   .blob-1 { top: -20%; left: -20%; width: 50vw; height: 50vw; background: var(--hero-indigo); }
-
   .blob-2 { top: 30%; right: -10%; width: 40vw; height: 40vw; background: var(--hero-emerald); animation-delay: 2s; }
-
   .blob-3 { bottom: -10%; left: 30%; width: 30vw; height: 30vw; background: var(--hero-indigo); animation-delay: 4s; }
-
   .blob-4 { top: 50%; left: 10%; width: 20vw; height: 20vw; background: #06b6d4; animation-delay: 6s; }
-
   .blob-5 { top: 70%; right: 20%; width: 25vw; height: 25vw; background: #ec4899; animation-delay: 8s; }
 
-
-
   @keyframes blob-anim {
-
     0% { transform: translate(0, 0) scale(1) rotate(0); }
-
     33% { transform: translate(50px, -70px) scale(1.1) rotate(10deg); }
-
     66% { transform: translate(-30px, 30px) scale(0.95) rotate(-10deg); }
-
     100% { transform: translate(10px, -10px) scale(1.05) rotate(0); }
-
   }
-
-
 
   /* Texto e Información */
-
   .hero-content {
-
     text-align: center;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
   }
-
   @media (min-width: 990px) { .hero-content { text-align: left; } }
 
-
-
   .hero-badge {
-
     display: inline-flex;
-
     align-items: center;
-
     gap: 8px;
-
     padding: 6px 16px;
-
     background: rgba(99, 102, 241, 0.08);
-
     border: 1px solid rgba(99, 102, 241, 0.15);
-
     border-radius: 100px;
-
     color: var(--hero-indigo);
-
     font-size: 14px;
-
     font-weight: 500;
-
     margin-bottom: 20px;
-
     width: fit-content;
-
   }
-
   @media (max-width: 989px) { .hero-badge { margin-left: auto; margin-right: auto; } }
 
-
-
   .hero-title {
-
     font-size: 38px;
-
     line-height: 1.1;
-
     font-weight: 800;
-
     color: var(--hero-text);
-
     margin-bottom: 24px;
-
     margin-top: 0;
-
     min-height: 120px;
-
     display: block;
-
   }
-
-
 
   @media (min-width: 750px) { .hero-title { font-size: 52px; min-height: 160px; } }
-
   @media (min-width: 990px) { .hero-title { font-size: 58px; min-height: 200px; } }
 
-
-
   .gradient-text {
-
     background: linear-gradient(to right, var(--hero-indigo), var(--hero-emerald));
-
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
-
     display: inline;
-
   }
-
-
 
   .cursor {
-
     display: inline-block;
-
     color: var(--hero-indigo);
-
     font-weight: 300;
-
     margin-left: 4px;
-
     animation: blink 0.8s infinite;
-
   }
-
-
 
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-
-
   .hero-desc {
-
     font-size: 17px;
-
     color: #4b5563;
-
     line-height: 1.6;
-
     margin-bottom: 30px;
-
     max-width: 500px;
-
     margin-left: auto;
-
     margin-right: auto;
-
     margin-top: 0;
-
   }
-
   @media (min-width: 990px) { .hero-desc { margin-left: 0; margin-top: 0; } }
 
-
-
   .hero-btns { display: flex; flex-direction: column; gap: 16px; }
-
   @media (min-width: 600px) { .hero-btns { flex-direction: row; justify-content: center; } }
-
   @media (min-width: 990px) { .hero-btns { justify-content: flex-start; } }
 
-
-
   .btn-primary {
-
     padding: 14px 28px;
-
     background: #0f172a;
-
     color: white !important;
-
     text-decoration: none;
-
     border-radius: 100px;
-
     font-weight: 600;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 8px;
-
     box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
-
     transition: all 0.3s;
-
   }
-
-
 
   .btn-primary:hover { background: #1e293b; transform: translateY(-2px); }
 
-
-
   .btn-secondary {
-
     padding: 14px 28px;
-
     background: white;
-
     color: #374151 !important;
-
     text-decoration: none;
-
     border: 2px solid #e5e7eb;
-
     border-radius: 100px;
-
     font-weight: 600;
-
     text-align: center;
-
     transition: all 0.3s;
-
   }
-
-
 
   .btn-secondary:hover { border-color: #d1d5db; background: #f9fafb; }
 
-
-
   /* Contenedor de video */
-
   .video-container {
-
     position: relative;
-
     aspect-ratio: 16 / 9;
-
     border-radius: 24px;
-
     overflow: hidden;
-
     background: #000;
-
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-
     border: 1px solid #e5e7eb;
-
     height: fit-content;
-
   }
-
-
 
   .video-container iframe, .video-container video {
-
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
     display: block;
-
   }
-
-
 
   .video-placeholder-container {
-
     width: 100%;
-
     height: 100%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     background-size: cover;
-
     background-position: center;
-
     position: relative;
-
   }
-
-
 
   /* BARRA INFERIOR DEL VIDEO */
-
   .video-overlay-bar {
-
     position: absolute;
-
     bottom: 16px;
-
     left: 16px;
-
     right: 16px;
-
-    background: rgba(230, 235, 240, 0.85); /* Tono gris claro semi-transparente como en la imagen */
-
+    background: rgba(230, 235, 240, 0.85);
     backdrop-filter: blur(8px);
-
     -webkit-backdrop-filter: blur(8px);
-
     padding: 12px 18px;
-
     border-radius: 14px;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     font-size: 14px;
-
     font-weight: 600;
-
     color: #374151;
-
     z-index: 10;
-
-    pointer-events: none; /* Evita que bloquee clics en el video */
-
+    pointer-events: none;
+    /* Nuevas propiedades para la animación de ocultado */
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-
+  /* Clase que se agregará con JavaScript para esconder la barra */
+  .video-overlay-bar.is-hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
 
   .video-overlay-bar .dot-container {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
   }
-
-
 
   .video-overlay-bar .dot {
-
     width: 12px;
-
     height: 12px;
-
     border-radius: 50%;
-
     background-color: #10b981;
-
     box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
-
   }
-
-
 
   /* SISTEMA DE FIGURAS FLOTANTES ABUNDANTES */
-
   .shape-layer {
-
     position: absolute;
-
     inset: 0;
-
     pointer-events: none;
-
     z-index: 2;
-
     overflow: hidden;
-
   }
-
-
 
   .float-element {
-
     position: absolute;
-
     color: rgba(99, 102, 241, 0.15);
-
   }
-
-
 
   /* Diferentes tipos de animaciones para variedad */
-
   .anim-float { animation: float-anim 8s ease-in-out infinite; }
-
   .anim-float-slow { animation: float-anim 12s ease-in-out infinite; }
-
   .anim-float-reverse { animation: float-anim-rev 10s ease-in-out infinite; }
-
   .anim-spin { animation: spin-anim 15s linear infinite; }
-
   .anim-spin-slow { animation: spin-anim-rev 25s linear infinite; }
-
   .anim-pulse { animation: pulse-anim 6s ease-in-out infinite; }
 
-
-
   @keyframes float-anim {
-
     0%, 100% { transform: translateY(0) rotate(0); }
-
     50% { transform: translateY(-30px) rotate(15deg); }
-
   }
-
   @keyframes float-anim-rev {
-
     0%, 100% { transform: translate(0, 0) rotate(0); }
-
     50% { transform: translate(20px, 25px) rotate(-15deg); }
-
   }
-
   @keyframes spin-anim {
-
     0% { transform: rotate(0deg) translateY(0); }
-
     50% { transform: rotate(180deg) translateY(-15px); }
-
     100% { transform: rotate(360deg) translateY(0); }
-
   }
-
   @keyframes spin-anim-rev {
-
     0% { transform: rotate(360deg) translateY(0); }
-
     50% { transform: rotate(180deg) translateY(20px); }
-
     100% { transform: rotate(0deg) translateY(0); }
-
   }
-
   @keyframes pulse-anim {
-
     0%, 100% { transform: scale(1) translateY(0); opacity: 0.15; }
-
     50% { transform: scale(1.2) translateY(-10px); opacity: 0.3; }
-
   }
-
 </style>
 
-
-
 <div class="hero-wrapper-{{ section.id }}">
-
   <div class="blob blob-1"></div>
-
   <div class="blob blob-2"></div>
-
   <div class="blob blob-3"></div>
-
   <div class="blob blob-4"></div>
-
   <div class="blob blob-5"></div>
 
-
-
   <div class="shape-layer">
-
-   
-
     <div class="float-element anim-float-reverse" style="top: 15%; right: 12%; opacity: 0.45; animation-delay: 1s;">
-
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfAG1sZJEG7XK4uH6271f8HKn458g1T4nZxQ&s" alt="Shopify Icon" style="width: 50px; height: 50px; object-fit: contain; mix-blend-mode: multiply; border-radius: 8px;">
-
     </div>
-
-
-
     <div class="float-element anim-float-slow" style="bottom: 25%; left: 8%; color: rgba(37, 99, 235, 0.2); animation-delay: 2.5s;">
-
-      <svg width="45" height="45" viewBox="0 0 512 512" fill="currentColor">
-
-        <path d="M61.7 169.4l101.5 278C92.2 413 43.3 340.2 43.3 256c0-30.9 6.6-60.1 18.4-86.6zm337.9 75.9c0-26.3-9.4-44.5-17.5-58.7-10.8-17.5-20.9-32.4-20.9-49.9 0-19.6 14.8-37.8 35.7-37.8.9 0 1.8.1 2.8.2-37.9-34.7-88.3-55.9-143.7-55.9-74.3 0-139.7 38.1-177.8 95.9 5 .2 9.7.3 13.7.3 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l77.5 230.4L249.8 247l-33.1-90.8c-11.5-.7-22.3-2-22.3-2-11.5-.7-10.1-18.2 1.3-17.5 0 0 35.1 2.7 56 2.7 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l76.9 228.7 21.2-70.9c9-29.4 16-50.5 16-68.7zm-139.9 29.3l-63.8 185.5c19.1 5.6 39.2 8.7 60.1 8.7 24.8 0 48.5-4.3 70.6-12.1-.6-1.1-1.6-2.4-3-4.1l-63.9-178zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 476.3c-121.5 0-220.3-98.8-220.3-220.3S134.5 35.7 256 35.7 476.3 134.5 476.3 256 377.5 476.3 256 476.3z"/>
-
-      </svg>
-
+      <svg width="45" height="45" viewBox="0 0 512 512" fill="currentColor"><path d="M61.7 169.4l101.5 278C92.2 413 43.3 340.2 43.3 256c0-30.9 6.6-60.1 18.4-86.6zm337.9 75.9c0-26.3-9.4-44.5-17.5-58.7-10.8-17.5-20.9-32.4-20.9-49.9 0-19.6 14.8-37.8 35.7-37.8.9 0 1.8.1 2.8.2-37.9-34.7-88.3-55.9-143.7-55.9-74.3 0-139.7 38.1-177.8 95.9 5 .2 9.7.3 13.7.3 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l77.5 230.4L249.8 247l-33.1-90.8c-11.5-.7-22.3-2-22.3-2-11.5-.7-10.1-18.2 1.3-17.5 0 0 35.1 2.7 56 2.7 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l76.9 228.7 21.2-70.9c9-29.4 16-50.5 16-68.7zm-139.9 29.3l-63.8 185.5c19.1 5.6 39.2 8.7 60.1 8.7 24.8 0 48.5-4.3 70.6-12.1-.6-1.1-1.6-2.4-3-4.1l-63.9-178zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 476.3c-121.5 0-220.3-98.8-220.3-220.3S134.5 35.7 256 35.7 476.3 134.5 476.3 256 377.5 476.3 256 476.3z"/></svg>
     </div>
-
-
-
     <div class="float-element anim-float" style="top: 10%; left: 35%;">
-
       <svg width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="30" cy="30" r="25"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-spin-slow" style="bottom: 12%; right: 10%; color: rgba(16, 185, 129, 0.2);">
-
       <svg width="50" height="50" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6"><circle cx="25" cy="25" r="20"/></svg>
-
     </div>
-
-
-
     <div class="float-element anim-spin" style="top: 45%; left: 5%; color: rgba(236, 72, 153, 0.15); animation-duration: 20s;">
-
       <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-float-reverse" style="bottom: 40%; right: 45%; animation-delay: 2s;">
-
       <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="20" height="20" rx="4"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-spin" style="top: 25%; right: 5%;">
-
       <svg width="25" height="25" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><polygon points="20,0 40,35 0,35"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-float" style="top: 60%; right: 8%; animation-delay: 5s;">
-
       <svg width="50" height="15" viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="3"><line x1="0" y1="10" x2="100" y2="10" stroke-dasharray="10 10"/></svg>
-
     </div>
-
-
-
     <div class="float-element anim-pulse" style="bottom: 15%; left: 40%; animation-delay: 1.5s;">
-
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="4" x2="12" y2="20"></line><line x1="4" y1="12" x2="20" y2="12"></line></svg>
-
     </div>
-
-
-
     <div class="float-element anim-float-reverse" style="top: 30%; left: 15%; color: rgba(16, 185, 129, 0.2); animation-delay: 3.5s;">
-
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-
     </div>
-
-
-
     <div class="float-element anim-pulse" style="top: 15%; right: 35%; color: rgba(236, 72, 153, 0.2); animation-delay: 0.5s;">
-
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-pulse" style="bottom: 30%; right: 5%; color: rgba(6, 182, 212, 0.2); animation-delay: 4s;">
-
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-
     </div>
-
-
-
     <div class="float-element anim-spin" style="top: 8%; right: 25%; animation-duration: 25s;">
-
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" transform="rotate(45 12 12)"/></svg>
-
     </div>
-
-
-
     <div class="float-element anim-float" style="bottom: 35%; left: 5%; animation-delay: 4s;">
-
       <svg width="40" height="15" viewBox="0 0 40 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polyline points="0,10 10,2 20,10 30,2 40,10"/></svg>
-
     </div>
-
-   
-
     <div class="float-element anim-pulse" style="bottom: 5%; left: 20%; animation-delay: 2.5s;">
-
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="20" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="4" cy="20" r="2"/><circle cx="12" cy="20" r="2"/><circle cx="20" cy="20" r="2"/></svg>
-
     </div>
-
   </div>
-
-
 
   <div class="hero-container">
-
     <div class="hero-content">
-
       <div class="hero-badge">
-
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9H3.5a.5.5 0 0 1-.48-.641l2.5-8z"/></svg>
-
         <span>{{ section.settings.badge_text }}</span>
-
       </div>
-
-
 
       <h1 class="hero-title">
-
         {{ section.settings.title_prefix }}
-
         <span class="gradient-text" id="typewriter-{{ section.id }}"></span><span class="cursor">|</span>
-
       </h1>
 
-
-
       <p class="hero-desc">
-
         {{ section.settings.description | replace: 'Shopify', '<span style="color: #059669; font-weight: 600;">Shopify</span>' | replace: 'WordPress', '<span style="color: #2563EB; font-weight: 600;">WordPress</span>' }}
-
       </p>
 
-
-
       <div class="hero-btns">
-
         <a href="{{ section.settings.primary_btn_link }}" class="btn-primary">
-
           {{ section.settings.primary_btn_text }}
-
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-
         </a>
-
         <a href="{{ section.settings.secondary_btn_link }}" class="btn-secondary">
-
           {{ section.settings.secondary_btn_text }}
-
         </a>
-
       </div>
-
     </div>
-
-
 
     <div class="video-container">
-
       {% if section.settings.video_url contains 'youtube' or section.settings.video_url contains 'vimeo' %}
-
         <iframe src="{{ section.settings.video_url | replace: 'watch?v=', 'embed/' }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
       {% elsif section.settings.html_video != blank %}
-
         {{ section.settings.html_video | video_tag: autoplay: true, loop: true, muted: true, controls: true }}
-
       {% else %}
-
         <div class="video-placeholder-container"
-
           {% if section.settings.placeholder_image != blank %}
-
             style="background-image: url('{{ section.settings.placeholder_image | image_url: width: 1200 }}');"
-
           {% else %}
-
             style="background-color: #e5e7eb;"
-
           {% endif %}>
-
-           
-
            <button class="play-button" style="width: 70px; height: 70px; background: rgba(99, 102, 241, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; border: none; cursor: pointer; z-index: 2;">
-
              <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-
            </button>
-
         </div>
-
       {% endif %}
 
-
-
       <div class="video-overlay-bar">
-
         <div class="dot-container">
-
           <div class="dot"></div>
-
           <span>{{ section.settings.video_overlay_text }}</span>
-
         </div>
-
         <span>{{ section.settings.video_duration }}</span>
-
       </div>
-
-     
-
     </div>
-
   </div>
-
 </div>
 
-
-
 <script>
-
   document.addEventListener('DOMContentLoaded', function() {
-
+    // --- LÓGICA DEL TYPEWRITER ---
     const el = document.getElementById('typewriter-{{ section.id }}');
+    if (el) {
+      const words = "{{ section.settings.words }}".split(',').map(w => w.trim());
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typeSpeed = 150;
 
-    if (!el) return;
+      function type() {
+        const current = words[wordIndex];
+        if (isDeleting) {
+          el.textContent = current.substring(0, charIndex - 1);
+          charIndex--;
+          typeSpeed = 50;
+        } else {
+          el.textContent = current.substring(0, charIndex + 1);
+          charIndex++;
+          typeSpeed = 100;
+        }
 
-    const words = "{{ section.settings.words }}".split(',').map(w => w.trim());
-
-    let wordIndex = 0;
-
-    let charIndex = 0;
-
-    let isDeleting = false;
-
-    let typeSpeed = 150;
-
-
-
-    function type() {
-
-      const current = words[wordIndex];
-
-      if (isDeleting) {
-
-        el.textContent = current.substring(0, charIndex - 1);
-
-        charIndex--;
-
-        typeSpeed = 50;
-
-      } else {
-
-        el.textContent = current.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        typeSpeed = 100;
-
+        if (!isDeleting && charIndex === current.length) {
+          isDeleting = true;
+          typeSpeed = 2500;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typeSpeed = 500;
+        }
+        setTimeout(type, typeSpeed);
       }
-
-
-
-      if (!isDeleting && charIndex === current.length) {
-
-        isDeleting = true;
-
-        typeSpeed = 2500;
-
-      } else if (isDeleting && charIndex === 0) {
-
-        isDeleting = false;
-
-        wordIndex = (wordIndex + 1) % words.length;
-
-        typeSpeed = 500;
-
-      }
-
-      setTimeout(type, typeSpeed);
-
+      if (words.length > 0) type();
     }
 
-    if (words.length > 0) type();
+    // --- LÓGICA PARA OCULTAR LA BARRA DEL VIDEO ---
+    const sectionWrapper = document.querySelector('.hero-wrapper-{{ section.id }}');
+    if (sectionWrapper) {
+      const overlayBar = sectionWrapper.querySelector('.video-overlay-bar');
+      const iframe = sectionWrapper.querySelector('iframe');
+      const htmlVideo = sectionWrapper.querySelector('video');
+      const playBtn = sectionWrapper.querySelector('.play-button');
+      const videoContainer = sectionWrapper.querySelector('.video-container');
 
+      if (overlayBar) {
+        // 1. Si es un video nativo de Shopify (HTML5)
+        if (htmlVideo) {
+          htmlVideo.addEventListener('play', () => overlayBar.classList.add('is-hidden'));
+          htmlVideo.addEventListener('pause', () => overlayBar.classList.remove('is-hidden'));
+        }
+
+        // 2. Si es un video de YouTube / Vimeo (Iframe)
+        if (iframe && videoContainer) {
+          // Aseguramos que la ventana tenga foco al pasar el mouse, para que el 'blur' funcione al hacer clic
+          videoContainer.addEventListener('mouseenter', () => window.focus());
+          
+          // Al hacer clic dentro del iframe, la ventana principal pierde el foco (blur)
+          window.addEventListener('blur', () => {
+            setTimeout(() => {
+              if (document.activeElement === iframe) {
+                overlayBar.classList.add('is-hidden');
+              }
+            }, 0);
+          });
+        }
+
+        // 3. Si usa el botón placeholder
+        if (playBtn) {
+          playBtn.addEventListener('click', () => {
+            overlayBar.classList.add('is-hidden');
+          });
+        }
+      }
+    }
   });
-
 </script>
 
-
-
 {% schema %}
-
 {
-
   "name": "Hero Animado Typewriter",
-
   "settings": [
-
     {
-
       "type": "header",
-
       "content": "Colores"
-
     },
-
     {
-
       "type": "color",
-
       "id": "primary_color",
-
       "label": "Color Primario (Indigo)",
-
       "default": "#4f46e5"
-
     },
-
     {
-
       "type": "color",
-
       "id": "secondary_color",
-
       "label": "Color Secundario (Esmeralda)",
-
       "default": "#10b981"
-
     },
-
     {
-
       "type": "color",
-
       "id": "bg_color",
-
       "label": "Fondo de sección",
-
       "default": "#f8fafc"
-
     },
-
     {
-
       "type": "color",
-
       "id": "text_color",
-
       "label": "Color del título",
-
       "default": "#0f172a"
-
     },
-
     {
-
       "type": "header",
-
       "content": "Contenido de Texto"
-
     },
-
     {
-
       "type": "text",
-
       "id": "badge_text",
-
       "label": "Texto del Badge",
-
       "default": "Expertos en E-commerce y Desarrollo Web"
-
     },
-
     {
-
       "type": "text",
-
       "id": "title_prefix",
-
       "label": "Prefijo del título",
-
       "default": "Transformamos tu visión en una "
-
     },
-
     {
-
       "type": "textarea",
-
       "id": "words",
-
       "label": "Palabras para el efecto (separadas por coma)",
-
       "default": "máquina de ventas., tienda de éxito., marca imparable."
-
     },
-
     {
-
       "type": "textarea",
-
       "id": "description",
-
       "label": "Descripción",
-
       "default": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario y la conversión."
-
     },
-
     {
-
       "type": "header",
-
       "content": "Botones"
-
     },
-
     {
-
       "type": "text",
-
       "id": "primary_btn_text",
-
       "label": "Texto Botón Principal",
-
       "default": "Ver Casos de Éxito"
-
     },
-
     {
-
       "type": "url",
-
       "id": "primary_btn_link",
-
       "label": "Link Botón Principal"
-
     },
-
     {
-
       "type": "text",
-
       "id": "secondary_btn_text",
-
       "label": "Texto Botón Secundario",
-
       "default": "Nuestros Servicios"
-
     },
-
     {
-
       "type": "url",
-
       "id": "secondary_btn_link",
-
       "label": "Link Botón Secundario"
-
     },
-
     {
-
       "type": "header",
-
       "content": "Video y Barra Flotante"
-
     },
-
     {
-
       "type": "text",
-
       "id": "video_url",
-
       "label": "URL de Video (YouTube/Vimeo)",
-
       "info": "Si se llena, ignorará el video subido a Shopify."
-
     },
-
     {
-
       "type": "video",
-
       "id": "html_video",
-
       "label": "Video subido a Shopify"
-
     },
-
     {
-
       "type": "image_picker",
-
       "id": "placeholder_image",
-
       "label": "Imagen de portada (si no hay video)"
-
     },
-
     {
-
       "type": "text",
-
       "id": "video_overlay_text",
-
       "label": "Texto de la barra sobre el video",
-
       "default": "Nuestro proceso de trabajo"
-
     },
-
     {
-
       "type": "text",
-
       "id": "video_duration",
-
       "label": "Duración mostrada",
-
       "default": "02:45"
-
     }
-
   ],
-
   "presets": [
-
     {
-
       "name": "Hero Animado Typewriter"
-
     }
-
   ]
-
 }
-
 {% endschema %}
