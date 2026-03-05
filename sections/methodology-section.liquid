@@ -1,6 +1,6 @@
 {% comment %}
   Sección de Metodología "Estrategia y Rendimiento" para Shopify Dawn.
-  Incluye pasos editables, imagen con badge flotante suave, y fondo con figuras animadas.
+  Incluye pasos editables, imagen con badge flotante suave, y fondo con múltiples figuras flotantes geométricas para un aspecto moderno y estético.
 {% endcomment %}
 
 <style>
@@ -28,7 +28,7 @@
     .methodology-{{ section.id }} { padding: 0; }
   }
 
-  /* --- Figuras Flotantes de Fondo --- */
+  /* --- Múltiples Figuras Flotantes de Fondo --- */
   .meth-bg-shapes {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -36,6 +36,19 @@
     pointer-events: none; /* Para que no interfieran con los clics */
   }
 
+  /* Overlay de micropartículas */
+  .meth-specks-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    opacity: 0.2;
+  }
+
+  /* Figuras individuales */
   .bg-shape {
     position: absolute;
     border-radius: 50%;
@@ -44,26 +57,90 @@
     animation: floatShape 12s ease-in-out infinite alternate;
   }
 
+  .bg-shape-inner {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    mask-image: radial-gradient(circle, white, black 60%);
+    mask-mode: alpha;
+  }
+
+  /* Figura 1 (TL, Púrpura - Lado Izquierdo) */
   .bg-shape-1 {
     width: 350px; height: 350px;
     background: {{ section.settings.accent_color }};
-    top: -150px; left: -100px;
-  }
-
-  .bg-shape-2 {
-    width: 250px; height: 250px;
-    background: #38bdf8; /* Azul claro para contraste */
-    bottom: -100px; right: -50px;
-    animation-delay: -5s;
+    top: -100px; left: -100px;
     animation-duration: 15s;
   }
+  .bg-shape-1 .bg-shape-inner {
+    background: 
+      repeating-conic-gradient(from 0deg, rgba(255,255,255,0.05) 0deg 10deg, transparent 10deg 20deg),
+      rgba(255,255,255,0.02);
+  }
 
+  /* Figura 2 (BR, Azul - Lado Derecho) */
+  .bg-shape-2 {
+    width: 250px; height: 250px;
+    background: #38bdf8;
+    bottom: -100px; right: -50px;
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  .bg-shape-2 .bg-shape-inner {
+    background: 
+      linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 41%, rgba(255,255,255,0.05) 43%, transparent 44%),
+      linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.05) 41%, rgba(255,255,255,0.05) 43%, transparent 44%),
+      rgba(255,255,255,0.02);
+    background-size: 20px 20px;
+  }
+
+  /* Figura 3 (C, Indigo - Centro-Izquierda) */
   .bg-shape-3 {
     width: 200px; height: 200px;
-    background: #818cf8; /* Indigo suave */
-    top: 40%; left: 45%;
+    background: #818cf8;
+    top: 35%; left: 40%;
     animation-delay: -2s;
-    animation-duration: 10s;
+    animation-duration: 18s;
+  }
+  .bg-shape-3 .bg-shape-inner {
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0% 10%, transparent 11% 100%),
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0% 10%, transparent 11% 100%),
+      rgba(255,255,255,0.02);
+    background-size: 30px 30px;
+  }
+
+  /* Figura 4 (MR, Oro - Lado Derecho - Detrás del Collage) */
+  .bg-shape-4 {
+    width: 180px; height: 180px;
+    background: #f59e0b;
+    top: 25%; right: 10%;
+    animation-delay: -8s;
+    animation-duration: 22s;
+    opacity: 0.15;
+  }
+  .bg-shape-4 .bg-shape-inner {
+    background: 
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+      rgba(255,255,255,0.02);
+    background-size: 20px 20px;
+  }
+
+  /* Figura 5 (BL, Verde - Lado Izquierdo - Cerca del Step 3) */
+  .bg-shape-5 {
+    width: 150px; height: 150px;
+    background: #10b981;
+    bottom: 10%; left: 10%;
+    animation-delay: -12s;
+    animation-duration: 16s;
+    opacity: 0.1;
+  }
+  .bg-shape-5 .bg-shape-inner {
+    background: 
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 5px, transparent 5px 10px),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 5px, transparent 5px 10px),
+      rgba(255,255,255,0.02);
   }
 
   /* --- Contenido Principal --- */
@@ -81,6 +158,10 @@
   }
 
   /* Columna de Texto */
+  .meth-text-side {
+    position: relative;
+    z-index: 1;
+  }
   .meth-title {
     font-size: 32px;
     font-weight: 800;
@@ -131,6 +212,10 @@
   }
 
   /* Columna de Imagen */
+  .meth-image-side {
+    position: relative;
+    z-index: 1;
+  }
   .meth-image-wrapper { position: relative; }
 
   .meth-image {
@@ -197,8 +282,8 @@
   }
 
   @keyframes floatShape {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(30px, -40px) scale(1.1); }
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    100% { transform: translate(40px, -50px) scale(1.08) rotate(5deg); }
   }
 
   @keyframes pulseRing {
@@ -211,9 +296,12 @@
   <div class="methodology-container">
     
     <div class="meth-bg-shapes">
-      <div class="bg-shape bg-shape-1"></div>
-      <div class="bg-shape bg-shape-2"></div>
-      <div class="bg-shape bg-shape-3"></div>
+      <div class="meth-specks-overlay"></div>
+      <div class="bg-shape bg-shape-1"><div class="bg-shape-inner"></div></div>
+      <div class="bg-shape bg-shape-2"><div class="bg-shape-inner"></div></div>
+      <div class="bg-shape bg-shape-3"><div class="bg-shape-inner"></div></div>
+      <div class="bg-shape bg-shape-4"><div class="bg-shape-inner"></div></div>
+      <div class="bg-shape bg-shape-5"><div class="bg-shape-inner"></div></div>
     </div>
 
     <div class="methodology-grid">
@@ -300,7 +388,7 @@
       "type": "text",
       "id": "stats_number",
       "label": "Número (ej: 100+)",
-      "default": "10+ "
+      "default": "100+"
     },
     {
       "type": "text",
