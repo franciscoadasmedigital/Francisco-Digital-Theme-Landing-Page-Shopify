@@ -262,6 +262,16 @@
     "testimonials_carousel_FUpzyk": {
       "type": "testimonials-carousel",
       "blocks": {
+        "testimonial_KCABaH": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Skoll.jpg",
+            "name": "Skoll Company",
+            "handle": "@skollcompany",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
         "testimonial_RFnnPg": {
           "type": "testimonial",
           "settings": {
@@ -304,6 +314,7 @@
         }
       },
       "block_order": [
+        "testimonial_KCABaH",
         "testimonial_RFnnPg",
         "testimonial_a9QqiW",
         "testimonial_A6VcTm",
