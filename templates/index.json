@@ -262,21 +262,22 @@
     "testimonials_carousel_FUpzyk": {
       "type": "testimonials-carousel",
       "blocks": {
-        "testimonial_XKVrYV": {
+        "testimonial_fHce83": {
           "type": "testimonial",
           "settings": {
-            "name": "Instrucontrol",
-            "handle": "@instrucontrol",
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Dopets",
+            "handle": "@dopets.cl",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
         },
-        "testimonial_KCABaH": {
+        "testimonial_A6VcTm": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_Skoll.jpg",
-            "name": "Skoll Company",
-            "handle": "@skollcompany",
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Fasmed Insumos Médicos",
+            "handle": "@fasmed.cl",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -301,34 +302,33 @@
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
         },
-        "testimonial_A6VcTm": {
+        "testimonial_KCABaH": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
-            "name": "Fasmed Insumos Médicos",
-            "handle": "@fasmed.cl",
+            "image": "shopify://shop_images/Logo_Skoll.jpg",
+            "name": "Skoll Company",
+            "handle": "@skollcompany",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
         },
-        "testimonial_fHce83": {
+        "testimonial_XKVrYV": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_Dopets.jpg",
-            "name": "Dopets",
-            "handle": "@dopets.cl",
+            "name": "Instrucontrol",
+            "handle": "@instrucontrol",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
         }
       },
       "block_order": [
-        "testimonial_XKVrYV",
-        "testimonial_KCABaH",
+        "testimonial_fHce83",
+        "testimonial_A6VcTm",
         "testimonial_RFnnPg",
         "testimonial_a9QqiW",
-        "testimonial_A6VcTm",
-        "testimonial_fHce83"
+        "testimonial_KCABaH",
+        "testimonial_XKVrYV"
       ],
       "name": "Testimonios Carrusel",
       "settings": {
