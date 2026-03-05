@@ -96,7 +96,7 @@
             "title": "Landing Page",
             "text": "Páginas de aterrizaje persuasivas, diseñadas específicamente para captar leads o vender un solo producto/servicio.",
             "features": "Copywriting persuasivo\nAlta velocidad de carga (WPO)\nIntegración con Email/CRM\nTests A/B preparados",
-            "custom_svg": "",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-panels-top-left h-7 w-7\" aria-hidden=\"true\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M3 9h18\"></path><path d=\"M9 21V9\"></path></svg>",
             "card_bg": "#eff6ff",
             "accent_color": "#2563eb"
           }
@@ -107,7 +107,7 @@
             "title": "Webs Corporativas",
             "text": "Sitios web institucionales en WordPress, completamente autoadministrables y preparados para posicionar en Google.",
             "features": "Diseño 100% Responsive\nEstructura optimizada para SEO\nPanel de control fácil de usar\nSeguridad y copias de respaldo",
-            "custom_svg": "",
+            "custom_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-monitor h-7 w-7\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\"></rect><line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\"></line><line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\"></line></svg>",
             "card_bg": "#eef2ff",
             "accent_color": "#4f46e5"
           }
