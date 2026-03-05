@@ -1,6 +1,7 @@
 {% comment %}
   Custom Marquee Section for Shopify Dawn Theme.
   Allows infinite scrolling of brand logos with hover effects.
+  Optimized for larger logos and seamless looping.
 {% endcomment %}
 
 <style>
@@ -13,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .marquee-title-{{ section.id }} {
@@ -32,6 +34,7 @@
     position: relative;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    overflow: hidden; /* Asegurar que no haya scrollbar horizontal */
   }
 
   .marquee-content-{{ section.id }} {
@@ -63,8 +66,10 @@
   }
 
   .brand-logo-{{ section.id }} {
-    height: {{ section.settings.logo_height }}px;
+    height: auto; /* Mantener proporción */
+    max-height: {{ section.settings.logo_height }}px; /* Controlar la altura máxima */
     width: auto;
+    max-width: 100%; /* Asegurar que no se estiren */
     object-fit: contain;
   }
 
@@ -84,7 +89,8 @@
   @media (max-width: 749px) {
     .brand-name-{{ section.id }} { font-size: 20px; }
     .marquee-content-{{ section.id }} { gap: 40px; }
-    .brand-logo-{{ section.id }} { height: {{ section.settings.logo_height | times: 0.8 }}px; }
+    /* Ajuste más conservador para móvil */
+    .brand-logo-{{ section.id }} { max-height: calc({{ section.settings.logo_height | times: 0.6 }}px); }
   }
 </style>
 
@@ -95,13 +101,16 @@
 
   <div class="marquee-wrapper-{{ section.id }}">
     <div class="marquee-content-{{ section.id }}">
-      {% comment %} Renderizamos los bloques dos veces para el efecto infinito {% endcomment %}
-      {% for i in (1..2) %}
+      {% comment %} 
+        Renderizamos los bloques CUATRO VECES (1..4) para asegurar un efecto infinito 
+        y seamless, sin importar cuántos bloques tenga el usuario. Esto elimina el espacio vacío.
+      {% endcomment %}
+      {% for i in (1..4) %}
         {% for block in section.blocks %}
           <div class="brand-item-{{ section.id }}" {{ block.shopify_attributes }}>
             {% if block.settings.logo != blank %}
               <img 
-                src="{{ block.settings.logo | image_url: width: 200 }}" 
+                src="{{ block.settings.logo | image_url: width: 400 }}" 
                 alt="{{ block.settings.name | escape }}"
                 width="{{ block.settings.logo.width }}"
                 height="{{ block.settings.logo.height }}"
@@ -164,12 +173,12 @@
     {
       "type": "range",
       "id": "logo_height",
-      "min": 20,
-      "max": 80,
-      "step": 5,
+      "min": 40,
+      "max": 160,
+      "step": 10,
       "unit": "px",
-      "label": "Altura de logos",
-      "default": 35
+      "label": "Altura máxima de logos",
+      "default": 80
     },
     {
       "type": "range",
