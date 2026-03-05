@@ -101,8 +101,10 @@
           <div class="brand-item-{{ section.id }}" {{ block.shopify_attributes }}>
             {% if block.settings.logo != blank %}
               <img 
-                src="{{ block.settings.logo | img_url: '200x' }}" 
-                alt="{{ block.settings.name }}" 
+                src="{{ block.settings.logo | image_url: width: 200 }}" 
+                alt="{{ block.settings.name | escape }}"
+                width="{{ block.settings.logo.width }}"
+                height="{{ block.settings.logo.height }}"
                 class="brand-logo-{{ section.id }}"
                 loading="lazy"
               >
