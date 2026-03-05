@@ -82,8 +82,8 @@
         "service_W4Jeqy": {
           "type": "service",
           "settings": {
-            "title": "E-commerce Shopify",
-            "text": "Tiendas online optimizadas para vender más.",
+            "title": "Tienda Online en Shopify",
+            "text": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
             "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
             "custom_svg": "",
             "card_bg": "#ecfdf5",
@@ -93,7 +93,7 @@
         "service_Xtc77a": {
           "type": "service",
           "settings": {
-            "title": "Landing Pages WP",
+            "title": "Landing Page",
             "text": "Tiendas online optimizadas para vender más.",
             "features": "Diseño UI/UX orientado a ventas\nMigración de otras plataformas\nIntegración de pasarelas de pago\nOptimización de Checkout",
             "custom_svg": "",
