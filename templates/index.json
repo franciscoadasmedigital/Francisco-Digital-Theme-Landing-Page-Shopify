@@ -33,33 +33,44 @@
     "marquee_brands_wXd467": {
       "type": "marquee-brands",
       "blocks": {
+        "brand_3tzAqm": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": ""
+          }
+        },
         "brand_7LCdNT": {
           "type": "brand",
           "settings": {
-            "logo": "shopify://shop_images/Logo_skoll_sin_fondo.png",
-            "name": "TechNova"
+            "logo": "shopify://shop_images/Logo_Skoll.jpg",
+            "name": ""
           }
         },
         "brand_UTEqdE": {
           "type": "brand",
           "settings": {
-            "name": "EcoLife"
+            "logo": "shopify://shop_images/Logo_Fasmed_nuevo.png",
+            "name": ""
           }
         },
         "brand_MiQk74": {
           "type": "brand",
           "settings": {
-            "name": "BeautyCo"
+            "logo": "shopify://shop_images/logo-piedra-laja-curico.webp",
+            "name": ""
           }
         },
         "brand_YNyE6i": {
           "type": "brand",
           "settings": {
-            "name": "UrbanWear"
+            "logo": "shopify://shop_images/Logo_FarmaVitalid_512x512_fondo_blanco.png",
+            "name": ""
           }
         }
       },
       "block_order": [
+        "brand_3tzAqm",
         "brand_7LCdNT",
         "brand_UTEqdE",
         "brand_MiQk74",
