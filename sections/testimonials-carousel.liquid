@@ -92,10 +92,11 @@
     position: relative;
   }
 
+  /* ICONO CORREGIDO */
   .ig-icon {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 24px;
+    right: 24px;
     color: #cbd5e1;
   }
 
@@ -232,7 +233,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Usamos getElementById para evitar errores de sintaxis en el selector con caracteres especiales
     const sectionId = '{{ section.id }}';
     const slider = document.getElementById('Slider-' + sectionId);
     const dotsContainer = document.getElementById('Dots-' + sectionId);
@@ -241,10 +241,16 @@
 
     const dots = dotsContainer.querySelectorAll('.dot');
 
+    // SCRIPT DE PAGINACIÓN CORREGIDO
     const updateActiveDot = () => {
       const scrollPos = slider.scrollLeft;
-      const width = slider.offsetWidth;
-      const index = Math.round(scrollPos / width);
+      const card = slider.querySelector('.testimonial-card');
+      
+      if (!card) return;
+      
+      // Calculamos el ancho de una tarjeta individual + el espacio (gap)
+      const cardWidth = card.offsetWidth + 24; 
+      const index = Math.round(scrollPos / cardWidth);
       
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
@@ -255,7 +261,7 @@
 
     dots.forEach(dot => {
       dot.addEventListener('click', () => {
-        const index = dot.getAttribute('data-index');
+        const index = parseInt(dot.getAttribute('data-index'));
         const card = slider.querySelector('.testimonial-card');
         if (!card) return;
         
