@@ -89,7 +89,7 @@
         "brand_text_color": "#1e293b",
         "border_color": "#e2e8f0",
         "speed": 40,
-        "padding_top": 0,
+        "padding_top": 8,
         "padding_bottom": 40
       }
     },
