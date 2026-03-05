@@ -1,6 +1,6 @@
 {% comment %}
   Sección de Metodología "Estrategia y Rendimiento" para Shopify Dawn.
-  Incluye pasos editables, imagen con badge flotante animado y diseño responsivo.
+  Incluye pasos editables, imagen con badge flotante suave, y fondo con figuras animadas.
 {% endcomment %}
 
 <style>
@@ -19,6 +19,8 @@
     border: 1px solid {{ section.settings.accent_color }}33;
     border-radius: 24px;
     background: linear-gradient(145deg, {{ section.settings.bg_color }}, #1a2333);
+    position: relative; /* Necesario para las figuras de fondo */
+    overflow: hidden; /* Evita que las figuras se salgan del borde */
   }
 
   @media (max-width: 749px) {
@@ -26,11 +28,52 @@
     .methodology-{{ section.id }} { padding: 0; }
   }
 
+  /* --- Figuras Flotantes de Fondo --- */
+  .meth-bg-shapes {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none; /* Para que no interfieran con los clics */
+  }
+
+  .bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    animation: floatShape 12s ease-in-out infinite alternate;
+  }
+
+  .bg-shape-1 {
+    width: 350px; height: 350px;
+    background: {{ section.settings.accent_color }};
+    top: -150px; left: -100px;
+  }
+
+  .bg-shape-2 {
+    width: 250px; height: 250px;
+    background: #38bdf8; /* Azul claro para contraste */
+    bottom: -100px; right: -50px;
+    animation-delay: -5s;
+    animation-duration: 15s;
+  }
+
+  .bg-shape-3 {
+    width: 200px; height: 200px;
+    background: #818cf8; /* Indigo suave */
+    top: 40%; left: 45%;
+    animation-delay: -2s;
+    animation-duration: 10s;
+  }
+
+  /* --- Contenido Principal --- */
   .methodology-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
     align-items: center;
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
   }
 
   @media (min-width: 990px) {
@@ -95,9 +138,11 @@
     border-radius: 20px;
     display: block;
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 1;
   }
 
-  /* Badge con animación de flotación */
+  /* Badge con animación mejorada */
   .stats-badge {
     position: absolute;
     bottom: -20px;
@@ -111,8 +156,9 @@
     color: #0f172a;
     min-width: 180px;
     z-index: 2;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-    animation: floatBadge 6s ease-in-out infinite;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    animation: floatBadgeSmooth 4s ease-in-out infinite;
+    will-change: transform; /* Optimización de rendimiento */
   }
 
   @media (max-width: 749px) {
@@ -138,26 +184,21 @@
     top: 0; left: 0; right: 0; bottom: 0;
     border-radius: 50%;
     border: 2px solid {{ section.settings.accent_color }};
-    animation: pulseRing 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   }
 
   .stats-info b { font-size: 20px; display: block; line-height: 1; }
   .stats-info span { font-size: 12px; color: #64748b; font-weight: 500; }
 
-  /* Keyframes para las animaciones */
-  @keyframes floatBadge {
-    0% {
-      transform: translateY(0px);
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-    }
-    50% {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 40px -5px rgba(0,0,0,0.15), 0 12px 14px -6px rgba(0,0,0,0.1);
-    }
-    100% {
-      transform: translateY(0px);
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-    }
+  /* --- Keyframes --- */
+  @keyframes floatBadgeSmooth {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes floatShape {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
   }
 
   @keyframes pulseRing {
@@ -168,6 +209,13 @@
 
 <div class="methodology-{{ section.id }}">
   <div class="methodology-container">
+    
+    <div class="meth-bg-shapes">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="bg-shape bg-shape-3"></div>
+    </div>
+
     <div class="methodology-grid">
       
       <div class="meth-text-side">
@@ -252,7 +300,7 @@
       "type": "text",
       "id": "stats_number",
       "label": "Número (ej: 100+)",
-      "default": "100+"
+      "default": "10+ "
     },
     {
       "type": "text",
