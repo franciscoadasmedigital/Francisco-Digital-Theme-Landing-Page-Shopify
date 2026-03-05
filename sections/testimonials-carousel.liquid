@@ -36,7 +36,7 @@
     .testimonials-title { font-size: 48px; }
   }
 
-  /* SUBRAYADO ANIMADO AL HACER SCROLL */
+  /* NUEVO SUBRAYADO TIPO MARCADOR */
   .testimonials-accent {
     position: relative;
     display: inline-block;
@@ -44,6 +44,7 @@
     padding: 0 5px;
   }
 
+  /* El texto con gradiente */
   .accent-text {
     background: linear-gradient(to right, {{ section.settings.primary_color }}, {{ section.settings.secondary_color }});
     -webkit-background-clip: text;
@@ -52,23 +53,25 @@
     z-index: 2;
   }
 
+  /* La línea de subrayado animada */
   .testimonials-accent::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 12%; 
-    width: 0; /* Inicia en 0 */
-    height: 38%; 
+    bottom: 8%; /* Ajusta qué tan abajo queda la línea */
+    width: 0;
+    height: 35%; /* Grosor del subrayado */
     background-color: {{ section.settings.secondary_color }};
-    opacity: 0.3; 
+    opacity: 0.25; /* Transparencia para efecto moderno */
     z-index: 1;
     border-radius: 2px;
-    transition: width 1s cubic-bezier(0.65, 0, 0.35, 1); /* Usamos transición en lugar de keyframes directos */
+    animation: underlineDraw 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    animation-delay: 0.6s;
   }
 
-  /* Clase que activa la animación cuando entra en el viewport */
-  .testimonials-accent.is-visible::after {
-    width: 100%;
+  @keyframes underlineDraw {
+    from { width: 0; }
+    to { width: 100%; }
   }
 
   .testimonials-subtitle {
@@ -215,7 +218,7 @@
     <div class="testimonials-header">
       <h2 class="testimonials-title">
         {{ section.settings.title_start }} 
-        <span class="testimonials-accent" id="Trigger-{{ section.id }}">
+        <span class="testimonials-accent">
           <span class="accent-text">{{ section.settings.title_accent }}</span>
         </span>
       </h2>
@@ -263,30 +266,9 @@
     const sectionId = '{{ section.id }}';
     const slider = document.getElementById('Slider-' + sectionId);
     const dotsContainer = document.getElementById('Dots-' + sectionId);
-    const trigger = document.getElementById('Trigger-' + sectionId);
     
     if (!slider || !dotsContainer) return;
 
-    // --- LÓGICA DE INTERSECTION OBSERVER PARA EL SUBRAYADO ---
-    const observerOptions = {
-      root: null,
-      threshold: 0.8 // Se activa cuando el 80% del elemento es visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          // Una vez animado, dejamos de observar para ahorrar recursos
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    if (trigger) observer.observe(trigger);
-
-
-    // --- LÓGICA DEL CARRUSEL ---
     let dots = [];
 
     const initDots = () => {
