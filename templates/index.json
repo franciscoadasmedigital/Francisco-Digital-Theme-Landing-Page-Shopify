@@ -324,6 +324,7 @@
         "testimonial_XKVrYV": {
           "type": "testimonial",
           "settings": {
+            "image": "shopify://shop_images/images.png",
             "name": "Instrucontrol",
             "handle": "@instrucontrol",
             "rating": 5,
