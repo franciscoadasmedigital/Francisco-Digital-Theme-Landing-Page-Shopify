@@ -422,21 +422,21 @@
           "type": "faq",
           "settings": {
             "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "answer": "<p>El tiempo varía según la complejidad del proyecto y la cantidad de proyectos activa. Una Landing Page suele estar lista en 1 a 2 semanas, mientras que una Tienda Online completa en Shopify puede tomar de 1 a 3 semanas. Siempre establecemos un cronograma claro antes de empezar.</p>"
           }
         },
         "faq_ybiH8N": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Cuál es la modalidad de pago?",
+            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.</p>"
           }
         },
         "faq_hhMDTx": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Tengo que pagar mensualidades por la página?",
+            "answer": "<p>Nuestro servicio de diseño y desarrollo es un pago único. Sin embargo, debes tener en cuenta los costos de terceros para mantener tu web activa: el Hosting, el Dominio anual y, en el caso de Shopify, la suscripción mensual a su plataforma.</p>"
           }
         }
       },
