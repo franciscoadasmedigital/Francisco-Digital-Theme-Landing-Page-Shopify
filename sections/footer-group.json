@@ -11,8 +11,28 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_footer_mAKbWn": {
+      "type": "custom-footer",
+      "name": "Custom Footer FA",
+      "settings": {
+        "bg_color": "#0b061e",
+        "text_color": "#ffffff",
+        "logo_url": "https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_FA_Digital.png?v=1770498104",
+        "description": "<p>Trabajamos tu vision en una tienda de exito.</p>",
+        "instagram_url": "https://www.instagram.com/franciscoadasme5/",
+        "tiktok_url": "https://www.tiktok.com/@francisco_ecommerce?is_from_webapp=1&sender_device=pc",
+        "whatsapp_url": "https://wa.me/56988100871",
+        "menu_1_title": "Servicios",
+        "menu_1": "",
+        "menu_2_title": "Enlaces rapidos",
+        "menu_2": "main-menu",
+        "partner_url": "https://cdn.shopify.com/s/files/1/0623/0851/5895/files/logo_shopify_partners.webp?v=1772757551",
+        "copyright_text": "© 2026 Franciscoadasmedigital - Todos los derechos reservados"
+      }
+    },
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -30,6 +50,7 @@
     }
   },
   "order": [
+    "custom_footer_mAKbWn",
     "footer"
   ]
 }
