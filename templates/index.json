@@ -429,7 +429,7 @@
           "type": "faq",
           "settings": {
             "question": "¿Cuál es la modalidad de pago?",
-            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.</p>"
+            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.<br/>Además lo métodos de pago que aceptamos son:</p><ul><li>Transferencia bancaria (solo para Chile)</li><li> Binance (en USDT)</li><li> PayPal / Stripe (solo pagos internacionales)</li></ul>"
           }
         },
         "faq_hhMDTx": {
