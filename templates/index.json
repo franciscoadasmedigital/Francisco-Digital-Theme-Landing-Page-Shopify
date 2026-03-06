@@ -306,7 +306,7 @@
         "testimonial_a9QqiW": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_FarmaVitalid_512x512_fondo_blanco.png",
+            "image": "shopify://shop_images/lgoo_farma.png",
             "name": "Farmacia Farmavitalid",
             "handle": "@farmavitalid",
             "rating": 5,
@@ -316,7 +316,7 @@
         "testimonial_KCABaH": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_Skoll.jpg",
+            "image": "shopify://shop_images/skoll.png",
             "name": "Skoll Company",
             "handle": "@skollcompany",
             "rating": 5,
