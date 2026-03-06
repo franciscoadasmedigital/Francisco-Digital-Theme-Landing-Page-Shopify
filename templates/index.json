@@ -438,12 +438,36 @@
             "question": "¿Tengo que pagar mensualidades por la página?",
             "answer": "<p>Nuestro servicio de diseño y desarrollo es un pago único. Sin embargo, debes tener en cuenta los costos de terceros para mantener tu web activa: el Hosting, el Dominio anual y, en el caso de Shopify, la suscripción mensual a su plataforma.</p>"
           }
+        },
+        "faq_9BBhPc": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Podré administrar la tienda o web yo mismo?",
+            "answer": "<p>¡Totalmente! Desarrollamos pensando en ti. Te entregaremos tu sitio web o tienda online junto con videos de capacitación para que puedas agregar productos, modificar textos, cambiar imágenes y gestionar tus pedidos de forma 100% autónoma.</p>"
+          }
+        },
+        "faq_VMTT9T": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Qué pasa si necesito ayuda después de que la web esté lista?",
+            "answer": "<p>Todos nuestros planes incluyen un periodo de garantía y soporte (entre 30 y 90 días). Pasado ese tiempo, puedes contratar nuestros planes de mantenimiento mensual opcionales si quieres que nos encarguemos de las actualizaciones técnicas por ti.</p>"
+          }
+        },
+        "faq_JwPakG": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Por qué usas Shopify y WordPress?",
+            "answer": "<p>Elegimos estas plataformas porque son las líderes mundiales. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema. WordPress es imbatible para flexibilidad, SEO y páginas corporativas.</p>"
+          }
         }
       },
       "block_order": [
         "faq_tyQRHg",
         "faq_ybiH8N",
-        "faq_hhMDTx"
+        "faq_hhMDTx",
+        "faq_9BBhPc",
+        "faq_VMTT9T",
+        "faq_JwPakG"
       ],
       "name": "FAQ Acordeón",
       "settings": {
