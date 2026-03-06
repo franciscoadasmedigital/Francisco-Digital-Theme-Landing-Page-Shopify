@@ -262,8 +262,8 @@
       "name": "Trabajo Reciente Pro",
       "settings": {
         "title": "Nuestro Trabajo Reciente",
-        "subtitle": "Proyectos que han transformado marcas y escalado negocios.",
-        "link_text": "Saber más",
+        "subtitle": "Explora algunos de los proyectos que hemos ayudado a escalar.",
+        "link_text": "Ver detalles del proyecto",
         "accent_color": "#4f46e5",
         "bg_color": "#f8fafc",
         "padding_top": 28,
