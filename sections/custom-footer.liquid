@@ -111,16 +111,25 @@
     height: 12px;
   }
   
+  /* ESTILOS DE LA INSIGNIA DE SHOPIFY PARTNERS ACTUALIZADOS */
   .fa-footer-badge {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 50px;       /* Bordes redondeados de píldora */
+    padding: 10px 20px;       /* Acolchado interno */
+    width: fit-content;        /* Ajustar ancho al contenido */
+    margin-top: 20px;          /* Espacio superior */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opcional: una sombra suave */
   }
   
   .fa-footer-badge img {
-    max-width: 100%;
+    max-width: 180px;         /* Controlar tamaño máximo */
     height: auto;
-    border-radius: 40px;
+    display: block;
     object-fit: contain;
+    border-radius: 0;          /* Quitar el border-radius de la imagen, ya que el contenedor lo tiene */
   }
   
   .fa-footer-bottom {
@@ -223,7 +232,7 @@
 
 {% schema %}
 {
-  "name": "Custom Footer FA",
+  "name": "Custom Footer FA V2",
   "settings": [
     {
       "type": "color",
@@ -318,7 +327,7 @@
   ],
   "presets": [
     {
-      "name": "Custom Footer FA"
+      "name": "Custom Footer FA V2"
     }
   ]
 }
