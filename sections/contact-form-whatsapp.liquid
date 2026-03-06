@@ -173,7 +173,6 @@
   <div class="wa-container">
     <div class="wa-grid">
       
-      <!-- Columna Izquierda: Información -->
       <div class="wa-info-side">
         <h2 class="wa-info-title">{{ section.settings.title_left }}</h2>
         <div class="wa-info-text">{{ section.settings.text_left }}</div>
@@ -189,26 +188,22 @@
         </div>
       </div>
 
-      <!-- Columna Derecha: Formulario -->
       <div class="wa-form-side">
         <h3 class="wa-form-title">{{ section.settings.title_right }}</h3>
         
         <form id="WhatsAppForm-{{ section.id }}">
-          <div class="wa-form-row wa-form-group">
-            <div>
-              <label class="wa-label">Nombre</label>
-              <input type="text" id="wa-name" class="wa-input" placeholder="Tu nombre" required>
-            </div>
-            <div>
-              <label class="wa-label">Email</label>
-              <input type="email" id="wa-email" class="wa-input" placeholder="tu@email.com" required>
-            </div>
+          
+          <div class="wa-form-group">
+            <label class="wa-label">Nombre</label>
+            <input type="text" id="wa-name" class="wa-input" placeholder="Tu nombre" required>
           </div>
 
           <div class="wa-form-group">
             <label class="wa-label">Plataforma de interés</label>
             <select id="wa-platform" class="wa-select">
               <option value="Tienda Shopify">Tienda Shopify</option>
+              <option value="Rediseño de Tienda Online">Rediseño de Tienda Online</option>
+              <option value="Página Web">Página Web</option>
               <option value="Landing Page WordPress">Landing Page WordPress</option>
               <option value="Web Corporativa WordPress">Web Corporativa WordPress</option>
               <option value="Necesito asesoría">Aún no lo sé, necesito asesoría</option>
@@ -241,14 +236,12 @@
 
       // Obtener valores
       const name = document.getElementById('wa-name').value;
-      const email = document.getElementById('wa-email').value;
       const platform = document.getElementById('wa-platform').value;
       const message = document.getElementById('wa-message').value;
 
       // Formatear mensaje para WhatsApp
       const text = `Hola! Me gustaría solicitar un presupuesto.%0A%0A` +
                    `*Nombre:* ${name}%0A` +
-                   `*Email:* ${email}%0A` +
                    `*Interés:* ${platform}%0A` +
                    `*Mensaje:* ${message}`;
 
