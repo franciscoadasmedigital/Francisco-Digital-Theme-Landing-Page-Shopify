@@ -262,8 +262,8 @@
       "name": "Trabajo Reciente Pro",
       "settings": {
         "title": "Nuestro Trabajo Reciente",
-        "subtitle": "Proyectos que han transformado marcas y escalado negocios.",
-        "link_text": "Saber más",
+        "subtitle": "Explora algunos de los proyectos que hemos ayudado a escalar.",
+        "link_text": "Ver detalles del proyecto",
         "accent_color": "#4f46e5",
         "bg_color": "#f8fafc",
         "padding_top": 28,
@@ -280,7 +280,7 @@
             "name": "Dopets",
             "handle": "@dopets.cl",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "Muy conforme con los servicios de desarrollo web que me han ofrecido, la inversión ha valido totalmente la pena, y espero poder seguir trabajando en conjunto."
           }
         },
         "testimonial_A6VcTm": {
@@ -290,7 +290,7 @@
             "name": "Fasmed Insumos Médicos",
             "handle": "@fasmed.cl",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "La creación de la tienda online, más la optimización de SEO hicieron que lograra vender un 7000% más en un periodo de 6 meses."
           }
         },
         "testimonial_RFnnPg": {
@@ -306,17 +306,17 @@
         "testimonial_a9QqiW": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_FarmaVitalid_512x512_fondo_blanco.png",
+            "image": "shopify://shop_images/lgoo_farma.png",
             "name": "Farmacia Farmavitalid",
             "handle": "@farmavitalid",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "Me ayudó a lograr las ventas deseadas durante 3 años en mi tienda online con el nuevo diseño, la velocidad y el soporte."
           }
         },
         "testimonial_KCABaH": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/Logo_Skoll.jpg",
+            "image": "shopify://shop_images/skoll.png",
             "name": "Skoll Company",
             "handle": "@skollcompany",
             "rating": 5,
@@ -365,7 +365,7 @@
             "badge_text": "Más contratado",
             "title": "Landing Page",
             "price": "200",
-            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "features": "Diseño personalizado y enfocado en conversión\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://collections/creacion-de-pagina-web"
           }
@@ -377,7 +377,7 @@
             "badge_text": "Más contratado",
             "title": "Web Corporativa",
             "price": "250",
-            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "features": "Diseño personalizado y enfocado en conversión\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": ""
           }
@@ -389,7 +389,7 @@
             "badge_text": "Más contratado",
             "title": "Tienda Online",
             "price": "450",
-            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "features": "Integración de dominio (el domino lo compras tu, nosotros realizamos toda la configuración)\nConfiguración completa de métodos de pago y envíos.\nBanners y Secciones personalizadas\nDiseño responsivo (optimizado para computador y celular)\nCarga inicial de hasta 200 productos\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\n3 artículos de blog orientados a trafico orgánico\n3 automatizaciones de correos (bienvenida, carrito abandonado y post-compra)\nCapacitación completa para que administres tu tienda con seguridad y sin depender de terceros.\n90 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://collections/creacion-de-e-commerce"
           }
@@ -422,28 +422,52 @@
           "type": "faq",
           "settings": {
             "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "answer": "<p>El tiempo varía según la complejidad del proyecto y la cantidad de proyectos activa. Una Landing Page suele estar lista en 1 a 2 semanas, mientras que una Tienda Online completa en Shopify puede tomar de 1 a 3 semanas. Siempre establecemos un cronograma claro antes de empezar.</p>"
           }
         },
         "faq_ybiH8N": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Cuál es la modalidad de pago?",
+            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.<br/>Además lo métodos de pago que aceptamos son:</p><ul><li>Transferencia bancaria (solo para Chile)</li><li> Binance (en USDT)</li><li> PayPal / Stripe (solo pagos internacionales)</li></ul>"
           }
         },
         "faq_hhMDTx": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Tengo que pagar mensualidades por la página?",
+            "answer": "<p>Nuestro servicio de diseño y desarrollo es un pago único. Sin embargo, debes tener en cuenta los costos de terceros para mantener tu web activa: el Hosting, el Dominio anual y, en el caso de Shopify, la suscripción mensual a su plataforma.</p>"
+          }
+        },
+        "faq_9BBhPc": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Podré administrar la tienda o web yo mismo?",
+            "answer": "<p>¡Totalmente! Desarrollamos pensando en ti. Te entregaremos tu sitio web o tienda online junto con videos de capacitación para que puedas agregar productos, modificar textos, cambiar imágenes y gestionar tus pedidos de forma 100% autónoma.</p>"
+          }
+        },
+        "faq_VMTT9T": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Qué pasa si necesito ayuda después de que la web esté lista?",
+            "answer": "<p>Todos nuestros planes incluyen un periodo de garantía y soporte (entre 30 y 90 días). Pasado ese tiempo, puedes contratar nuestros planes de mantenimiento mensual opcionales si quieres que nos encarguemos de las actualizaciones técnicas por ti.</p>"
+          }
+        },
+        "faq_JwPakG": {
+          "type": "faq",
+          "settings": {
+            "question": "¿Por qué usas Shopify y WordPress?",
+            "answer": "<p>Elegimos estas plataformas porque son las líderes mundiales. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema. WordPress es imbatible para flexibilidad, SEO y páginas corporativas.</p>"
           }
         }
       },
       "block_order": [
         "faq_tyQRHg",
         "faq_ybiH8N",
-        "faq_hhMDTx"
+        "faq_hhMDTx",
+        "faq_9BBhPc",
+        "faq_VMTT9T",
+        "faq_JwPakG"
       ],
       "name": "FAQ Acordeón",
       "settings": {
@@ -456,8 +480,8 @@
         "text_color": "#0f172a",
         "link_text": "Escríbenos directamente",
         "link_url": "https://wa.me/56988100871",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "contact_form_whatsapp_6feUwW": {
