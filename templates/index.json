@@ -162,24 +162,24 @@
           "type": "step",
           "settings": {
             "icon": "search",
-            "title": "Descubrimiento y UX",
-            "text": "Analizamos a tu competencia y diseñamos la experiencia del usuario antes de programar."
+            "title": "Descubrimiento y Reunión Inicial",
+            "text": "Nos reunimos para entender tu visión y analizar la competencia, además del tipo de página que quieres realizar."
           }
         },
         "step_796CR8": {
           "type": "step",
           "settings": {
             "icon": "code",
-            "title": "Desarrollo Pixel-Perfect",
-            "text": "Implementamos el diseño asegurando código limpio y adaptable a cualquier dispositivo móvil."
+            "title": "Desarrollo y Puesta en Marcha del Proyecto",
+            "text": "Comenzamos a diseñar tu Tienda Online o Página Web, importar tus productos, imágenes, integrar tus pasarelas de pago y envíos, para que tu tienda quede lista para vender."
           }
         },
         "step_kM3GPK": {
           "type": "step",
           "settings": {
             "icon": "zap",
-            "title": "Lanzamiento y Optimización",
-            "text": "Pruebas exhaustivas de velocidad e integraciones de analítica para una puesta en marcha sin fallos."
+            "title": "Entrega y Capacitación",
+            "text": "Entrego tu tienda lista para vender y una capacitación en videos para que administres tu tienda con seguridad y sin depender de terceros."
           }
         }
       },
