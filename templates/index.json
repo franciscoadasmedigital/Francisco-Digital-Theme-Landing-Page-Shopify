@@ -33,6 +33,14 @@
     "marquee_brands_wXd467": {
       "type": "marquee-brands",
       "blocks": {
+        "brand_8NhGDE": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify://shop_images/logo_instrucontrol.png",
+            "logo_height": 85,
+            "name": ""
+          }
+        },
         "brand_3tzAqm": {
           "type": "brand",
           "settings": {
@@ -75,6 +83,7 @@
         }
       },
       "block_order": [
+        "brand_8NhGDE",
         "brand_3tzAqm",
         "brand_7LCdNT",
         "brand_UTEqdE",
