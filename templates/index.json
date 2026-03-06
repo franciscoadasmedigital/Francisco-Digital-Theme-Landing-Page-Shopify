@@ -231,6 +231,7 @@
         "project_j4qmcq": {
           "type": "project",
           "settings": {
+            "image": "shopify://shop_images/Tienda_Fasmed_-_copia.png",
             "category": "Shopify",
             "badge_color": "#12ab78",
             "badge_text_color": "#ffffff",
@@ -242,6 +243,7 @@
         "project_JPb39W": {
           "type": "project",
           "settings": {
+            "image": "shopify://shop_images/Tienda_Dopets_-_copia.png",
             "category": "Wordpress",
             "badge_color": "#2d66e3",
             "badge_text_color": "#ffffff",
