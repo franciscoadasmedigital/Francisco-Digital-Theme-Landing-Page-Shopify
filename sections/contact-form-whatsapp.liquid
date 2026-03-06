@@ -4,35 +4,44 @@
 {% endcomment %}
 
 <style>
+  .contact-wa-{{ section.id }}, 
+  .contact-wa-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
   .contact-wa-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     background-color: {{ section.settings.section_bg }};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden; /* Evita desbordamientos generales en móviles */
   }
 
   .wa-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px; /* Ajustado ligeramente para móviles */
   }
 
   .wa-grid {
     display: grid;
     grid-template-columns: 1fr;
-    border-radius: 32px;
+    border-radius: 24px; /* Un poco menos de radio en móviles luce mejor */
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   }
 
   @media (min-width: 990px) {
-    .wa-grid { grid-template-columns: 1fr 1fr; }
+    .wa-grid { 
+      grid-template-columns: 1fr 1fr; 
+      border-radius: 32px;
+    }
   }
 
   /* Lado Izquierdo (Mensaje) */
   .wa-info-side {
     background-color: {{ section.settings.left_bg }};
-    padding: 40px;
+    padding: 32px 24px; /* Padding reducido para móviles */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -40,32 +49,46 @@
   }
 
   @media (min-width: 750px) {
+    .wa-info-side { padding: 40px; }
+  }
+
+  @media (min-width: 990px) {
     .wa-info-side { padding: 60px 80px; }
   }
 
   .wa-info-title {
-    font-size: 32px;
+    font-size: 28px; /* Ligeramente más pequeño en móviles */
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 24px;
+    line-height: 1.2;
+    margin-bottom: 20px;
     color: #ffffff;
+    word-wrap: break-word; /* Asegura que palabras largas no rompan el layout */
   }
 
   @media (min-width: 750px) {
+    .wa-info-title { font-size: 32px; }
+  }
+
+  @media (min-width: 990px) {
     .wa-info-title { font-size: 48px; }
   }
 
   .wa-info-text {
-    font-size: 18px;
+    font-size: 16px; /* Ligeramente más pequeño en móviles */
     line-height: 1.6;
     color: #94a3b8;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 750px) {
+    .wa-info-text { font-size: 18px; margin-bottom: 40px; }
   }
 
   .wa-direct-contact {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap; /* Permite que el correo baje si no cabe */
   }
 
   .wa-icon-box {
@@ -77,6 +100,7 @@
     align-items: center;
     justify-content: center;
     color: #818cf8;
+    flex-shrink: 0; /* Evita que el ícono se encoja */
   }
 
   .wa-direct-label {
@@ -87,26 +111,35 @@
 
   .wa-direct-value {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: #ffffff;
     margin: 0;
+    word-break: break-all; /* Evita que correos muy largos rompan el diseño en móvil */
   }
 
   /* Lado Derecho (Formulario) */
   .wa-form-side {
     background-color: {{ section.settings.right_bg }};
-    padding: 40px;
+    padding: 32px 24px; /* Padding reducido para móviles */
   }
 
   @media (min-width: 750px) {
+    .wa-form-side { padding: 40px; }
+  }
+
+  @media (min-width: 990px) {
     .wa-form-side { padding: 60px 80px; }
   }
 
   .wa-form-title {
-    font-size: 28px;
+    font-size: 24px; /* Más pequeño para móviles */
     font-weight: 800;
     color: #0f172a;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 750px) {
+    .wa-form-title { font-size: 28px; margin-bottom: 40px; }
   }
 
   .wa-form-group { margin-bottom: 20px; }
@@ -128,6 +161,7 @@
     font-size: 15px;
     outline: none;
     transition: all 0.3s;
+    max-width: 100%; /* Medida de seguridad extra */
   }
 
   .wa-input:focus, .wa-select:focus, .wa-textarea:focus {
@@ -137,7 +171,7 @@
 
   .wa-submit-btn {
     width: 100%;
-    padding: 18px;
+    padding: 16px;
     background-color: {{ section.settings.btn_color }};
     color: #ffffff;
     border: none;
