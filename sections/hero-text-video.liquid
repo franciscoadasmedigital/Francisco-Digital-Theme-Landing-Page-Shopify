@@ -4,6 +4,7 @@
   Fix: Added customizable video overlay bar and image-based Shopify logo.
   Update: Added logic to hide overlay bar when video is clicked.
   Update 2: Added animated neon border to the video container using theme gradient colors.
+  Update 3: Added negative margin control to pull the section behind custom headers.
 {% endcomment %}
 
 <style>
@@ -24,16 +25,28 @@
     overflow: hidden;
     background-color: var(--hero-bg);
     background: radial-gradient(circle at 10% 20%, var(--aurora-1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, var(--aurora-2) 0%, transparent 50%), var(--hero-bg);
-    padding: 60px 20px;
+    
+    /* FIX ESPACIO EN BLANCO: Margen negativo para subir y padding compensatorio */
+    margin-top: -{{ section.settings.margin_top_offset }}px;
+    padding-top: calc(60px + {{ section.settings.margin_top_offset }}px);
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     min-height: 600px;
     display: flex;
     align-items: center;
-    z-index: 1;
+    z-index: 1; /* Se mantiene bajo para quedar detrás del header */
   }
 
   @media (min-width: 990px) {
-    .hero-wrapper-{{ section.id }} { padding: 80px 40px; }
+    .hero-wrapper-{{ section.id }} { 
+      padding-top: calc(80px + {{ section.settings.margin_top_offset }}px);
+      padding-bottom: 80px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
   }
 
   .hero-container {
@@ -194,12 +207,11 @@
     height: fit-content;
     
     /* Efecto Neón - Configuración */
-    padding: 3px; /* Este será el grosor de la línea neón */
+    padding: 3px;
     box-sizing: border-box;
     display: flex;
   }
 
-  /* Línea animada (Gradiente Cónico girando en el fondo) */
   .video-container::before {
     content: '';
     position: absolute;
@@ -217,13 +229,12 @@
     z-index: 0;
   }
 
-  /* Capa oscura central para ocultar el interior del gradiente giratorio */
   .video-container::after {
     content: '';
     position: absolute;
-    inset: 3px; /* Coincide con el padding del contenedor */
+    inset: 3px;
     background: #000;
-    border-radius: 21px; /* 24px - 3px del borde */
+    border-radius: 21px;
     z-index: 1;
   }
 
@@ -235,17 +246,17 @@
   .video-container iframe, 
   .video-container video {
     position: relative;
-    z-index: 2; /* Sobre la capa oscura (::after) */
+    z-index: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 21px; /* Para que encaje perfecto dentro del borde */
+    border-radius: 21px;
   }
 
   .video-placeholder-container {
     position: relative;
-    z-index: 2; /* Sobre la capa oscura (::after) */
+    z-index: 2;
     width: 100%;
     height: 100%;
     display: flex;
@@ -253,7 +264,7 @@
     justify-content: center;
     background-size: cover;
     background-position: center;
-    border-radius: 21px; /* Para que encaje perfecto dentro del borde */
+    border-radius: 21px;
   }
 
   /* BARRA INFERIOR DEL VIDEO */
@@ -312,7 +323,6 @@
     color: rgba(99, 102, 241, 0.15);
   }
 
-  /* Diferentes tipos de animaciones para variedad */
   .anim-float { animation: float-anim 8s ease-in-out infinite; }
   .anim-float-slow { animation: float-anim 12s ease-in-out infinite; }
   .anim-float-reverse { animation: float-anim-rev 10s ease-in-out infinite; }
@@ -438,9 +448,9 @@
           {% else %}
             style="background-color: #e5e7eb;"
           {% endif %}>
-           <button class="play-button" style="width: 70px; height: 70px; background: rgba(99, 102, 241, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; border: none; cursor: pointer; z-index: 2;">
-             <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-           </button>
+            <button class="play-button" style="width: 70px; height: 70px; background: rgba(99, 102, 241, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; border: none; cursor: pointer; z-index: 2;">
+              <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
         </div>
       {% endif %}
 
@@ -501,18 +511,13 @@
       const videoContainer = sectionWrapper.querySelector('.video-container');
 
       if (overlayBar) {
-        // 1. Si es un video nativo de Shopify (HTML5)
         if (htmlVideo) {
           htmlVideo.addEventListener('play', () => overlayBar.classList.add('is-hidden'));
           htmlVideo.addEventListener('pause', () => overlayBar.classList.remove('is-hidden'));
         }
 
-        // 2. Si es un video de YouTube / Vimeo (Iframe)
         if (iframe && videoContainer) {
-          // Aseguramos que la ventana tenga foco al pasar el mouse, para que el 'blur' funcione al hacer clic
           videoContainer.addEventListener('mouseenter', () => window.focus());
-          
-          // Al hacer clic dentro del iframe, la ventana principal pierde el foco (blur)
           window.addEventListener('blur', () => {
             setTimeout(() => {
               if (document.activeElement === iframe) {
@@ -522,7 +527,6 @@
           });
         }
 
-        // 3. Si usa el botón placeholder
         if (playBtn) {
           playBtn.addEventListener('click', () => {
             overlayBar.classList.add('is-hidden');
@@ -537,6 +541,21 @@
 {
   "name": "Hero Animado Typewriter",
   "settings": [
+    {
+      "type": "header",
+      "content": "Ajuste de Diseño"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_offset",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Subir sección detrás del menú",
+      "default": 100,
+      "info": "Ajusta este valor para eliminar el espacio en blanco superior y subir el fondo."
+    },
     {
       "type": "header",
       "content": "Colores"
