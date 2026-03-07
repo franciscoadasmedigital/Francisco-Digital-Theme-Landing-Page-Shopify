@@ -139,12 +139,34 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "1772851336843284a0": {
+      "type": "apps",
+      "blocks": {
+        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp": {
+          "type": "shopify://apps/mintt-tiktok-feed/blocks/mintty-tiktok-feed/fa514c33-5475-4484-b270-5f1e7eb87a9a",
+          "settings": {
+            "title": "Síguenos en nuestro TikTok",
+            "title_color": "",
+            "title_size": 32,
+            "alignment": "center",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "cotizacion_servicio_Lwd3fE",
     "methodology_section_8VzfxN",
-    "testimonials_carousel_kHagRi"
+    "testimonials_carousel_kHagRi",
+    "1772851336843284a0"
   ]
 }
