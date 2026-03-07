@@ -1,0 +1,199 @@
+{% comment %}
+  featured-stores-grid.liquid
+  Hecho por [TuNombre/NombreTienda] - Versión 1.0
+  Sección personalizada responsiva para mostrar tiendas con modal de vista completa.
+{% endcomment %}
+
+{{ 'destacadas-cuadricula.css' | asset_url | stylesheet_tag }}
+{{ 'destacadas-cuadricula.js' | asset_url | script_tag }}
+
+<section class="featured-stores color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="collection__title title-wrapper title-wrapper--no-top-margin center">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+    {% endif %}
+
+    <div class="store-grid" id="StoreGrid-{{ section.id }}">
+      {% for block in section.blocks %}
+        <div class="store-card store-card--{{ section.settings.columns_mobile }}-col" {{ block.shopify_attributes }}>
+          <div class="store-card__image-container">
+            {% if block.settings.store_preview_image %}
+              {{ block.settings.store_preview_image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 1100px) 30vw, (min-width: 750px) 45vw, 100vw', alt: block.settings.store_name, class: 'store-card__image' }}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+            <button class="store-card__quick-view" aria-label="Ver imagen completa de {{ block.settings.store_name }}">
+              {% render 'icon-eye' %}
+            </button>
+          </div>
+          <div class="store-card__info">
+            <h3 class="store-card__name">{{ block.settings.store_name }}</h3>
+            <p class="store-card__category">{{ block.settings.store_category }}</p>
+          </div>
+          <div class="store-card__data" style="display:none;" data-name="{{ block.settings.store_name }}" data-category="{{ block.settings.store_category }}">
+            {% if block.settings.store_full_image %}
+              <img src="{{ block.settings.store_full_image | image_url }}" alt="{{ block.settings.store_name }} página de inicio completa">
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% comment %} Estructura del Modal {% endcomment %}
+    <div id="StoreModal" class="store-modal">
+      <div class="store-modal__overlay"></div>
+      <div class="store-modal__container">
+        <div class="store-modal__header">
+          <h2 class="store-modal__title"></h2>
+          <span class="store-modal__separator">•</span>
+          <p class="store-modal__category"></p>
+          <button class="store-modal__close" aria-label="Cerrar modal">
+            {% render 'icon-close' %}
+          </button>
+        </div>
+        <div class="store-modal__body">
+          <div class="store-modal__image-wrapper">
+             {% comment %} La imagen se cargará aquí mediante JS {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% style %}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | multiply: 1.5 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | multiply: 1.5 }}px;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Cuadrícula Tiendas Destacadas",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Tiendas Destacadas",
+      "label": "Título de la Sección"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Pequeño" },
+        { "value": "h1", "label": "Mediano" },
+        { "value": "h0", "label": "Grande" }
+      ],
+      "default": "h1",
+      "label": "Tamaño del título"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de colores",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Columnas en escritorio"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "default": 2,
+      "label": "Columnas en móvil"
+    },
+    {
+      "type": "header",
+      "content": "Relleno de sección"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36,
+      "label": "Relleno superior"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36,
+      "label": "Relleno inferior"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Tienda",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "store_preview_image",
+          "label": "Imagen de Vista Previa (Cuadrícula)"
+        },
+        {
+          "type": "image_picker",
+          "id": "store_full_image",
+          "label": "Imagen de Página de Inicio Completa (Modal)"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "default": "Nombre de la Tienda",
+          "label": "Nombre de la Tienda"
+        },
+        {
+          "type": "text",
+          "id": "store_category",
+          "default": "Ecommerce",
+          "label": "Categoría de la Tienda"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cuadrícula Tiendas Destacadas",
+      "blocks": [
+        { "type": "store" },
+        { "type": "store" },
+        { "type": "store" },
+        { "type": "store" },
+        { "type": "store" },
+        { "type": "store" }
+      ]
+    }
+  ]
+}
+{% endschema %}
