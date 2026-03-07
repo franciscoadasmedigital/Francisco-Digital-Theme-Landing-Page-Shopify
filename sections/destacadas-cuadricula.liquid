@@ -1,11 +1,10 @@
 {% comment %}
   featured-stores-grid.liquid
-  Hecho por [TuNombre/NombreTienda] - Versión 1.0
   Sección personalizada responsiva para mostrar tiendas con modal de vista completa.
 {% endcomment %}
 
 {{ 'destacadas-cuadricula.css' | asset_url | stylesheet_tag }}
-{{ 'destacadas-cuadricula.js' | asset_url | script_tag }}
+<script src="{{ 'destacadas-cuadricula.js' | asset_url }}" defer="defer"></script>
 
 <section class="featured-stores color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="page-width">
@@ -27,7 +26,7 @@
               {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
             <button class="store-card__quick-view" aria-label="Ver imagen completa de {{ block.settings.store_name }}">
-              {% render 'icon-eye' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             </button>
           </div>
           <div class="store-card__info">
@@ -36,7 +35,7 @@
           </div>
           <div class="store-card__data" style="display:none;" data-name="{{ block.settings.store_name }}" data-category="{{ block.settings.store_category }}">
             {% if block.settings.store_full_image %}
-              <img src="{{ block.settings.store_full_image | image_url }}" alt="{{ block.settings.store_name }} página de inicio completa">
+              {{ block.settings.store_full_image | image_url: width: 1500 | image_tag: loading: 'lazy', alt: block.settings.store_name }}
             {% endif %}
           </div>
         </div>
@@ -52,7 +51,7 @@
           <span class="store-modal__separator">•</span>
           <p class="store-modal__category"></p>
           <button class="store-modal__close" aria-label="Cerrar modal">
-            {% render 'icon-close' %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
         <div class="store-modal__body">
@@ -74,15 +73,15 @@
 
 @media screen and (min-width: 750px) {
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | multiply: 1.5 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | multiply: 1.5 }}px;
+    padding-top: {{ section.settings.padding_top | times: 1.5 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 1.5 | round }}px;
   }
 }
 {% endstyle %}
 
 {% schema %}
 {
-  "name": "Cuadrícula Tienda",
+  "name": "Cuadrícula Tiendas",
   "tag": "section",
   "class": "section",
   "settings": [
