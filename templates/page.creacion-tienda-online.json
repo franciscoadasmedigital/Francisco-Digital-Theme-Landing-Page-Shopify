@@ -21,6 +21,7 @@
       "type": "cotizacion-servicio",
       "name": "Servicio Cotización",
       "settings": {
+        "image": "shopify://shop_images/Ejemplo_de_Servicios_3.jpg",
         "title": "Creación de",
         "title_highlight": "Tienda Online",
         "highlight_color": "#5ab24e",
