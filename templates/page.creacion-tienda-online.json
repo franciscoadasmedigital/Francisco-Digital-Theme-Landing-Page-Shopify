@@ -11,13 +11,87 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "cotizacion_servicio_Lwd3fE": {
+      "type": "cotizacion-servicio",
+      "name": "Servicio Cotización",
+      "settings": {
+        "image": "shopify://shop_images/Ejemplo_de_Servicios_3.jpg",
+        "title": "Creación de",
+        "title_highlight": "Tienda Online",
+        "highlight_color": "#5ab24e",
+        "description_1": "<p>¿Quieres llevar tu negocio al mundo digital? Con este servicio, obtendrás un sitio web o e-commerce a medida para <strong>destacar en línea</strong>. El servicio se adapta a tus necesidades. Desde <strong>precios flexibles</strong>, servicio personalizado.</p>",
+        "features_title": "El precio principal incluye:",
+        "features_list": "<ul><li>Hosting confiable.</li><li>Dominio propio.</li><li>Certificado SSL para seguridad.</li><li>Correos corporativos profesionales.</li><li>Creación de tu página principal para reflejar la esencia de tu negocio.</li></ul>",
+        "description_2": "<p>Haz que tu negocio brille en el mundo digital. ¡Deja que este servicio sea tu socio en esta transformación!</p>",
+        "price_label": "Precio desde:",
+        "price": "$399.990",
+        "btn1_text": "Cotizar en web",
+        "btn1_link": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
+        "wa_number": "56988100871",
+        "wa_message": "Hola, quisiera cotizar una tienda online.",
+        "btn2_text": "Cotizar por WhatsApp"
+      }
+    },
+    "methodology_section_8VzfxN": {
+      "type": "methodology-section",
+      "blocks": {
+        "step_ciwhza": {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y Reunión Inicial",
+            "text": "Nos reunimos para entender tu visión y analizar la competencia, además del tipo de página que quieres realizar."
+          }
+        },
+        "step_RfTqRj": {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo y Puesta en Marcha del Proyecto",
+            "text": "Comenzamos a diseñar tu Tienda Online o Página Web, importar tus productos, imágenes, integrar tus pasarelas de pago y envíos, para que tu tienda quede lista para vender."
+          }
+        },
+        "step_YtjiTk": {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Entrega y Capacitación",
+            "text": "Entrego tu tienda lista para vender y una capacitación en videos para que administres tu tienda con seguridad y sin depender de terceros."
+          }
+        }
+      },
+      "block_order": [
+        "step_ciwhza",
+        "step_RfTqRj",
+        "step_YtjiTk"
+      ],
+      "custom_css": [
+        ".methodology-template--17048741183543__methodology_section_8VzfxN {background-color: white;}"
+      ],
+      "name": "Metodología Estratégica",
+      "settings": {
+        "title": "Nuestro proceso de trabajo",
+        "description": "<p>A diferencia de otros, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
+        "image": "shopify://shop_images/photo-1522071820081-009f0129c71c.webp",
+        "stats_number": "10+",
+        "stats_label": "Proyectos Exitosos",
+        "bg_color": "#0f172a",
+        "text_color": "#f8fafc",
+        "accent_color": "#5ab24e",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "cotizacion_servicio_Lwd3fE",
+    "methodology_section_8VzfxN"
   ]
 }
