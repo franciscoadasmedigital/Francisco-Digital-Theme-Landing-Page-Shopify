@@ -37,10 +37,58 @@
         "wa_message": "Hola, quisiera cotizar una tienda online.",
         "btn2_text": "Cotizar por WhatsApp"
       }
+    },
+    "methodology_section_8VzfxN": {
+      "type": "methodology-section",
+      "blocks": {
+        "step_ciwhza": {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y UX",
+            "text": "Analizamos a tu competencia y diseñamos la experiencia del usuario antes de programar."
+          }
+        },
+        "step_RfTqRj": {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo Pixel-Perfect",
+            "text": "Implementamos el diseño asegurando código limpio y adaptable a cualquier dispositivo móvil."
+          }
+        },
+        "step_YtjiTk": {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Lanzamiento y Optimización",
+            "text": "Pruebas exhaustivas de velocidad e integraciones de analítica para una puesta en marcha sin fallos."
+          }
+        }
+      },
+      "block_order": [
+        "step_ciwhza",
+        "step_RfTqRj",
+        "step_YtjiTk"
+      ],
+      "name": "Metodología Estratégica",
+      "settings": {
+        "title": "No es solo diseño, es estrategia y rendimiento.",
+        "description": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
+        "image": "shopify://shop_images/photo-1522071820081-009f0129c71c.webp",
+        "stats_number": "100+",
+        "stats_label": "Proyectos Exitosos",
+        "bg_color": "#0f172a",
+        "text_color": "#f8fafc",
+        "accent_color": "#6366f1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "main",
-    "cotizacion_servicio_Lwd3fE"
+    "cotizacion_servicio_Lwd3fE",
+    "methodology_section_8VzfxN"
   ]
 }
