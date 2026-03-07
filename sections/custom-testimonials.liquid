@@ -1,0 +1,196 @@
+{% comment %}
+  Sección de Testimonios Personalizados para Tema Dawn.
+  Inspirado en image_0.png
+  Estrellas color: #FBBF24
+{% endcomment %}
+
+{{ 'section-custom-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-testimonials section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="custom-testimonials__header title-wrapper title-wrapper--no-top-margin">
+        <h2 class="title custom-testimonials__heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading | escape }}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    <div class="custom-testimonials__grid grid grid--1-col grid--2-col-tablet">
+      {%- for block in section.blocks -%}
+        <div class="custom-testimonials__item grid__item" {{ block.shopify_attributes }}>
+          <div class="custom-testimonials__card card">
+            
+            {% comment %} Contenedor del Logo {% endcomment %}
+            <div class="custom-testimonials__logo-wrapper">
+              {%- if block.settings.logo_image != blank -%}
+                {%- capture sizes -%}
+                  (min-width: 990px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                  (min-width: 750px) calc((100vw - 10rem) / 2),
+                  calc(100vw - 3rem)
+                {%- endcapture -%}
+                {{ block.settings.logo_image | image_url: width: 300 | image_tag:
+                  loading: 'lazy',
+                  sizes: sizes,
+                  widths: '100, 200, 300',
+                  class: 'custom-testimonials__logo-image',
+                  alt: block.settings.logo_image.alt | escape
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg custom-testimonials__placeholder' }}
+              {%- endif -%}
+            </div>
+
+            {% comment %} Texto del Testimonio {% endcomment %}
+            <div class="custom-testimonials__text rte">
+              {{ block.settings.testimonial_text }}
+            </div>
+
+            {% comment %} Pié del Testimonio (Nombre, Estrellas, Fecha) {% endcomment %}
+            <div class="custom-testimonials__footer">
+              {%- if block.settings.author_name != blank -%}
+                <p class="custom-testimonials__author-name h4">
+                  {{ block.settings.author_name | escape }}
+                </p>
+              {%- endif -%}
+
+              <div class="custom-testimonials__stars-date">
+                <div class="custom-testimonials__stars" aria-label="Calificación de 5 estrellas">
+                  <span class="custom-testimonials__star">★</span>
+                  <span class="custom-testimonials__star">★</span>
+                  <span class="custom-testimonials__star">★</span>
+                  <span class="custom-testimonials__star">★</span>
+                  <span class="custom-testimonials__star">★</span>
+                </div>
+                
+                {%- if block.settings.date_text != blank -%}
+                  <span class="custom-testimonials__date light">
+                    {{ block.settings.date_text | escape }}
+                  </span>
+                {%- endif -%}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonios Personalizados",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Experiencias que reflejan nuestro compromiso",
+      "label": "Título de la sección"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo de la empresa"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_text",
+          "default": "<p>«Reemplace este texto con el testimonio del cliente. Es ideal para textos largos.»</p>",
+          "label": "Texto del testimonio"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author_name",
+          "default": "Nombre del Cliente",
+          "label": "Nombre del cliente"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "date_text",
+          "default": "Hace 2 meses",
+          "label": "Fecha o antigüedad"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonios Personalizados",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
