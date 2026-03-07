@@ -94,8 +94,9 @@
         "testimonial_fHKrJX": {
           "type": "testimonial",
           "settings": {
-            "name": "Óptica Visur",
-            "handle": "@optica.visur",
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Matias de Dopes",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -103,8 +104,9 @@
         "testimonial_TbY8MX": {
           "type": "testimonial",
           "settings": {
-            "name": "Elite Solutions",
-            "handle": "@elitesolutions.cl",
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Jorge de Fasmed",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -112,8 +114,9 @@
         "testimonial_E4F6gw": {
           "type": "testimonial",
           "settings": {
-            "name": "Madratek",
-            "handle": "@Madratekstore",
+            "image": "shopify://shop_images/lgoo_farma.png",
+            "name": "Jenny de Farmavitalid",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
