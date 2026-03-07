@@ -21,9 +21,10 @@
       "type": "cotizacion-servicio",
       "name": "Servicio Cotización",
       "settings": {
-        "title": "Creación de sitios",
-        "title_highlight": "WEB",
-        "highlight_color": "#ED4F4F",
+        "image": "shopify://shop_images/web_corporativa.jpg",
+        "title": "Creación",
+        "title_highlight": "Web Corporativa",
+        "highlight_color": "#5db34d",
         "description_1": "<p>¿Quieres llevar tu negocio al mundo digital? Con este servicio, obtendrás un sitio web o e-commerce a medida para <strong>destacar en línea</strong>. El servicio se adapta a tus necesidades. Desde <strong>precios flexibles</strong>, servicio personalizado.</p>",
         "features_title": "El precio principal incluye:",
         "features_list": "<ul><li>Hosting confiable.</li><li>Dominio propio.</li><li>Certificado SSL para seguridad.</li><li>Correos corporativos profesionales.</li><li>Creación de tu página principal para reflejar la esencia de tu negocio.</li></ul>",
