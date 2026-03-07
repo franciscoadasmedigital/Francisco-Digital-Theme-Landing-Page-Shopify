@@ -1,0 +1,244 @@
+{% schema %}
+{
+  "name": "Servicio Cotización",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen del servicio"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Creación de sitios"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Palabra destacada del título",
+      "default": "WEB"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Color de palabra destacada y precio",
+      "default": "#ED4F4F"
+    },
+    {
+      "type": "richtext",
+      "id": "description_1",
+      "label": "Descripción Principal",
+      "default": "<p>¿Quieres llevar tu negocio al mundo digital? Con este servicio, obtendrás un sitio web o e-commerce a medida para <strong>destacar en línea</strong>. El servicio se adapta a tus necesidades. Desde <strong>precios flexibles</strong>, servicio personalizado.</p>"
+    },
+    {
+      "type": "text",
+      "id": "features_title",
+      "label": "Título de características",
+      "default": "El precio principal incluye:"
+    },
+    {
+      "type": "richtext",
+      "id": "features_list",
+      "label": "Lista de características",
+      "default": "<ul><li>Hosting confiable.</li><li>Dominio propio.</li><li>Certificado SSL para seguridad.</li><li>Correos corporativos profesionales.</li><li>Creación de tu página principal para reflejar la esencia de tu negocio.</li></ul>"
+    },
+    {
+      "type": "richtext",
+      "id": "description_2",
+      "label": "Descripción de Cierre",
+      "default": "<p>Haz que tu negocio brille en el mundo digital. ¡Deja que este servicio sea tu socio en esta transformación!</p>"
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Texto del precio",
+      "default": "Precio desde:"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Precio",
+      "default": "$399.990"
+    },
+    {
+      "type": "text",
+      "id": "btn1_text",
+      "label": "Texto Botón Web",
+      "default": "Cotizar en web"
+    },
+    {
+      "type": "text",
+      "id": "btn1_link",
+      "label": "Enlace Botón Web",
+      "default": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0"
+    },
+    {
+      "type": "text",
+      "id": "wa_number",
+      "label": "Número de WhatsApp",
+      "default": "56988100871",
+      "info": "Ejemplo: 56988100871"
+    },
+    {
+      "type": "text",
+      "id": "wa_message",
+      "label": "Mensaje de WhatsApp",
+      "default": "Hola, quisiera cotizar una tienda online."
+    },
+    {
+      "type": "text",
+      "id": "btn2_text",
+      "label": "Texto Botón WhatsApp",
+      "default": "Cotizar por WhatsApp"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Servicio Cotización"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .custom-service-{{ section.id }} {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family: inherit;
+    color: #3a3a3a;
+  }
+  .custom-service-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .custom-service-container {
+      flex-direction: row;
+      align-items: center;
+    }
+    .custom-service-container > div {
+      flex: 1;
+    }
+  }
+  .custom-service-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 15px 15px rgba(0,0,0,0.1));
+  }
+  .custom-service-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #333;
+  }
+  .custom-service-content p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .custom-service-content .features-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .custom-service-content ul {
+    margin-top: 0;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .custom-service-content li {
+    margin-bottom: 5px;
+  }
+  .custom-service-price {
+    font-size: 24px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  .custom-service-price strong {
+    font-weight: bold;
+  }
+  .custom-service-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .btn-custom {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    display: inline-block;
+  }
+  .btn-custom:hover {
+    transform: translateY(-2px);
+  }
+  .btn-web {
+    background-color: #ED4F4F; 
+  }
+  .btn-web:hover {
+    background-color: #d14141; 
+  }
+  .btn-wa {
+    background-color: #00C853; 
+  }
+  .btn-wa:hover {
+    background-color: #00a846; 
+  }
+</style>
+
+<div class="custom-service-{{ section.id }} page-width">
+  <div class="custom-service-container">
+    
+    <div class="custom-service-image">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title }}" width="100%" height="auto" loading="lazy">
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="custom-service-content">
+      <h2>{{ section.settings.title }} <span style="color: {{ section.settings.highlight_color }}">{{ section.settings.title_highlight }}</span></h2>
+      
+      <div class="service-text">
+        {{ section.settings.description_1 }}
+      </div>
+      
+      <div class="features-title">{{ section.settings.features_title }}</div>
+      
+      <div class="service-features">
+        {{ section.settings.features_list }}
+      </div>
+      
+      <div class="service-text-closing">
+        {{ section.settings.description_2 }}
+      </div>
+      
+      <div class="custom-service-price">
+        {{ section.settings.price_label }} <strong style="color: {{ section.settings.highlight_color }}">{{ section.settings.price }}</strong>
+      </div>
+      
+      <div class="custom-service-buttons">
+        <a href="{{ section.settings.btn1_link }}" class="btn-custom btn-web">{{ section.settings.btn1_text }}</a>
+        
+        {% assign wa_msg = section.settings.wa_message | url_encode %}
+        <a href="https://wa.me/{{ section.settings.wa_number }}?text={{ wa_msg }}" target="_blank" class="btn-custom btn-wa">{{ section.settings.btn2_text }}</a>
+      </div>
+    </div>
+
+  </div>
+</div>
