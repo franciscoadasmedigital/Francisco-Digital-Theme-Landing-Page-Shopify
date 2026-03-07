@@ -11,13 +11,35 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "cotizacion_servicio_PWkqda": {
+      "type": "cotizacion-servicio",
+      "name": "Servicio Cotización",
+      "settings": {
+        "title": "Creación de sitios",
+        "title_highlight": "WEB",
+        "highlight_color": "#ED4F4F",
+        "description_1": "<p>¿Quieres llevar tu negocio al mundo digital? Con este servicio, obtendrás un sitio web o e-commerce a medida para <strong>destacar en línea</strong>. El servicio se adapta a tus necesidades. Desde <strong>precios flexibles</strong>, servicio personalizado.</p>",
+        "features_title": "El precio principal incluye:",
+        "features_list": "<ul><li>Hosting confiable.</li><li>Dominio propio.</li><li>Certificado SSL para seguridad.</li><li>Correos corporativos profesionales.</li><li>Creación de tu página principal para reflejar la esencia de tu negocio.</li></ul>",
+        "description_2": "<p>Haz que tu negocio brille en el mundo digital. ¡Deja que este servicio sea tu socio en esta transformación!</p>",
+        "price_label": "Precio desde:",
+        "price": "$399.990",
+        "btn1_text": "Cotizar en web",
+        "btn1_link": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
+        "wa_number": "56988100871",
+        "wa_message": "Hola, quisiera cotizar una tienda online.",
+        "btn2_text": "Cotizar por WhatsApp"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "cotizacion_servicio_PWkqda"
   ]
 }
