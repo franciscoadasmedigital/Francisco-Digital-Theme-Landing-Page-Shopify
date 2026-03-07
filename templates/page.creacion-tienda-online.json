@@ -133,8 +133,8 @@
         "secondary_color": "#10b981",
         "bg_color": "#f1f5f9",
         "text_color": "#0f172a",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },
