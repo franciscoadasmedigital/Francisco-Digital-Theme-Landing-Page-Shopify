@@ -37,10 +37,58 @@
         "wa_message": "Hola, quisiera cotizar una web corporativa.",
         "btn2_text": "Cotizar por WhatsApp"
       }
+    },
+    "methodology_section_Tbnzkk": {
+      "type": "methodology-section",
+      "blocks": {
+        "step_NyJGW4": {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y Reunión Inicial",
+            "text": "Nos reunimos para entender tu visión y analizar la competencia, además del tipo de página que quieres realizar."
+          }
+        },
+        "step_kbVndd": {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo y Puesta en Marcha del Proyecto",
+            "text": "Comenzamos a diseñar tu Tienda Online o Página Web, importar tus productos, imágenes, integrar tus pasarelas de pago y envíos, para que tu tienda quede lista para vender."
+          }
+        },
+        "step_X7wb9T": {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Entrega y Capacitación",
+            "text": "Entrego tu tienda lista para vender y una capacitación en videos para que administres tu tienda con seguridad y sin depender de terceros."
+          }
+        }
+      },
+      "block_order": [
+        "step_NyJGW4",
+        "step_kbVndd",
+        "step_X7wb9T"
+      ],
+      "name": "Metodología Estratégica",
+      "settings": {
+        "title": "Nuestro proceso de trabajo",
+        "description": "<p>A diferencia de otros, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
+        "image": "shopify://shop_images/photo-1522071820081-009f0129c71c.webp",
+        "stats_number": "10+",
+        "stats_label": "Proyectos Exitosos",
+        "bg_color": "#0f172a",
+        "text_color": "#f8fafc",
+        "accent_color": "#5db34d",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "main",
-    "cotizacion_servicio_PWkqda"
+    "cotizacion_servicio_PWkqda",
+    "methodology_section_Tbnzkk"
   ]
 }
