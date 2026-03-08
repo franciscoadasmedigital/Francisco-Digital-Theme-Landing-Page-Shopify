@@ -148,6 +148,7 @@
           "settings": {
             "title": "Síguenos en nuestro TikTok",
             "title_color": "",
+            "title_size": 32,
             "alignment": "center",
             "html_area": ""
           }
