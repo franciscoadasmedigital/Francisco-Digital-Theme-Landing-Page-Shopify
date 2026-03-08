@@ -233,11 +233,11 @@
         "project_j4qmcq": {
           "type": "project",
           "settings": {
-            "image": "shopify://shop_images/Tienda_Fasmed_-_copia.png",
+            "image": "shopify://shop_images/original-52a6923baf7104b1630424babb6b8fca.webp",
             "category": "Shopify",
             "badge_color": "#12ab78",
             "badge_text_color": "#ffffff",
-            "title": "Farmavitalid",
+            "title": "Farmacia Farmavitalid",
             "description": "Tienda online de Farmacia con diseño optimizado para conversión móvil e integración de inventario.",
             "link": ""
           }
