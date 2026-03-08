@@ -11,13 +11,84 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "portafolio_proyectos_TqdUWj": {
+      "type": "portafolio-proyectos",
+      "blocks": {
+        "project_UhfNnK": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/Tienda_Dopets_-_copia.png",
+            "category": "Shopify",
+            "badge_color": "#10b981",
+            "badge_text_color": "#ffffff",
+            "title": "Dopets",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_KeFULK": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/Tienda_Fasmed_-_copia.png",
+            "category": "WordPress",
+            "badge_color": "#4f46e5",
+            "badge_text_color": "#ffffff",
+            "title": "Fasmed Insumos Médicos",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_HfmYGb": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/original-52a6923baf7104b1630424babb6b8fca.webp",
+            "category": "Shopify",
+            "badge_color": "#ffffff",
+            "badge_text_color": "#1e293b",
+            "title": "Farmacia Farmavitalid",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        },
+        "project_8WAfiK": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/piedras_lajas_web.png",
+            "category": "Shopify",
+            "badge_color": "#ffffff",
+            "badge_text_color": "#1e293b",
+            "title": "Piedras Lajas",
+            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "project_UhfNnK",
+        "project_KeFULK",
+        "project_HfmYGb",
+        "project_8WAfiK"
+      ],
+      "name": "Trabajo Reciente Pro",
+      "settings": {
+        "title": "Nuestro Trabajo Reciente",
+        "subtitle": "Proyectos que han transformado marcas y escalado negocios.",
+        "link_text": "Ver detalles del proyecto",
+        "accent_color": "#4f46e5",
+        "bg_color": "#f8fafc",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "portafolio_proyectos_TqdUWj"
   ]
 }
