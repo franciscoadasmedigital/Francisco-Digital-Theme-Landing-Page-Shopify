@@ -71,6 +71,9 @@
         "step_kbVndd",
         "step_X7wb9T"
       ],
+      "custom_css": [
+        ".methodology-template--17048741183543__methodology_section_8VzfxN {background-color: white;}"
+      ],
       "name": "Metodología Estratégica",
       "settings": {
         "title": "Nuestro proceso de trabajo",
@@ -84,11 +87,85 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "testimonials_carousel_8aqgUG": {
+      "type": "testimonials-carousel",
+      "blocks": {
+        "testimonial_qwT3Nz": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Matías de Dopets",
+            "handle": "",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_BPCmpV": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Jorge de Fasmed",
+            "handle": "",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_L8Dchi": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/lgoo_farma.png",
+            "name": "Jenny de Farmavitalid",
+            "handle": "",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_qwT3Nz",
+        "testimonial_BPCmpV",
+        "testimonial_L8Dchi"
+      ],
+      "name": "Testimonios Carrusel",
+      "settings": {
+        "title_start": "Negocios que",
+        "title_accent": "confiaron",
+        "subtitle": "Algunos comentarios:",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f1f5f9",
+        "text_color": "#0f172a",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "177293064172357833": {
+      "type": "apps",
+      "blocks": {
+        "mintt_tiktok_feed_mintty_tiktok_feed_fyaPWC": {
+          "type": "shopify://apps/mintt-tiktok-feed/blocks/mintty-tiktok-feed/fa514c33-5475-4484-b270-5f1e7eb87a9a",
+          "settings": {
+            "title": "Síguenos en nuestro TikTok",
+            "title_color": "",
+            "alignment": "center",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "mintt_tiktok_feed_mintty_tiktok_feed_fyaPWC"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "cotizacion_servicio_PWkqda",
-    "methodology_section_Tbnzkk"
+    "methodology_section_Tbnzkk",
+    "testimonials_carousel_8aqgUG",
+    "177293064172357833"
   ]
 }
