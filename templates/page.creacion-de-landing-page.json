@@ -37,10 +37,129 @@
         "wa_message": "Hola, quisiera cotizar una landing page.",
         "btn2_text": "Cotizar por WhatsApp"
       }
+    },
+    "methodology_section_pqV7Ey": {
+      "type": "methodology-section",
+      "blocks": {
+        "step_qCCzCk": {
+          "type": "step",
+          "settings": {
+            "icon": "search",
+            "title": "Descubrimiento y UX",
+            "text": "Analizamos a tu competencia y diseñamos la experiencia del usuario antes de programar."
+          }
+        },
+        "step_xTLEbn": {
+          "type": "step",
+          "settings": {
+            "icon": "code",
+            "title": "Desarrollo Pixel-Perfect",
+            "text": "Implementamos el diseño asegurando código limpio y adaptable a cualquier dispositivo móvil."
+          }
+        },
+        "step_AABKDK": {
+          "type": "step",
+          "settings": {
+            "icon": "zap",
+            "title": "Lanzamiento y Optimización",
+            "text": "Pruebas exhaustivas de velocidad e integraciones de analítica para una puesta en marcha sin fallos."
+          }
+        }
+      },
+      "block_order": [
+        "step_qCCzCk",
+        "step_xTLEbn",
+        "step_AABKDK"
+      ],
+      "name": "Metodología Estratégica",
+      "settings": {
+        "title": "No es solo diseño, es estrategia y rendimiento.",
+        "description": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
+        "stats_number": "100+",
+        "stats_label": "Proyectos Exitosos",
+        "bg_color": "#0f172a",
+        "text_color": "#f8fafc",
+        "accent_color": "#6366f1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "testimonials_carousel_ga87y7": {
+      "type": "testimonials-carousel",
+      "blocks": {
+        "testimonial_QbAMpa": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Óptica Visur",
+            "handle": "@optica.visur",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_rHGyxw": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Elite Solutions",
+            "handle": "@elitesolutions.cl",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        },
+        "testimonial_qdBkTV": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Madratek",
+            "handle": "@Madratekstore",
+            "rating": 5,
+            "text": "Excelente servicio, la web ha superado mis expectativas."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_QbAMpa",
+        "testimonial_rHGyxw",
+        "testimonial_qdBkTV"
+      ],
+      "name": "Testimonios Carrusel",
+      "settings": {
+        "title_start": "Negocios que",
+        "title_accent": "confiaron",
+        "subtitle": "Algunos comentarios:",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f1f5f9",
+        "text_color": "#0f172a",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "1772931672950c1d8b": {
+      "type": "apps",
+      "blocks": {
+        "mintt_tiktok_feed_mintty_tiktok_feed_gnRFGE": {
+          "type": "shopify://apps/mintt-tiktok-feed/blocks/mintty-tiktok-feed/fa514c33-5475-4484-b270-5f1e7eb87a9a",
+          "settings": {
+            "title": "Síguenos en nuestro TikTok",
+            "title_color": "",
+            "title_size": 32,
+            "alignment": "center",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "mintt_tiktok_feed_mintty_tiktok_feed_gnRFGE"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "cotizacion_servicio_eagz7E"
+    "cotizacion_servicio_eagz7E",
+    "methodology_section_pqV7Ey",
+    "testimonials_carousel_ga87y7",
+    "1772931672950c1d8b"
   ]
 }
