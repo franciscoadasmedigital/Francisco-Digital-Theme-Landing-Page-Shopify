@@ -75,11 +75,12 @@
       "settings": {
         "title": "No es solo diseño, es estrategia y rendimiento.",
         "description": "<p>A diferencia de otras agencias, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
-        "stats_number": "100+",
+        "image": "shopify://shop_images/photo-1522071820081-009f0129c71c.webp",
+        "stats_number": "10+",
         "stats_label": "Proyectos Exitosos",
         "bg_color": "#0f172a",
         "text_color": "#f8fafc",
-        "accent_color": "#6366f1",
+        "accent_color": "#5db34d",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -90,8 +91,9 @@
         "testimonial_QbAMpa": {
           "type": "testimonial",
           "settings": {
-            "name": "Óptica Visur",
-            "handle": "@optica.visur",
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Matías de Dopets",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -99,8 +101,9 @@
         "testimonial_rHGyxw": {
           "type": "testimonial",
           "settings": {
-            "name": "Elite Solutions",
-            "handle": "@elitesolutions.cl",
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Jorge de Fasmed",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
@@ -108,8 +111,9 @@
         "testimonial_qdBkTV": {
           "type": "testimonial",
           "settings": {
-            "name": "Madratek",
-            "handle": "@Madratekstore",
+            "image": "shopify://shop_images/lgoo_farma.png",
+            "name": "Jenny de Farmavitalid",
+            "handle": "",
             "rating": 5,
             "text": "Excelente servicio, la web ha superado mis expectativas."
           }
