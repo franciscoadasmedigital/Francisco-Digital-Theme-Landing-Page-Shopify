@@ -100,18 +100,6 @@
     position: relative;
   }
 
-  .ww-timeline-line {
-    position: absolute;
-    left: 23px; /* Centrado debajo del círculo de 48px */
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, {{ section.settings.gradient_start }}, {{ section.settings.gradient_end }}, transparent);
-    z-index: 1;
-  }
-
-  @media (max-width: 749px) { .ww-timeline-line { display: none; } }
-
   .ww-step {
     position: relative;
     padding-left: 80px;
@@ -125,6 +113,24 @@
   @media (max-width: 749px) { 
     .ww-step { padding-left: 0; margin-bottom: 40px; } 
   }
+
+  /* Nueva clase para las líneas segmentadas */
+  .ww-step-line {
+    position: absolute;
+    left: 23px; /* Centrado debajo del círculo de 48px (48/2 - ancho 2/2) */
+    top: 48px;  /* Comienza justo donde termina el círculo de este paso */
+    bottom: -48px; /* Se extiende a través del margin-bottom hasta el siguiente círculo */
+    width: 2px;
+    z-index: 1;
+  }
+
+  /* La línea del último elemento se difumina hacia abajo */
+  .ww-step:last-child .ww-step-line {
+    bottom: auto;
+    height: 80px; 
+  }
+
+  @media (max-width: 749px) { .ww-step-line { display: none; } }
 
   .ww-step-number {
     position: absolute;
@@ -186,7 +192,6 @@
   <div class="ww-container">
     <div class="ww-grid">
       
-      <!-- Columna Izquierda -->
       <div class="ww-left-side">
         <div class="ww-title-wrapper">
           <h2 class="ww-title">
@@ -208,13 +213,27 @@
         {% endif %}
       </div>
 
-      <!-- Columna Derecha -->
       <div class="ww-right-side">
         <div class="ww-timeline">
-          <div class="ww-timeline-line"></div>
           
           {% for block in section.blocks %}
+            
+            {% comment %} 
+              Lógica para obtener el color del siguiente bloque y crear el degradado correcto 
+            {% endcomment %}
+            {% assign next_index = forloop.index0 | plus: 1 %}
+            {% assign next_block = section.blocks[next_index] %}
+            
+            {% if next_block %}
+              {% assign next_color = next_block.settings.step_color %}
+            {% else %}
+              {% assign next_color = 'transparent' %}
+            {% endif %}
+
             <div class="ww-step" {{ block.shopify_attributes }}>
+              
+              <div class="ww-step-line" style="background: linear-gradient(to bottom, {{ block.settings.step_color }}, {{ next_color }});"></div>
+
               <div class="ww-step-number" style="border-color: {{ block.settings.step_color }}; color: {{ block.settings.step_color }};">{{ forloop.index }}</div>
               
               <div class="ww-step-content-wrapper">
@@ -222,7 +241,6 @@
                   {% if block.settings.custom_svg != blank %}
                     {{ block.settings.custom_svg }}
                   {% else %}
-                    <!-- Ícono por defecto genérico -->
                     <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                   {% endif %}
                 </div>
