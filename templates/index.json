@@ -9,8 +9,28 @@
  */
 {
   "sections": {
+    "hero_text_fadigital_DXDN7g": {
+      "type": "hero-text-fadigital",
+      "name": "Hero Texto FAdigital",
+      "settings": {
+        "margin_top_offset": 100,
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f8fafc",
+        "text_color": "#0f172a",
+        "badge_text": "Expertos en E-commerce y Desarrollo Web",
+        "title_prefix": "Transformamos tu visión en una",
+        "words": "máquina de ventas., tienda de éxito., marca imparable.",
+        "description": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario y la conversión.",
+        "primary_btn_text": "Ver Casos de Éxito",
+        "primary_btn_link": "",
+        "secondary_btn_text": "Nuestros Servicios",
+        "secondary_btn_link": ""
+      }
+    },
     "hero_text_video_gWq46E": {
       "type": "hero-text-video",
+      "disabled": true,
       "name": "Hero texto + video YouTube",
       "settings": {
         "margin_top_offset": 100,
@@ -507,6 +527,7 @@
     }
   },
   "order": [
+    "hero_text_fadigital_DXDN7g",
     "hero_text_video_gWq46E",
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
