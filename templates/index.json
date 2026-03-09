@@ -524,6 +524,52 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "about_me_rFdU3K": {
+      "type": "about-me",
+      "blocks": {
+        "stat_VTwNqg": {
+          "type": "stat",
+          "settings": {
+            "number": "+100",
+            "label": "Clientes con éxito digital",
+            "color": "#6366f1"
+          }
+        },
+        "stat_HP7Hta": {
+          "type": "stat",
+          "settings": {
+            "number": "+50",
+            "label": "Ecosistemas Web Creados",
+            "color": "#10b981"
+          }
+        },
+        "stat_x97PEz": {
+          "type": "stat",
+          "settings": {
+            "number": "+7",
+            "label": "Años de Estrategia Pura",
+            "color": "#6366f1"
+          }
+        }
+      },
+      "block_order": [
+        "stat_VTwNqg",
+        "stat_HP7Hta",
+        "stat_x97PEz"
+      ],
+      "name": "Trayectoria Editorial",
+      "settings": {
+        "badge": "Trayectoria & Visión",
+        "title": "Impulsando la evolución digital de tu negocio.",
+        "description": "<p>Hola, soy Pablete Digital 👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>",
+        "bg_text": "EXPERTO",
+        "bg_color": "#0f172a",
+        "accent_color": "#6366f1",
+        "secondary_color": "#10b981",
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
     }
   },
   "order": [
@@ -536,6 +582,7 @@
     "testimonials_carousel_FUpzyk",
     "pricing_section_fwzPpr",
     "faq_section_fannnd",
-    "contact_form_whatsapp_6feUwW"
+    "contact_form_whatsapp_6feUwW",
+    "about_me_rFdU3K"
   ]
 }
