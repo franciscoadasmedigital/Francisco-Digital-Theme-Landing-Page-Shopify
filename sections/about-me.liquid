@@ -1,0 +1,298 @@
+{% comment %}
+  Sección "Trayectoria Editorial" para Shopify Dawn.
+  Diseño asimétrico con estadísticas flotantes y texto de fondo gigante.
+{% endcomment %}
+
+<style>
+  .about-ed-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Texto Gigante de Fondo */
+  .ed-bg-text-{{ section.id }} {
+    position: absolute;
+    top: 15%;
+    right: -5%;
+    font-size: 20vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .ed-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ed-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  @media (min-width: 990px) {
+    .ed-grid { grid-template-columns: 1.2fr 0.8fr; }
+  }
+
+  /* Lado de la Narrativa */
+  .ed-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 100px;
+    border: 1px solid {{ section.settings.accent_color }}44;
+    background: {{ section.settings.accent_color }}11;
+    color: {{ section.settings.accent_color }};
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+
+  .ed-title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    color: #ffffff;
+  }
+
+  @media (min-width: 750px) { .ed-title { font-size: 60px; } }
+
+  .ed-title span {
+    color: {{ section.settings.accent_color }};
+    font-style: italic;
+  }
+
+  .ed-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #94a3b8;
+    border-left: 3px solid {{ section.settings.secondary_color }}44;
+    padding-left: 24px;
+    max-width: 600px;
+  }
+
+  /* Lado de Estadísticas */
+  .ed-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .ed-stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ed-stat-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    animation: ed-float-{{ section.id }} 6s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ed-stat-card:hover {
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(255,255,255,0.05);
+    transform: scale(1.05);
+  }
+
+  /* Clase para que el último elemento ocupe 2 columnas si es impar */
+  .ed-stat-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .ed-stat-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .ed-stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes ed-float-{{ section.id }} {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @media (max-width: 749px) {
+    .ed-stat-card { padding: 20px; border-radius: 20px; animation: none; }
+    .ed-stat-number { font-size: 40px; }
+  }
+</style>
+
+<div class="about-ed-{{ section.id }}">
+  <div class="ed-bg-text-{{ section.id }}">{{ section.settings.bg_text }}</div>
+
+  <div class="ed-container">
+    <div class="ed-grid">
+      
+      <!-- Bloque de Texto -->
+      <div class="ed-text-side">
+        {% if section.settings.badge != blank %}
+          <span class="ed-badge">{{ section.settings.badge }}</span>
+        {% endif %}
+        <h2 class="ed-title">{{ section.settings.title }}</h2>
+        <div class="ed-desc">
+          {{ section.settings.description }}
+        </div>
+      </div>
+
+      <!-- Bloque de Stats -->
+      <div class="ed-stats-side">
+        <div class="ed-stats-grid">
+          {% for block in section.blocks %}
+            <div class="ed-stat-card {% if forloop.last and section.blocks.size == 3 %}full-width{% endif %}" 
+                 style="animation-delay: {{ forloop.index | times: 0.8 }}s;" 
+                 {{ block.shopify_attributes }}>
+              <span class="ed-stat-number" style="color: {{ block.settings.color }};">{{ block.settings.number }}</span>
+              <span class="ed-stat-label">{{ block.settings.label }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trayectoria Editorial",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Etiqueta superior",
+      "default": "Trayectoria & Visión"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título Principal",
+      "default": "Impulsando la evolución digital de tu negocio."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción Narrativa",
+      "default": "<p>Hola, soy Pablete Digital 👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>"
+    },
+    {
+      "type": "text",
+      "id": "bg_text",
+      "label": "Texto Gigante de Fondo",
+      "default": "EXPERTO"
+    },
+    {
+      "type": "header",
+      "content": "Estilos y Colores"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de Sección",
+      "default": "#0f172a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de Acento (Indigo)",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Color Secundario (Esmeralda)",
+      "default": "#10b981"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 120
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Estadística",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Número",
+          "default": "+100"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Descripción",
+          "default": "Clientes con éxito"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color del Número",
+          "default": "#6366f1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trayectoria Editorial",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "+100", "label": "Clientes con éxito digital", "color": "#6366f1" } },
+        { "type": "stat", "settings": { "number": "+50", "label": "Ecosistemas Web Creados", "color": "#10b981" } },
+        { "type": "stat", "settings": { "number": "+7", "label": "Años de Estrategia Pura", "color": "#6366f1" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
