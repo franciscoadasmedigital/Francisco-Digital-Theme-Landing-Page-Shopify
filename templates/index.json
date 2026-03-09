@@ -560,9 +560,11 @@
       ],
       "name": "Trayectoria Editorial",
       "settings": {
+        "title_1": "Impulsando la evolución",
+        "title_highlight": "digital",
+        "title_2": "de tu negocio.",
         "badge": "Trayectoria & Visión",
-        "title": "Impulsando la evolución digital de tu negocio.",
-        "description": "<p>Hola, soy Pablete Digital 👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>",
+        "description": "<p>Hola, soy Pablete Digital 👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p><p>Tanmbashdghasdshadsaghdgash</p><p>as</p><p>dsa</p>",
         "bg_text": "EXPERTO",
         "bg_color": "#0f172a",
         "accent_color": "#6366f1",
