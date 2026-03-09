@@ -531,7 +531,7 @@
         "stat_VTwNqg": {
           "type": "stat",
           "settings": {
-            "number": "+100",
+            "number": "+15",
             "label": "Clientes con éxito digital",
             "color": "#6366f1"
           }
@@ -539,7 +539,7 @@
         "stat_HP7Hta": {
           "type": "stat",
           "settings": {
-            "number": "+50",
+            "number": "+10",
             "label": "Ecosistemas Web Creados",
             "color": "#10b981"
           }
@@ -547,7 +547,7 @@
         "stat_x97PEz": {
           "type": "stat",
           "settings": {
-            "number": "+7",
+            "number": "+1",
             "label": "Años de Estrategia Pura",
             "color": "#6366f1"
           }
@@ -560,9 +560,11 @@
       ],
       "name": "Trayectoria Editorial",
       "settings": {
+        "title_1": "Impulsando la evolución",
+        "title_highlight": "digital",
+        "title_2": "de tu negocio.",
         "badge": "Trayectoria & Visión",
-        "title": "Impulsando la evolución digital de tu negocio.",
-        "description": "<p>Hola, soy Pablete Digital 👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>",
+        "description": "<p>Hola, soy Francisco👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>",
         "bg_text": "EXPERTO",
         "bg_color": "#0f172a",
         "accent_color": "#6366f1",
