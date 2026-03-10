@@ -161,10 +161,10 @@
         "include_margins": true
       }
     },
-    "why_work_with_me_86XnG7": {
+    "why_work_with_me_nMDhzL": {
       "type": "why-work-with-me",
       "blocks": {
-        "step_gaMTLL": {
+        "step_XVXFTr": {
           "type": "step",
           "settings": {
             "step_color": "#6366f1",
@@ -173,7 +173,7 @@
             "text": "Soluciones personalizadas que capturan tu esencia y conectan con tu audiencia ideal."
           }
         },
-        "step_ENdjdB": {
+        "step_CMN6Nw": {
           "type": "step",
           "settings": {
             "step_color": "#10b981",
@@ -182,7 +182,7 @@
             "text": "Metodología ágil y probada para entregar proyectos a tiempo, con el mejor rendimiento técnico."
           }
         },
-        "step_TtCNkr": {
+        "step_aYLV4g": {
           "type": "step",
           "settings": {
             "step_color": "#a5b4fc",
@@ -193,9 +193,9 @@
         }
       },
       "block_order": [
-        "step_gaMTLL",
-        "step_ENdjdB",
-        "step_TtCNkr"
+        "step_XVXFTr",
+        "step_CMN6Nw",
+        "step_aYLV4g"
       ],
       "name": "Por qué trabajar conmigo",
       "settings": {
@@ -222,6 +222,6 @@
     "methodology_section_8VzfxN",
     "testimonials_carousel_kHagRi",
     "1772851336843284a0",
-    "why_work_with_me_86XnG7"
+    "why_work_with_me_nMDhzL"
   ]
 }
