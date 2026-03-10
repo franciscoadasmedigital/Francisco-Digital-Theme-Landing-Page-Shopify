@@ -114,20 +114,19 @@
     .ww-step { padding-left: 0; margin-bottom: 40px; } 
   }
 
-  /* Nueva clase para las líneas segmentadas */
+  /* FIX LÍNEAS: Ahora usan height explícito y nacen del centro */
   .ww-step-line {
     position: absolute;
-    left: 23px; /* Centrado debajo del círculo de 48px (48/2 - ancho 2/2) */
-    top: 48px;  /* Comienza justo donde termina el círculo de este paso */
-    bottom: -48px; /* Se extiende a través del margin-bottom hasta el siguiente círculo */
+    left: 23px; /* Centrado en el círculo de 48px */
+    top: 24px; /* Nace exactamente desde la mitad del círculo actual */
+    height: calc(100% + 48px); /* Altura del bloque actual + los 48px de margen hasta el siguiente */
     width: 2px;
-    z-index: 1;
+    z-index: 1; /* Por debajo del círculo */
   }
 
-  /* La línea del último elemento se difumina hacia abajo */
+  /* El último paso tiene una línea que se desvanece y no llega al siguiente */
   .ww-step:last-child .ww-step-line {
-    bottom: auto;
-    height: 80px; 
+    height: calc(100% - 24px); 
   }
 
   @media (max-width: 749px) { .ww-step-line { display: none; } }
@@ -139,7 +138,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: {{ section.settings.bg_color }};
+    background: {{ section.settings.bg_color }}; /* Fondo sólido importante para tapar la línea */
     border: 2px solid {{ section.settings.gradient_start }};
     color: {{ section.settings.gradient_start }};
     display: flex;
@@ -147,7 +146,7 @@
     justify-content: center;
     font-size: 18px;
     font-weight: 800;
-    z-index: 2;
+    z-index: 2; /* Por encima de la línea */
   }
 
   @media (max-width: 749px) { .ww-step-number { display: none; } }
@@ -219,20 +218,18 @@
           {% for block in section.blocks %}
             
             {% comment %} 
-              Lógica para obtener el color del siguiente bloque y crear el degradado correcto 
+              Lógica para obtener el color del siguiente bloque de forma segura
             {% endcomment %}
             {% assign next_index = forloop.index0 | plus: 1 %}
-            {% assign next_block = section.blocks[next_index] %}
-            
-            {% if next_block %}
-              {% assign next_color = next_block.settings.step_color %}
+            {% if section.blocks[next_index] %}
+              {% assign next_color = section.blocks[next_index].settings.step_color %}
             {% else %}
               {% assign next_color = 'transparent' %}
             {% endif %}
 
             <div class="ww-step" {{ block.shopify_attributes }}>
               
-              <div class="ww-step-line" style="background: linear-gradient(to bottom, {{ block.settings.step_color }}, {{ next_color }});"></div>
+              <div class="ww-step-line" style="background-image: linear-gradient(to bottom, {{ block.settings.step_color }} 0%, {{ next_color }} 100%);"></div>
 
               <div class="ww-step-number" style="border-color: {{ block.settings.step_color }}; color: {{ block.settings.step_color }};">{{ forloop.index }}</div>
               
@@ -327,7 +324,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Fondo de la Sección",
-      "default": "#e2e2e2"
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -415,8 +412,7 @@
           "settings": {
             "step_color": "#6366f1",
             "title": "DISEÑO A LA MEDIDA DE TU MARCA",
-            "text": "Soluciones personalizadas que capturan tu esencia y conectan con tu audiencia ideal.",
-            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z\"/></svg>"
+            "text": "Soluciones personalizadas que capturan tu esencia y conectan con tu audiencia ideal."
           }
         },
         {
@@ -424,8 +420,7 @@
           "settings": {
             "step_color": "#10b981",
             "title": "PROCESO DE DESARROLLO EFICIENTE",
-            "text": "Metodología ágil y probada para entregar proyectos a tiempo, con el mejor rendimiento técnico.",
-            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"/></svg>"
+            "text": "Metodología ágil y probada para entregar proyectos a tiempo, con el mejor rendimiento técnico."
           }
         },
         {
@@ -433,8 +428,7 @@
           "settings": {
             "step_color": "#a5b4fc",
             "title": "ACCESO A EXPERIENCIA MULTIDISCIPLINARIA",
-            "text": "Especialistas trabajando en sinergia para lograr un resultado integral y rentable.",
-            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>"
+            "text": "Especialistas trabajando en sinergia para lograr un resultado integral y rentable."
           }
         }
       ]
