@@ -111,6 +111,15 @@
     height: 12px;
   }
   
+  /* NUEVO CONTENEDOR PARA APILAR LAS INSIGNIAS */
+  .fa-footer-badges-container {
+    display: flex;
+    flex-direction: column; /* Apila los elementos hacia abajo */
+    gap: 15px; /* Espacio entre cada insignia */
+    align-self: start; /* ESTO EVITA QUE SE ESTIRE EN ESCRITORIO */
+    margin-top: 10px;
+  }
+
   /* ESTILOS CORREGIDOS DE LA INSIGNIA */
   .fa-footer-badge {
     display: flex;
@@ -120,8 +129,6 @@
     border-radius: 50px;       
     padding: 12px 25px;       
     width: fit-content;        
-    align-self: start; /* ESTO EVITA QUE SE ESTIRE EN ESCRITORIO */
-    margin-top: 10px;          
   }
   
   .fa-footer-badge img {
@@ -215,13 +222,34 @@
         {% endif %}
       </div>
 
-      <div class="fa-footer-badge">
+      <div class="fa-footer-badges-container">
+        
         {% if section.settings.partner_url != blank %}
-          <img src="{{ section.settings.partner_url }}" alt="Shopify Partners" loading="lazy">
+          <div class="fa-footer-badge">
+            <img src="{{ section.settings.partner_url }}" alt="Shopify Partners" loading="lazy">
+          </div>
         {% endif %}
+        
+        {% if section.settings.partner_url_2 != blank %}
+          <div class="fa-footer-badge">
+            <img src="{{ section.settings.partner_url_2 }}" alt="Insignia 2" loading="lazy">
+          </div>
+        {% endif %}
+        
+        {% if section.settings.partner_url_3 != blank %}
+          <div class="fa-footer-badge">
+            <img src="{{ section.settings.partner_url_3 }}" alt="Insignia 3" loading="lazy">
+          </div>
+        {% endif %}
+        
+        {% if section.settings.partner_url_4 != blank %}
+          <div class="fa-footer-badge">
+            <img src="{{ section.settings.partner_url_4 }}" alt="Insignia 4" loading="lazy">
+          </div>
+        {% endif %}
+
       </div>
-      
-    </div>
+      </div>
 
     <div class="fa-footer-bottom">
       <p>{{ section.settings.copyright_text }}</p>
@@ -305,13 +333,28 @@
     },
     {
       "type": "header",
-      "content": "Insignia Partner"
+      "content": "Insignias"
     },
     {
       "type": "text",
       "id": "partner_url",
-      "label": "URL Imagen Shopify Partner",
+      "label": "URL Insignia 1 (Shopify Partner)",
       "default": "https://cdn.shopify.com/s/files/1/0623/0851/5895/files/logo_shopify_partners.webp?v=1772757551"
+    },
+    {
+      "type": "text",
+      "id": "partner_url_2",
+      "label": "URL Insignia 2 (Opcional)"
+    },
+    {
+      "type": "text",
+      "id": "partner_url_3",
+      "label": "URL Insignia 3 (Opcional)"
+    },
+    {
+      "type": "text",
+      "id": "partner_url_4",
+      "label": "URL Insignia 4 (Opcional)"
     },
     {
       "type": "header",
