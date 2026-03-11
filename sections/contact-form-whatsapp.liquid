@@ -264,10 +264,10 @@
       const message = document.getElementById('wa-message').value;
 
       // Formatear mensaje para WhatsApp
-      const text = `Hola! Me gustaría solicitar un presupuesto.%0A%0A` +
-                   `*Nombre:* ${name}%0A` +
-                   `*Interés:* ${platform}%0A` +
-                   `*Mensaje:* ${message}`;
+      const text = `Hola! 👋 Me gustaría solicitar una cotización.%0A%0A` +
+                   `*👤Nombre:* ${name}%0A` +
+                   `*🛒Servicio:* ${platform}%0A` +
+                   `*💬Detalles del proyecto:* ${message}`;
 
       // Crear URL y redirigir
       const waUrl = `https://wa.me/${phone}?text=${text}`;
