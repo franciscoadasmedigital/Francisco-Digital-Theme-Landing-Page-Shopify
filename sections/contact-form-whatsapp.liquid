@@ -307,17 +307,20 @@
       const rubro = document.getElementById('wa-rubro').value;
       const platform = document.getElementById('wa-platform').value;
       const message = document.getElementById('wa-message').value;
-      const meeting = document.getElementById('wa-meeting').value; // Nueva constante
+      const meeting = document.getElementById('wa-meeting').value;
 
-      // Formateamos el mensaje incluyendo la opción de la reunión
-      const text = `Hola! 👋 Me gustaría solicitar una cotización.%0A%0A` +
-                   `*👤 Nombre:* ${name}%0A` +
-                   `*🏢 Rubro:* ${rubro}%0A` +
-                   `*🛒 Servicio:* ${platform}%0A` +
-                   `*📅 Reunión:* ${meeting}%0A` +
+      // Formateamos el mensaje usando saltos de línea reales (\n)
+      const text = `Hola! 👋 Me gustaría solicitar una cotización.\n\n` +
+                   `*👤 Nombre:* ${name}\n` +
+                   `*🏢 Rubro:* ${rubro}\n` +
+                   `*🛒 Servicio:* ${platform}\n` +
+                   `*📅 Reunión:* ${meeting}\n` +
                    `*💬 Detalles del proyecto:* ${message}`;
 
-      const waUrl = `https://wa.me/${phone}?text=${text}`;
+      // Codificamos todo el texto para que la URL no rompa los emojis ni las tildes
+      const encodedText = encodeURIComponent(text);
+
+      const waUrl = `https://wa.me/${phone}?text=${encodedText}`;
       window.open(waUrl, '_blank');
     });
   });
