@@ -23,7 +23,7 @@
         "words": "máquina de ventas., tienda de éxito., marca imparable.",
         "description": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario y la conversión.",
         "primary_btn_text": "Ver Casos de Éxito",
-        "primary_btn_link": "",
+        "primary_btn_link": "#trabajos-recientes",
         "secondary_btn_text": "Nuestros Servicios",
         "secondary_btn_link": ""
       }
@@ -176,6 +176,54 @@
         "padding_bottom": 72
       }
     },
+    "about_me_rFdU3K": {
+      "type": "about-me",
+      "blocks": {
+        "stat_VTwNqg": {
+          "type": "stat",
+          "settings": {
+            "number": "+15",
+            "label": "Clientes con éxito digital",
+            "color": "#6366f1"
+          }
+        },
+        "stat_HP7Hta": {
+          "type": "stat",
+          "settings": {
+            "number": "+10",
+            "label": "Ecosistemas Web Creados",
+            "color": "#10b981"
+          }
+        },
+        "stat_x97PEz": {
+          "type": "stat",
+          "settings": {
+            "number": "+1",
+            "label": "Años de Estrategia Pura",
+            "color": "#6366f1"
+          }
+        }
+      },
+      "block_order": [
+        "stat_VTwNqg",
+        "stat_HP7Hta",
+        "stat_x97PEz"
+      ],
+      "name": "Trayectoria Editorial",
+      "settings": {
+        "title_1": "Impulsando la evolución",
+        "title_highlight": "digital",
+        "title_2": "de tu negocio.",
+        "badge": "¿Quién soy?",
+        "description": "<p>Hola, soy <strong>Francisco 👋</strong>, estudiante de Ingeniería Civil Industrial en Chile y apasionado por el mundo de los negocios digitales. Me dedico a crear <strong>landing pages, webs corporativas y tiendas online</strong> modernas y estratégicas que ayudan a empresas y emprendedores a potenciar su presencia digital y generar nuevas oportunidades. Trabajo cada proyecto con dedicación y atención al detalle, asegurando que cada web refleje la visión y los objetivos de cada cliente.</p>",
+        "bg_text": "EXPERTO",
+        "bg_color": "#0f172a",
+        "accent_color": "#6366f1",
+        "secondary_color": "#10b981",
+        "padding_top": 68,
+        "padding_bottom": 68
+      }
+    },
     "methodology_section_ADTkQh": {
       "type": "methodology-section",
       "blocks": {
@@ -209,11 +257,14 @@
         "step_796CR8",
         "step_kM3GPK"
       ],
+      "custom_css": [
+        ".methodology-template--16982336340023__methodology_section_ADTkQh {background-color: white;}"
+      ],
       "name": "Metodología Estratégica",
       "settings": {
-        "title": "No es solo diseño, es estrategia y rendimiento.",
+        "title": "Nuestro proceso de trabajo",
         "description": "<p>A diferencia de otros, no te entregamos una plantilla y desaparecemos. Nos involucramos en tu modelo de negocio.</p>",
-        "image": "shopify://shop_images/original-b113971a091ebeb9d7c02927c7f61dec.webp",
+        "image": "shopify://shop_images/photo-1522071820081-009f0129c71c.webp",
         "stats_number": "10+",
         "stats_label": "Proyectos Exitosos",
         "bg_color": "#0f172a",
@@ -234,7 +285,7 @@
             "badge_color": "#5db34d",
             "badge_text_color": "#ffffff",
             "title": "Dopets",
-            "description": "Tienda online de mascotas con diseño optimizado para conversión móvil e integración de inventario.",
+            "description": "Tienda online de mascotas desarrollada desde cero, con importación completa de productos y diseño optimizado para conversión móvil. Se implementó una estructura pensada para aumentar ventas y mejorar el posicionamiento SEO local en las comunas donde realizan delivery.",
             "link": "https://dopets.cl/"
           }
         },
@@ -246,7 +297,7 @@
             "badge_color": "#5db34d",
             "badge_text_color": "#ffffff",
             "title": "Fasmed Insumos Médicos",
-            "description": "Tienda online de insumos médicos con diseño optimizado para conversión móvil e integración de inventario.",
+            "description": "Rediseño completo de tienda online de insumos médicos enfocado en mejorar la experiencia de compra y aumentar el ticket promedio. Se implementó una estrategia de agrupación de productos mediante kits por rubro para facilitar la compra y potenciar las ventas.",
             "link": ""
           }
         },
@@ -258,7 +309,7 @@
             "badge_color": "#5db34d",
             "badge_text_color": "#ffffff",
             "title": "Farmacia Farmavitalid",
-            "description": "Tienda online de Farmacia con diseño optimizado para conversión móvil e integración de inventario.",
+            "description": "Tienda online de farmacia desarrollada desde cero, con importación completa de productos y diseño totalmente responsivo. La plataforma fue optimizada para mejorar la experiencia de compra y aumentar la conversión en dispositivos móviles.",
             "link": ""
           }
         },
@@ -270,7 +321,7 @@
             "badge_color": "#2d66e3",
             "badge_text_color": "#ffffff",
             "title": "Piedras Lajas",
-            "description": "Tienda online de moda con diseño optimizado para conversión móvil e integración de inventario.",
+            "description": "Landing page desarrollada para una empresa de venta de piedra laja por m². Se creó para generar presencia digital, mostrar sus servicios de forma clara y facilitar la captación de clientes mediante contacto directo.",
             "link": ""
           }
         }
@@ -302,7 +353,7 @@
             "name": "Dopets",
             "handle": "@dopets.cl",
             "rating": 5,
-            "text": "Muy conforme con los servicios de desarrollo web que me han ofrecido, la inversión ha valido totalmente la pena, y espero poder seguir trabajando en conjunto."
+            "text": "Muy conforme con el servicio que nos presto Francisco. Quedamos muy felices con la tienda online de Dopets, ya que es rápida, fácil de usar y ahora nuestros clientes pueden comprar productos para sus mascotas sin complicaciones."
           }
         },
         "testimonial_A6VcTm": {
@@ -312,7 +363,7 @@
             "name": "Fasmed Insumos Médicos",
             "handle": "@fasmed.cl",
             "rating": 5,
-            "text": "La creación de la tienda online, más la optimización de SEO hicieron que lograra vender un 7000% más en un periodo de 6 meses."
+            "text": "El rediseño de nuestra página web fue un gran cambio. Ahora el sitio se ve moderno, ordenado y mucho más fácil de navegar para nuestros clientes."
           }
         },
         "testimonial_RFnnPg": {
@@ -322,7 +373,7 @@
             "name": "Piedra Laja",
             "handle": "@piedralajacurico",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "Excelente servicio, gracias a la nueva landing page ahora podemos mostrar nuestros servicios de forma simple y captar más consultas de clientes."
           }
         },
         "testimonial_a9QqiW": {
@@ -332,7 +383,7 @@
             "name": "Farmacia Farmavitalid",
             "handle": "@farmavitalid",
             "rating": 5,
-            "text": "Me ayudó a lograr las ventas deseadas durante 3 años en mi tienda online con el nuevo diseño, la velocidad y el soporte."
+            "text": "La tienda online quedó excelente. Francisco hizo un excelente trabajo y ahora nuestros clientes pueden comprar medicamentos y productos de forma rápida y sencilla."
           }
         },
         "testimonial_KCABaH": {
@@ -342,7 +393,7 @@
             "name": "Skoll Company",
             "handle": "@skollcompany",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "La landing page superó nuestras expectativas. El diseño es atractivo y transmite muy bien lo que hacemos."
           }
         },
         "testimonial_XKVrYV": {
@@ -352,7 +403,7 @@
             "name": "Instrucontrol",
             "handle": "@instrucontrol",
             "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
+            "text": "La página quedó muy clara y profesional. Ahora podemos mostrar nuestros servicios de forma mucho más ordenada."
           }
         }
       },
@@ -387,7 +438,7 @@
             "badge_text": "Más contratado",
             "title": "Landing Page",
             "price": "200",
-            "features": "Diseño personalizado y enfocado en conversión\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
+            "features": "Diseño personalizado y enfocado en conversión\n1-2 páginas optimizada para ventas o captación de clientes\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://pages/creacion-de-landing-page"
           }
@@ -399,7 +450,7 @@
             "badge_text": "Más contratado",
             "title": "Web Corporativa",
             "price": "250",
-            "features": "Diseño personalizado y enfocado en conversión\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
+            "features": "Diseño personalizado y enfocado en presentar la información clara y organizada a tus clientes\nHasta 6 páginas internas (Inicio, Servicios, Nosotros, Contacto, etc.)\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://pages/creacion-de-web-corporativa"
           }
@@ -524,54 +575,6 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
-    },
-    "about_me_rFdU3K": {
-      "type": "about-me",
-      "blocks": {
-        "stat_VTwNqg": {
-          "type": "stat",
-          "settings": {
-            "number": "+15",
-            "label": "Clientes con éxito digital",
-            "color": "#6366f1"
-          }
-        },
-        "stat_HP7Hta": {
-          "type": "stat",
-          "settings": {
-            "number": "+10",
-            "label": "Ecosistemas Web Creados",
-            "color": "#10b981"
-          }
-        },
-        "stat_x97PEz": {
-          "type": "stat",
-          "settings": {
-            "number": "+1",
-            "label": "Años de Estrategia Pura",
-            "color": "#6366f1"
-          }
-        }
-      },
-      "block_order": [
-        "stat_VTwNqg",
-        "stat_HP7Hta",
-        "stat_x97PEz"
-      ],
-      "name": "Trayectoria Editorial",
-      "settings": {
-        "title_1": "Impulsando la evolución",
-        "title_highlight": "digital",
-        "title_2": "de tu negocio.",
-        "badge": "Trayectoria & Visión",
-        "description": "<p>Hola, soy Francisco👋. Hace 7 años descubrí que una web no debe ser solo un folleto digital, sino un activo financiero que trabaje 24/7 para ti.</p>",
-        "bg_text": "EXPERTO",
-        "bg_color": "#0f172a",
-        "accent_color": "#6366f1",
-        "secondary_color": "#10b981",
-        "padding_top": 120,
-        "padding_bottom": 120
-      }
     }
   },
   "order": [
@@ -579,12 +582,12 @@
     "hero_text_video_gWq46E",
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
+    "about_me_rFdU3K",
     "methodology_section_ADTkQh",
     "portafolio_proyectos_hDPbXt",
     "testimonials_carousel_FUpzyk",
     "pricing_section_fwzPpr",
     "faq_section_fannnd",
-    "contact_form_whatsapp_6feUwW",
-    "about_me_rFdU3K"
+    "contact_form_whatsapp_6feUwW"
   ]
 }
