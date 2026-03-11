@@ -176,6 +176,54 @@
         "padding_bottom": 72
       }
     },
+    "about_me_rFdU3K": {
+      "type": "about-me",
+      "blocks": {
+        "stat_VTwNqg": {
+          "type": "stat",
+          "settings": {
+            "number": "+15",
+            "label": "Clientes con éxito digital",
+            "color": "#6366f1"
+          }
+        },
+        "stat_HP7Hta": {
+          "type": "stat",
+          "settings": {
+            "number": "+10",
+            "label": "Ecosistemas Web Creados",
+            "color": "#10b981"
+          }
+        },
+        "stat_x97PEz": {
+          "type": "stat",
+          "settings": {
+            "number": "+1",
+            "label": "Años de Estrategia Pura",
+            "color": "#6366f1"
+          }
+        }
+      },
+      "block_order": [
+        "stat_VTwNqg",
+        "stat_HP7Hta",
+        "stat_x97PEz"
+      ],
+      "name": "Trayectoria Editorial",
+      "settings": {
+        "title_1": "Impulsando la evolución",
+        "title_highlight": "digital",
+        "title_2": "de tu negocio.",
+        "badge": "¿Quién soy?",
+        "description": "<p>Hola, soy <strong>Francisco 👋</strong>, estudiante de Ingeniería Civil Industrial en Chile y apasionado por el mundo de los negocios digitales. Me dedico a crear <strong>landing pages, webs corporativas y tiendas online</strong> modernas y estratégicas que ayudan a empresas y emprendedores a potenciar su presencia digital y generar nuevas oportunidades. Trabajo cada proyecto con dedicación y atención al detalle, asegurando que cada web refleje la visión y los objetivos de cada cliente.</p>",
+        "bg_text": "EXPERTO",
+        "bg_color": "#0f172a",
+        "accent_color": "#6366f1",
+        "secondary_color": "#10b981",
+        "padding_top": 68,
+        "padding_bottom": 68
+      }
+    },
     "methodology_section_ADTkQh": {
       "type": "methodology-section",
       "blocks": {
@@ -527,54 +575,6 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
-    },
-    "about_me_rFdU3K": {
-      "type": "about-me",
-      "blocks": {
-        "stat_VTwNqg": {
-          "type": "stat",
-          "settings": {
-            "number": "+15",
-            "label": "Clientes con éxito digital",
-            "color": "#6366f1"
-          }
-        },
-        "stat_HP7Hta": {
-          "type": "stat",
-          "settings": {
-            "number": "+10",
-            "label": "Ecosistemas Web Creados",
-            "color": "#10b981"
-          }
-        },
-        "stat_x97PEz": {
-          "type": "stat",
-          "settings": {
-            "number": "+1",
-            "label": "Años de Estrategia Pura",
-            "color": "#6366f1"
-          }
-        }
-      },
-      "block_order": [
-        "stat_VTwNqg",
-        "stat_HP7Hta",
-        "stat_x97PEz"
-      ],
-      "name": "Trayectoria Editorial",
-      "settings": {
-        "title_1": "Impulsando la evolución",
-        "title_highlight": "digital",
-        "title_2": "de tu negocio.",
-        "badge": "¿Quién soy?",
-        "description": "<p>Hola, soy <strong>Francisco 👋</strong>, estudiante de Ingeniería Civil Industrial en Chile y apasionado por el mundo de los negocios digitales. Me dedico a crear <strong>landing pages, webs corporativas y tiendas online</strong> modernas y estratégicas que ayudan a empresas y emprendedores a potenciar su presencia digital y generar nuevas oportunidades. Trabajo cada proyecto con dedicación y atención al detalle, asegurando que cada web refleje la visión y los objetivos de cada cliente.</p>",
-        "bg_text": "EXPERTO",
-        "bg_color": "#0f172a",
-        "accent_color": "#6366f1",
-        "secondary_color": "#10b981",
-        "padding_top": 68,
-        "padding_bottom": 68
-      }
     }
   },
   "order": [
@@ -582,12 +582,12 @@
     "hero_text_video_gWq46E",
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
+    "about_me_rFdU3K",
     "methodology_section_ADTkQh",
     "portafolio_proyectos_hDPbXt",
     "testimonials_carousel_FUpzyk",
     "pricing_section_fwzPpr",
     "faq_section_fannnd",
-    "contact_form_whatsapp_6feUwW",
-    "about_me_rFdU3K"
+    "contact_form_whatsapp_6feUwW"
   ]
 }
