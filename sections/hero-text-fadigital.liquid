@@ -372,10 +372,12 @@
       if (words.length > 0) type();
     }
 
-    // --- NUEVO: SCROLL SUAVE PARA LOS BOTONES ---
-    const primaryBtn = document.querySelector('.hero-wrapper-{{ section.id }} .btn-primary');
-    if (primaryBtn) {
-      primaryBtn.addEventListener('click', function(e) {
+    // --- NUEVO: SCROLL SUAVE PARA AMBOS BOTONES ---
+    // Seleccionamos tanto el botón primario como el secundario
+    const scrollBtns = document.querySelectorAll('.hero-wrapper-{{ section.id }} .btn-primary, .hero-wrapper-{{ section.id }} .btn-secondary');
+    
+    scrollBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         // Solo aplica el scroll suave si el enlace es un ancla (empieza con #)
         if (targetId && targetId.startsWith('#') && targetId.length > 1) {
@@ -389,7 +391,7 @@
           }
         }
       });
-    }
+    });
   });
 </script>
 
