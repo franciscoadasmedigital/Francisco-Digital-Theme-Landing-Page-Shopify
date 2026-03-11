@@ -371,6 +371,25 @@
       }
       if (words.length > 0) type();
     }
+
+    // --- NUEVO: SCROLL SUAVE PARA LOS BOTONES ---
+    const primaryBtn = document.querySelector('.hero-wrapper-{{ section.id }} .btn-primary');
+    if (primaryBtn) {
+      primaryBtn.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        // Solo aplica el scroll suave si el enlace es un ancla (empieza con #)
+        if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            e.preventDefault();
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    }
   });
 </script>
 
