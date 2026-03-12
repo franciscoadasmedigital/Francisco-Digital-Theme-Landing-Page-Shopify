@@ -288,6 +288,12 @@
   }
 
   @media screen and (max-width: 749px) {
+    .js menu-drawer > details > summary::before,
+    .js menu-drawer > details[open]:not(.menu-opening) > summary::before,
+    .header__icon--menu[aria-expanded='true']::before {
+      background: transparent;
+    }
+
     #menu-drawer {
       background: linear-gradient(180deg, #0c1f52 0%, #08173e 100%);
       color: #ffffff;
