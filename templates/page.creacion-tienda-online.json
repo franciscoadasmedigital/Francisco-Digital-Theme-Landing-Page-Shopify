@@ -88,79 +88,6 @@
         "padding_bottom": 20
       }
     },
-    "testimonials_carousel_kHagRi": {
-      "type": "testimonials-carousel",
-      "blocks": {
-        "testimonial_fHKrJX": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/Logo_Dopets.jpg",
-            "name": "Matias de Dopes",
-            "handle": "",
-            "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
-          }
-        },
-        "testimonial_TbY8MX": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
-            "name": "Jorge de Fasmed",
-            "handle": "",
-            "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
-          }
-        },
-        "testimonial_E4F6gw": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/lgoo_farma.png",
-            "name": "Jenny de Farmavitalid",
-            "handle": "",
-            "rating": 5,
-            "text": "Excelente servicio, la web ha superado mis expectativas."
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_fHKrJX",
-        "testimonial_TbY8MX",
-        "testimonial_E4F6gw"
-      ],
-      "name": "Testimonios Carrusel",
-      "settings": {
-        "title_start": "Negocios que",
-        "title_accent": "confiaron",
-        "subtitle": "Algunos comentarios:",
-        "primary_color": "#4f46e5",
-        "secondary_color": "#10b981",
-        "bg_color": "#f1f5f9",
-        "text_color": "#0f172a",
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "1772851336843284a0": {
-      "type": "apps",
-      "blocks": {
-        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp": {
-          "type": "shopify://apps/mintt-tiktok-feed/blocks/mintty-tiktok-feed/fa514c33-5475-4484-b270-5f1e7eb87a9a",
-          "settings": {
-            "title": "Síguenos en nuestro TikTok",
-            "title_color": "",
-            "title_size": 32,
-            "alignment": "center",
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "why_work_with_me_nMDhzL": {
       "type": "why-work-with-me",
       "blocks": {
@@ -214,14 +141,87 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "testimonials_carousel_kHagRi": {
+      "type": "testimonials-carousel",
+      "blocks": {
+        "testimonial_fHKrJX": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Logo_Dopets.jpg",
+            "name": "Matias de Dopes",
+            "handle": "",
+            "rating": 5,
+            "text": "Muy conforme con el servicio que nos presto Francisco. Quedamos muy felices con la tienda online de Dopets, ya que es rápida, fácil de usar y ahora nuestros clientes pueden comprar productos para sus mascotas sin complicaciones"
+          }
+        },
+        "testimonial_TbY8MX": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Logo_fasmed_fondo_blanco.png",
+            "name": "Jorge de Fasmed",
+            "handle": "",
+            "rating": 5,
+            "text": "El rediseño de nuestra página web fue un gran cambio. Ahora el sitio se ve moderno, ordenado y mucho más fácil de navegar para nuestros clientes."
+          }
+        },
+        "testimonial_E4F6gw": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/lgoo_farma.png",
+            "name": "Jenny de Farmavitalid",
+            "handle": "",
+            "rating": 5,
+            "text": "La tienda online quedó excelente. Francisco hizo un excelente trabajo y ahora nuestros clientes pueden comprar medicamentos y productos de forma rápida y sencilla."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_fHKrJX",
+        "testimonial_TbY8MX",
+        "testimonial_E4F6gw"
+      ],
+      "name": "Testimonios Carrusel",
+      "settings": {
+        "title_start": "Negocios que",
+        "title_accent": "confiaron",
+        "subtitle": "Algunos comentarios:",
+        "primary_color": "#4f46e5",
+        "secondary_color": "#10b981",
+        "bg_color": "#f1f5f9",
+        "text_color": "#0f172a",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "1772851336843284a0": {
+      "type": "apps",
+      "blocks": {
+        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp": {
+          "type": "shopify://apps/mintt-tiktok-feed/blocks/mintty-tiktok-feed/fa514c33-5475-4484-b270-5f1e7eb87a9a",
+          "settings": {
+            "title": "Síguenos en nuestro TikTok",
+            "title_color": "",
+            "title_size": 32,
+            "alignment": "center",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "mintt_tiktok_feed_mintty_tiktok_feed_YdTRXp"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "cotizacion_servicio_Lwd3fE",
     "methodology_section_8VzfxN",
+    "why_work_with_me_nMDhzL",
     "testimonials_carousel_kHagRi",
-    "1772851336843284a0",
-    "why_work_with_me_nMDhzL"
+    "1772851336843284a0"
   ]
 }
