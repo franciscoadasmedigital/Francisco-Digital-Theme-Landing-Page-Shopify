@@ -5,6 +5,130 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
+<style>
+  @media screen and (max-width: 989px) {
+    #Details-menu-drawer-container .menu-drawer {
+      background: #071a44;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__inner-container,
+    #Details-menu-drawer-container .menu-drawer__navigation-container {
+      height: 100%;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__navigation-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__navigation {
+      padding: 1.6rem 1.2rem 0;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__menu,
+    #Details-menu-drawer-container .menu-drawer__submenu-inline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__menu > li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    #Details-menu-drawer-container .menu-drawer__menu-item {
+      min-height: 0;
+      padding: 1.6rem 1.2rem;
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    #Details-menu-drawer-container details > summary.menu-drawer__menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    #Details-menu-drawer-container details > summary.menu-drawer__menu-item::-webkit-details-marker {
+      display: none;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__caret {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    #Details-menu-drawer-container details[open] > summary .menu-drawer__caret {
+      transform: rotate(90deg);
+    }
+
+    #Details-menu-drawer-container .menu-drawer__caret .svg-wrapper,
+    #Details-menu-drawer-container .menu-drawer__caret svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__submenu-inline {
+      padding-bottom: 0.8rem;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__submenu-inline > li {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    #Details-menu-drawer-container .menu-drawer__submenu-inline .menu-drawer__menu-item {
+      padding: 1.2rem 1.2rem 1.2rem 2.4rem;
+      font-size: 2rem;
+      font-weight: 500;
+      opacity: 0.92;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__utility-links {
+      margin-top: auto;
+      padding: 2.4rem 1.6rem 1.8rem;
+      border-top: 0;
+      background: #f3f3f3;
+    }
+
+    #Details-menu-drawer-container .menu-drawer__account,
+    #Details-menu-drawer-container .menu-drawer__localization {
+      display: none;
+    }
+
+    #Details-menu-drawer-container .list-social {
+      justify-content: flex-start;
+      gap: 1.6rem;
+    }
+
+    #Details-menu-drawer-container .list-social__link {
+      display: flex;
+      width: 4.4rem;
+      height: 4.4rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: #3a3d45;
+      color: #fff;
+    }
+
+    #Details-menu-drawer-container .list-social__link .svg-wrapper,
+    #Details-menu-drawer-container .list-social__link svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+</style>
+
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
@@ -24,147 +148,74 @@
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}
-                    <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                    <details id="Details-menu-drawer-menu-item-{{ forloop.index }}" {% if link.child_active %}open{% endif %}>
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       >
                         {{ link.title | escape }}
-                        <span class="svg-wrapper">
-                          {{- 'icon-arrow.svg' | inline_asset_content -}}
-                        </span>
-                        <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        <span class="menu-drawer__caret">
+                          <span class="svg-wrapper">
+                            {{- 'icon-arrow.svg' | inline_asset_content -}}
+                          </span>
                         </span>
                       </summary>
-                      <div
+                      <ul
                         id="link-{{ link.handle | escape }}"
-                        class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                        tabindex="-1"
+                        class="menu-drawer__submenu-inline list-menu"
+                        role="list"
                       >
-                        <div class="menu-drawer__inner-submenu">
-                          <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                            <span class="svg-wrapper">
-                              {{- 'icon-arrow.svg' | inline_asset_content -}}
-                            </span>
-                            {{ link.title | escape }}
-                          </button>
-                          <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                            {%- assign is_services_drawer_menu = false -%}
-                            {%- if link.handle == 'servicios' -%}
-                              {%- assign is_services_drawer_menu = true -%}
+                        {%- for childlink in link.links -%}
+                          <li>
+                            {%- if childlink.links == blank -%}
+                              <a
+                                id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                href="{{ childlink.url }}"
+                                class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                {% if childlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ childlink.title | escape }}
+                              </a>
+                            {%- else -%}
+                              <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
+                                <summary
+                                  id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
+                                >
+                                  {{ childlink.title | escape }}
+                                  <span class="menu-drawer__caret">
+                                    <span class="svg-wrapper">
+                                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                    </span>
+                                  </span>
+                                </summary>
+                                <ul
+                                  id="childlink-{{ childlink.handle | escape }}"
+                                  class="menu-drawer__submenu-inline list-menu"
+                                  role="list"
+                                >
+                                  {%- for grandchildlink in childlink.links -%}
+                                    <li>
+                                      <a
+                                        id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                        href="{{ grandchildlink.url }}"
+                                        class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                        {% if grandchildlink.current %}
+                                          aria-current="page"
+                                        {% endif %}
+                                      >
+                                        {{ grandchildlink.title | escape }}
+                                      </a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              </details>
                             {%- endif -%}
-                            {%- for childlink in link.links -%}
-                              <li>
-                                {%- if childlink.links == blank -%}
-                                  {%- if is_services_drawer_menu -%}
-                                    {%- assign service_logo = '' -%}
-                                    {%- assign service_description = '' -%}
-
-                                    {%- case forloop.index -%}
-                                      {%- when 1 -%}
-                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_shopify.png?v=1770847170' -%}
-                                        {%- assign service_description = 'Creamos tu tienda Ecommerce lista para vender, con diseño profesional y optimizada para convertir cada visita en venta.' -%}
-                                      {%- when 2 -%}
-                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/Logo_pagina_web.png?v=1770847170' -%}
-                                        {%- assign service_description = 'Diseñamos páginas web estratégicas y optimizadas para captar clientes y convertir visitas en resultados.' -%}
-                                      {%- when 3 -%}
-                                        {%- assign service_logo = 'https://cdn.shopify.com/s/files/1/0623/0851/5895/files/logo_web_corporativa.png?v=1773281281' -%}
-                                        {%- assign service_description = 'Creamos sitios 1corporativos modernos que presentan tu empresa de forma profesional y generan nuevas oportunidades de negocio.' -%}
-                                    {%- endcase -%}
-
-                                    <a
-                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                      href="{{ childlink.url }}"
-                                      class="menu-drawer__menu-item menu-drawer__services-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                      {% if childlink.current %}
-                                        aria-current="page"
-                                      {% endif %}
-                                    >
-                                      {%- if service_logo != '' -%}
-                                        <img
-                                          class="menu-drawer__services-logo"
-                                          src="{{ service_logo }}"
-                                          alt=""
-                                          width="44"
-                                          height="44"
-                                          loading="lazy"
-                                        >
-                                      {%- endif -%}
-                                      <span class="menu-drawer__services-copy">
-                                        <span class="menu-drawer__services-title">{{ childlink.title | escape }}</span>
-                                        {%- if service_description != '' -%}
-                                          <span class="menu-drawer__services-description">{{ service_description }}</span>
-                                        {%- endif -%}
-                                      </span>
-                                    </a>
-                                  {%- else -%}
-                                    <a
-                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                      href="{{ childlink.url }}"
-                                      class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                      {% if childlink.current %}
-                                        aria-current="page"
-                                      {% endif %}
-                                    >
-                                      {{ childlink.title | escape }}
-                                    </a>
-                                  {%- endif -%}
-                                {%- else -%}
-                                  <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
-                                    <summary
-                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                      class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
-                                    >
-                                      {{ childlink.title | escape }}
-                                      <span class="svg-wrapper">
-                                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                                      </span>
-                                      <span class="svg-wrapper">
-                                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                                      </span>
-                                    </summary>
-                                    <div
-                                      id="childlink-{{ childlink.handle | escape }}"
-                                      class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                                    >
-                                      <button
-                                        class="menu-drawer__close-button link link--text focus-inset"
-                                        aria-expanded="true"
-                                      >
-                                        <span class="svg-wrapper">
-                                          {{- 'icon-arrow.svg' | inline_asset_content -}}
-                                        </span>
-                                        {{ childlink.title | escape }}
-                                      </button>
-                                      <ul
-                                        class="menu-drawer__menu list-menu"
-                                        role="list"
-                                        tabindex="-1"
-                                      >
-                                        {%- for grandchildlink in childlink.links -%}
-                                          <li>
-                                            <a
-                                              id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                              href="{{ grandchildlink.url }}"
-                                              class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                              {% if grandchildlink.current %}
-                                                aria-current="page"
-                                              {% endif %}
-                                            >
-                                              {{ grandchildlink.title | escape }}
-                                            </a>
-                                          </li>
-                                        {%- endfor -%}
-                                      </ul>
-                                    </div>
-                                  </details>
-                                {%- endif -%}
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                      </div>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
                     </details>
                   {%- else -%}
                     <a
