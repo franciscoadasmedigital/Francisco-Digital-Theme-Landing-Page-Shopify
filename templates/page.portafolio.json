@@ -82,7 +82,7 @@
         "link_text": "Ver detalles del proyecto",
         "accent_color": "#4f46e5",
         "bg_color": "#f8fafc",
-        "padding_top": 80,
+        "padding_top": 16,
         "padding_bottom": 80
       }
     }
