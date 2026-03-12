@@ -21,11 +21,10 @@
       "type": "contact-form-whatsapp",
       "name": "Contacto WhatsApp Pro",
       "settings": {
+        "section_id": "contacto",
         "whatsapp_number": "56988100871",
         "title_left": "¿Listo para escalar tus ventas?",
-        "text_left": "Cuéntanos sobre tu proyecto. Ya sea que necesites migrar a Shopify, optimizar tu e-commerce o crear una Landing Page, estamos listos.",
-        "direct_label": "Escríbenos directamente",
-        "direct_value": "hola@tuagencia.com",
+        "text_left": "Cuéntanos sobre tu proyecto y te enviaremos una propuesta personalizada. Ya sea que necesites migrar a Shopify, crear tu E-commerce o Landing Page, estamos listos para ayudarte.",
         "left_bg": "#1e293b",
         "title_right": "Solicita tu presupuesto",
         "right_bg": "#e2e2e2",
