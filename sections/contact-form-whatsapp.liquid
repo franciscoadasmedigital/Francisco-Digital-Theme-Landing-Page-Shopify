@@ -76,7 +76,7 @@
     font-size: 16px;
     line-height: 1.6;
     color: #94a3b8;
-    margin-bottom: 0; /* Quitamos el margen inferior porque ya es el último elemento */
+    margin-bottom: 0;
   }
 
   @media (min-width: 750px) {
@@ -183,7 +183,7 @@
   }
 </style>
 
-<div class="contact-wa-{{ section.id }}">
+<div id="{{ section.settings.section_id }}" class="contact-wa-{{ section.id }}">
   <div class="wa-container">
     <div class="wa-grid">
       
@@ -289,6 +289,17 @@
 {
   "name": "Contacto WhatsApp Pro",
   "settings": [
+    {
+      "type": "header",
+      "content": "Configuración General"
+    },
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "ID de la Sección (para enlaces)",
+      "default": "contacto",
+      "info": "Úsalo para crear enlaces en tu menú. Ejemplo: si escribes 'contacto', tu enlace será '#contacto'"
+    },
     {
       "type": "header",
       "content": "Configuración WhatsApp"
