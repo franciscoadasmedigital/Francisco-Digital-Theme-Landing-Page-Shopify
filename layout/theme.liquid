@@ -296,6 +296,12 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -363,6 +369,60 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
+    </script>
+
+    <script>
+      (() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        const getHeaderOffset = () => {
+          const header = document.querySelector('.section-header');
+          return header ? header.getBoundingClientRect().height : 0;
+        };
+
+        const scrollToHash = (hash, updateHistory = false) => {
+          if (!hash || hash === '#') return;
+
+          const target = document.querySelector(hash);
+          if (!target) return;
+
+          const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset() - 16;
+
+          window.scrollTo({
+            top: Math.max(top, 0),
+            behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+          });
+
+          if (updateHistory) {
+            history.pushState(null, '', hash);
+          }
+        };
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a[href*="#"]');
+          if (!link) return;
+
+          const url = new URL(link.href, window.location.origin);
+          const isSamePage =
+            url.origin === window.location.origin &&
+            url.pathname.replace(/\/+$/, '') === window.location.pathname.replace(/\/+$/, '');
+
+          if (!isSamePage || !url.hash) return;
+
+          event.preventDefault();
+          scrollToHash(url.hash, true);
+        });
+
+        window.addEventListener('load', () => {
+          if (window.location.hash) {
+            scrollToHash(window.location.hash);
+          }
+        });
+
+        window.addEventListener('hashchange', () => {
+          scrollToHash(window.location.hash);
+        });
+      })();
     </script>
 
     {%- if settings.predictive_search_enabled -%}
