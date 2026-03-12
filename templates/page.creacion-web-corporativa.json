@@ -31,11 +31,11 @@
         "description_2": "<p>📩 Escríbenos para comenzar</p>",
         "price_label": "Precio desde:",
         "price": "$250 USD",
-        "btn1_text": "",
-        "btn1_link": "",
-        "wa_number": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
+        "btn1_text": "Cotizar Web Corporativa",
+        "btn1_link": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
+        "wa_number": "",
         "wa_message": "",
-        "btn2_text": "Cotizar Web Corporativa"
+        "btn2_text": ""
       }
     },
     "methodology_section_Tbnzkk": {
