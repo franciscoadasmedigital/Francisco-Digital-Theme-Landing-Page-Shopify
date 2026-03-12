@@ -306,7 +306,7 @@
       const message = document.getElementById('wa-message').value;
       const meeting = document.getElementById('wa-meeting').value;
 
-      // Generamos los emojis desde la memoria (esquiva todos los errores de codificación)
+      // Generamos los emojis desde la memoria
       const eWave = String.fromCodePoint(0x1F44B);
       const eUser = String.fromCodePoint(0x1F464);
       const eBuild = String.fromCodePoint(0x1F3E2);
@@ -314,12 +314,12 @@
       const eCal = String.fromCodePoint(0x1F4C5);
       const eChat = String.fromCodePoint(0x1F4AC);
 
+      // Usamos doble \n\n para dejar un espacio en blanco entre cada línea
       const text = `Hola! ${eWave} Me gustaría solicitar una cotización.\n\n` +
-                   `${eUser} *Nombre:* ${name}\n` +
-                   `${eBuild} *Rubro:* ${rubro}\n` +
-                   `${eCart} *Servicio:* ${platform}\n` +
-                   `${eCal} *Reunión:* ${meeting}\n` +
-                   
+                   `${eUser} *Nombre:* ${name}\n\n` +
+                   `${eBuild} *Rubro:* ${rubro}\n\n` +
+                   `${eCart} *Servicio:* ${platform}\n\n` +
+                   `${eCal} *Reunión:* ${meeting}\n\n` +
                    `${eChat} *Detalles del proyecto:* ${message}`;
 
       const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
