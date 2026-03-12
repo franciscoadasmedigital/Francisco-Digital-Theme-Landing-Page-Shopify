@@ -304,25 +304,23 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Obtenemos los valores
-      const name = document.getElementById('wa-name').value;
-      const rubro = document.getElementById('wa-rubro').value;
-      const platform = document.getElementById('wa-platform').value;
-      const message = document.getElementById('wa-message').value;
-      const meeting = document.getElementById('wa-meeting').value;
+      // Encriptamos SOLO las respuestas del cliente para que no rompan la URL
+      const name = encodeURIComponent(document.getElementById('wa-name').value);
+      const rubro = encodeURIComponent(document.getElementById('wa-rubro').value);
+      const platform = encodeURIComponent(document.getElementById('wa-platform').value);
+      const message = encodeURIComponent(document.getElementById('wa-message').value);
+      const meeting = encodeURIComponent(document.getElementById('wa-meeting').value);
 
-      // Usamos códigos Unicode (\u{...}) para evitar que Shopify o el navegador rompan los emojis
-      const text = `Hola! \u{1F44B} Me gustaría solicitar una cotización.\n\n` +
-                   `\u{1F464} *Nombre:* ${name}\n` +
-                   `\u{1F3E2} *Rubro:* ${rubro}\n` +
-                   `\u{1F6D2} *Servicio:* ${platform}\n` +
-                   `\u{1F4C5} *Reunión:* ${meeting}\n` +
-                   `\u{1F4AC} *Detalles del proyecto:* ${message}`;
+      // Usamos códigos fijos (Hexadecimal URL-encoded) para los emojis y las tildes estáticas.
+      // %F0%9F%91%8B = 👋 | %F0%9F%91%A4 = 👤 | %F0%9F%8F%A2 = 🏢 | %F0%9F%9B%92 = 🛒 | %F0%9F%93%85 = 📅 | %F0%9F%92%AC = 💬
+      const text = `Hola! %F0%9F%91%8B Me gustar%C3%ADa solicitar una cotizaci%C3%B3n.%0A%0A` +
+                   `%F0%9F%91%A4 *Nombre:* ${name}%0A` +
+                   `%F0%9F%8F%A2 *Rubro:* ${rubro}%0A` +
+                   `%F0%9F%9B%92 *Servicio:* ${platform}%0A` +
+                   `%F0%9F%93%85 *Reuni%C3%B3n:* ${meeting}%0A` +
+                   `%F0%9F%92%AC *Detalles del proyecto:* ${message}`;
 
-      // Codificamos todo el texto de forma segura para la URL
-      const encodedText = encodeURIComponent(text);
-
-      const waUrl = `https://wa.me/${phone}?text=${encodedText}`;
+      const waUrl = `https://wa.me/${phone}?text=${text}`;
       window.open(waUrl, '_blank');
     });
   });
