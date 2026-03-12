@@ -1,0 +1,13 @@
+# Archivos de sistema (Basura que no quieres en Shopify)
+.DS_Store
+Thumbs.db
+.shopify/
+.vscode/
+
+# Node/Herramientas (Si llegaras a usar complementos de VS Code)
+node_modules/
+package-lock.json
+
+# NOTA: NO ignores la carpeta 'config' ni 'locales'
+# Esto permite que los cambios que hagas en el "Editor de Tema" (colores, fuentes, bloques)
+# se guarden en tu repositorio cuando sincronices.
