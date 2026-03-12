@@ -182,7 +182,7 @@
         "stat_VTwNqg": {
           "type": "stat",
           "settings": {
-            "number": "+15",
+            "number": "+10",
             "label": "Clientes con éxito digital",
             "color": "#6366f1"
           }
@@ -199,7 +199,7 @@
           "type": "stat",
           "settings": {
             "number": "+1",
-            "label": "Años de Estrategia Pura",
+            "label": "Año de Estrategia Pura",
             "color": "#6366f1"
           }
         }
