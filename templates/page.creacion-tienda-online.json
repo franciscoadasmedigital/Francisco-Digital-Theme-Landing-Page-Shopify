@@ -88,6 +88,60 @@
         "padding_bottom": 20
       }
     },
+    "why_work_with_me_GhANix": {
+      "type": "why-work-with-me",
+      "blocks": {
+        "step_qfj3QW": {
+          "type": "step",
+          "settings": {
+            "step_color": "#6366f1",
+            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z\"></path></svg>",
+            "title": "DISEÑO ESTRATÉGICO PARA TU MARCA",
+            "text": "Cada proyecto se diseña desde cero para reflejar la esencia de tu marca, diferenciarte de la competencia y generar una conexión real con tus clientes."
+          }
+        },
+        "step_h6knYf": {
+          "type": "step",
+          "settings": {
+            "step_color": "#10b981",
+            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><path d=\"M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"></path><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg>",
+            "title": "DESARROLLO ÁGIL Y RESULTADOS REALES",
+            "text": "Trabajo con procesos eficientes que garantizan entregas rápidas, soluciones sólidas y plataformas optimizadas para rendimiento, escalabilidad y crecimiento."
+          }
+        },
+        "step_tGDdLK": {
+          "type": "step",
+          "settings": {
+            "step_color": "#a5b4fc",
+            "custom_svg": "<svg width=\"32\" height=\"32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+            "title": "VISIÓN INTEGRAL PARA TU NEGOCIO",
+            "text": "Combino diseño, desarrollo y estrategia digital para crear soluciones completas que no solo se vean bien, sino que realmente impulsen tus resultados."
+          }
+        }
+      },
+      "block_order": [
+        "step_qfj3QW",
+        "step_h6knYf",
+        "step_tGDdLK"
+      ],
+      "name": "Por qué trabajar conmigo",
+      "settings": {
+        "title_1": "POR QUÉ",
+        "title_2": "TRABAJAR",
+        "title_3": "CONMIGO",
+        "description": "<p>Impulsa tu presencia digital con soluciones estratégicas. Más que un proveedor soy un aliado que trabaja contigo para hacer crecer tu negocio.</p>",
+        "btn_text": "INICIA TU PROYECTO",
+        "btn_link": "shopify://pages/contact",
+        "btn_bg": "#5b5fc7",
+        "btn_text_color": "#ffffff",
+        "bg_color": "#fcfcfc",
+        "text_color": "#1e293b",
+        "gradient_start": "#6366f1",
+        "gradient_end": "#a5b4fc",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "testimonials_carousel_kHagRi": {
       "type": "testimonials-carousel",
       "blocks": {
@@ -166,6 +220,7 @@
     "main",
     "cotizacion_servicio_Lwd3fE",
     "methodology_section_8VzfxN",
+    "why_work_with_me_GhANix",
     "testimonials_carousel_kHagRi",
     "1772851336843284a0"
   ]
