@@ -31,11 +31,11 @@
         "description_2": "<p>📩 Escríbenos para comenzar</p>",
         "price_label": "Precio desde:",
         "price": "$250 USD",
-        "btn1_text": "Cotizar en web",
-        "btn1_link": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
-        "wa_number": "56988100871",
-        "wa_message": "Hola, quisiera cotizar una web corporativa.",
-        "btn2_text": "Cotizar por WhatsApp"
+        "btn1_text": "",
+        "btn1_link": "",
+        "wa_number": "https://franciscoadasmedigital.com/pages/cotizar-web?pb=0",
+        "wa_message": "",
+        "btn2_text": "Cotizar Web Corporativa"
       }
     },
     "methodology_section_Tbnzkk": {
