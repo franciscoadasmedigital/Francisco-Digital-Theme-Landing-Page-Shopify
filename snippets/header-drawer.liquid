@@ -206,9 +206,13 @@
                 {%- endif -%}
                 {%- liquid
                   if customer
+                    echo '<span class="visually-hidden">'
                     echo 'customer.account_fallback' | t
+                    echo '</span>'
                   else
+                    echo '<span class="visually-hidden">'
                     echo 'customer.log_in' | t
+                    echo '</span>'
                   endif
                 -%}
               </a>

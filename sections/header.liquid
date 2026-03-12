@@ -385,6 +385,10 @@
     #menu-drawer .menu-drawer__utility-links {
       padding: 1.8rem 1.8rem 2.2rem;
       background: #e9e9e9;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
     }
 
     #menu-drawer .menu-drawer__account,
@@ -393,9 +397,54 @@
       color: #202020;
     }
 
+    #menu-drawer .menu-drawer__account {
+      width: 4.2rem;
+      height: 4.2rem;
+      padding: 0;
+      margin: 0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #3a3d43;
+      color: #ffffff;
+      flex: 0 0 auto;
+    }
+
+    #menu-drawer .menu-drawer__account account-icon,
+    #menu-drawer .menu-drawer__account > .svg-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #menu-drawer .menu-drawer__account account-icon > .svg-wrapper,
+    #menu-drawer .menu-drawer__account > .svg-wrapper {
+      width: 1.8rem;
+      height: 1.8rem;
+      margin: 0;
+    }
+
+    #menu-drawer .menu-drawer__account .icon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    #menu-drawer .menu-drawer__localization {
+      width: 100%;
+      margin-top: 0.8rem;
+    }
+
     #menu-drawer .list-social {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 1.2rem;
       margin-left: 0;
+    }
+
+    #menu-drawer .list-social__item {
+      flex: 0 0 auto;
     }
 
     #menu-drawer .list-social__link {
