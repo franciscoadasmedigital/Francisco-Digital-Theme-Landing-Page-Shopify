@@ -71,6 +71,9 @@
         "step_xTLEbn",
         "step_AABKDK"
       ],
+      "custom_css": [
+        ".methodology-template--17048770347063__methodology_section_pqV7Ey {background-color: white;}"
+      ],
       "name": "Metodología Estratégica",
       "settings": {
         "title": "Nuestro proceso de trabajo",
