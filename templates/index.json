@@ -224,6 +224,17 @@
         "padding_bottom": 68
       }
     },
+    "custom_liquid_PyKjCY": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
     "methodology_section_ADTkQh": {
       "type": "methodology-section",
       "blocks": {
@@ -582,6 +593,7 @@
     "marquee_brands_wXd467",
     "services_section_PhEUbV",
     "about_me_rFdU3K",
+    "custom_liquid_PyKjCY",
     "methodology_section_ADTkQh",
     "portafolio_proyectos_hDPbXt",
     "testimonials_carousel_FUpzyk",
