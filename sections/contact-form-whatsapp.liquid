@@ -142,6 +142,7 @@
     .wa-form-title { font-size: 28px; margin-bottom: 40px; }
   }
 
+  /* Fila responsiva para Nombre y Rubro */
   .wa-form-row {
     display: grid;
     grid-template-columns: 1fr;
@@ -209,6 +210,7 @@
     filter: brightness(1.1);
   }
 
+  /* Nota debajo del botón */
   .wa-form-note {
     font-size: 13px;
     color: #64748b;
@@ -309,15 +311,15 @@
       const message = document.getElementById('wa-message').value;
       const meeting = document.getElementById('wa-meeting').value;
 
-      // Formateamos el mensaje usando saltos de línea reales (\n)
-      const text = `Hola! 👋 Me gustaría solicitar una cotización.\n\n` +
-                   `*👤 Nombre:* ${name}\n` +
-                   `*🏢 Rubro:* ${rubro}\n` +
-                   `*🛒 Servicio:* ${platform}\n` +
-                   `*📅 Reunión:* ${meeting}\n` +
-                   `*💬 Detalles del proyecto:* ${message}`;
+      // Usamos códigos Unicode (\u{...}) para evitar que Shopify o el navegador rompan los emojis
+      const text = `Hola! \u{1F44B} Me gustaría solicitar una cotización.\n\n` +
+                   `\u{1F464} *Nombre:* ${name}\n` +
+                   `\u{1F3E2} *Rubro:* ${rubro}\n` +
+                   `\u{1F6D2} *Servicio:* ${platform}\n` +
+                   `\u{1F4C5} *Reunión:* ${meeting}\n` +
+                   `\u{1F4AC} *Detalles del proyecto:* ${message}`;
 
-      // Codificamos todo el texto para que la URL no rompa los emojis ni las tildes
+      // Codificamos todo el texto de forma segura para la URL
       const encodedText = encodeURIComponent(text);
 
       const waUrl = `https://wa.me/${phone}?text=${encodedText}`;
