@@ -55,26 +55,10 @@
     "marquee_brands_wXd467": {
       "type": "marquee-brands",
       "blocks": {
-        "brand_8NhGDE": {
-          "type": "brand",
-          "settings": {
-            "logo": "shopify://shop_images/logo_instrucontrol.png",
-            "logo_height": 85,
-            "name": ""
-          }
-        },
         "brand_3tzAqm": {
           "type": "brand",
           "settings": {
             "logo": "shopify://shop_images/Gemini_Generated_Image_yszkmjyszkmjyszk.png",
-            "logo_height": 55,
-            "name": ""
-          }
-        },
-        "brand_7LCdNT": {
-          "type": "brand",
-          "settings": {
-            "logo": "shopify://shop_images/Logo_Skoll.jpg",
             "logo_height": 55,
             "name": ""
           }
@@ -105,9 +89,7 @@
         }
       },
       "block_order": [
-        "brand_8NhGDE",
         "brand_3tzAqm",
-        "brand_7LCdNT",
         "brand_UTEqdE",
         "brand_MiQk74",
         "brand_YNyE6i"
@@ -396,35 +378,13 @@
             "rating": 5,
             "text": "La tienda online quedó excelente. Francisco hizo un excelente trabajo y ahora nuestros clientes pueden comprar medicamentos y productos de forma rápida y sencilla."
           }
-        },
-        "testimonial_KCABaH": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/skoll.png",
-            "name": "Skoll Company",
-            "handle": "@skollcompany",
-            "rating": 5,
-            "text": "La landing page superó nuestras expectativas. El diseño es atractivo y transmite muy bien lo que hacemos."
-          }
-        },
-        "testimonial_XKVrYV": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/images.png",
-            "name": "Instrucontrol",
-            "handle": "@instrucontrol",
-            "rating": 5,
-            "text": "La página quedó muy clara y profesional. Ahora podemos mostrar nuestros servicios de forma mucho más ordenada."
-          }
         }
       },
       "block_order": [
         "testimonial_fHce83",
         "testimonial_A6VcTm",
         "testimonial_RFnnPg",
-        "testimonial_a9QqiW",
-        "testimonial_KCABaH",
-        "testimonial_XKVrYV"
+        "testimonial_a9QqiW"
       ],
       "name": "Testimonios Carrusel",
       "settings": {
