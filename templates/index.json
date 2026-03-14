@@ -163,7 +163,6 @@
       "blocks": {
         "stat_VTwNqg": {
           "type": "stat",
-          "disabled": true,
           "settings": {
             "number": "+10",
             "label": "Clientes con éxito digital",
