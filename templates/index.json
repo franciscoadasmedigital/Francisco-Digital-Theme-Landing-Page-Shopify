@@ -164,8 +164,8 @@
         "stat_VTwNqg": {
           "type": "stat",
           "settings": {
-            "number": "+10",
-            "label": "Clientes con éxito digital",
+            "number": "+5",
+            "label": "Clientes que confiaron en nuestro trabajo",
             "color": "#6366f1"
           }
         },
@@ -173,7 +173,7 @@
           "type": "stat",
           "settings": {
             "number": "+5",
-            "label": "Ecosistemas Web Creados",
+            "label": "Tiendas online creadas en Shopify",
             "color": "#10b981"
           }
         },
