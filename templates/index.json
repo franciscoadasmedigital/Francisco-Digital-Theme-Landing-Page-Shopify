@@ -173,7 +173,7 @@
         "stat_HP7Hta": {
           "type": "stat",
           "settings": {
-            "number": "+10",
+            "number": "+5",
             "label": "Ecosistemas Web Creados",
             "color": "#10b981"
           }
