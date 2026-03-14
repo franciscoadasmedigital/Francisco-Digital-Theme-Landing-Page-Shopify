@@ -18,10 +18,10 @@
         "secondary_color": "#10b981",
         "bg_color": "#f8fafc",
         "text_color": "#0f172a",
-        "badge_text": "Diseño Web Estratégico",
+        "badge_text": "Especialistas en Shopify",
         "title_prefix": "Transformamos tu visión en una",
         "words": "máquina de ventas., tienda de éxito., marca imparable.",
-        "description": "Diseñamos y desarrollamos tiendas online en Shopify y sitios web escalables en WordPress. Enfocados en la experiencia de usuario y la conversión.",
+        "description": "Diseñamos y desarrollamos tiendas online, landing page y webs corporativas en Shopify. Enfocados en la experiencia de usuario y la conversión.",
         "primary_btn_text": "Ver Proyectos",
         "primary_btn_link": "#trabajos-recientes",
         "secondary_btn_text": "Ver Precios",
@@ -112,7 +112,7 @@
         "service_W4Jeqy": {
           "type": "service",
           "settings": {
-            "title": "Tienda Online en Shopify",
+            "title": "Tienda Ecommerce",
             "text": "Tiendas online optimizadas para vender más. Desde la configuración inicial hasta un diseño completamente a medida.",
             "features": "Diseños y secciones personalizadas\nIntegración de pasarelas de pago y envíos\nOptimización SEO para mejorar presencia en Google\nCapacitación completa para que administres tu tienda con seguridad",
             "custom_svg": "",
@@ -310,8 +310,8 @@
           "type": "project",
           "settings": {
             "image": "shopify://shop_images/piedras_lajas_web.png",
-            "category": "Wordpress",
-            "badge_color": "#2d66e3",
+            "category": "Shopify",
+            "badge_color": "#5db34d",
             "badge_text_color": "#ffffff",
             "title": "Piedras Lajas",
             "description": "Landing page desarrollada para una empresa de venta de piedra laja por m². Se creó para generar presencia digital, mostrar sus servicios de forma clara y facilitar la captación de clientes mediante contacto directo.",
@@ -359,16 +359,6 @@
             "text": "El rediseño de nuestra página web fue un gran cambio. Ahora el sitio se ve moderno, ordenado y mucho más fácil de navegar para nuestros clientes."
           }
         },
-        "testimonial_RFnnPg": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/logo-piedra-laja-curico.webp",
-            "name": "Piedra Laja",
-            "handle": "@piedralajacurico",
-            "rating": 5,
-            "text": "Excelente servicio, gracias a la nueva landing page ahora podemos mostrar nuestros servicios de forma simple y captar más consultas de clientes."
-          }
-        },
         "testimonial_a9QqiW": {
           "type": "testimonial",
           "settings": {
@@ -378,13 +368,23 @@
             "rating": 5,
             "text": "La tienda online quedó excelente. Francisco hizo un excelente trabajo y ahora nuestros clientes pueden comprar medicamentos y productos de forma rápida y sencilla."
           }
+        },
+        "testimonial_RFnnPg": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/logo-piedra-laja-curico.webp",
+            "name": "Piedra Laja",
+            "handle": "@piedralajacurico",
+            "rating": 5,
+            "text": "Excelente servicio, gracias a la nueva landing page ahora podemos mostrar nuestros servicios de forma simple y captar más consultas de clientes."
+          }
         }
       },
       "block_order": [
         "testimonial_fHce83",
         "testimonial_A6VcTm",
-        "testimonial_RFnnPg",
-        "testimonial_a9QqiW"
+        "testimonial_a9QqiW",
+        "testimonial_RFnnPg"
       ],
       "name": "Testimonios Carrusel",
       "settings": {
@@ -408,7 +408,7 @@
             "is_highlighted": false,
             "badge_text": "Más contratado",
             "title": "Landing Page",
-            "price": "200",
+            "price": "150",
             "features": "Diseño personalizado y enfocado en conversión\n1-2 páginas optimizada para ventas o captación de clientes\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://pages/creacion-de-landing-page"
@@ -420,7 +420,7 @@
             "is_highlighted": false,
             "badge_text": "Más contratado",
             "title": "Web Corporativa",
-            "price": "250",
+            "price": "200",
             "features": "Diseño personalizado y enfocado en presentar la información clara y organizada a tus clientes\nHasta 6 páginas internas (Inicio, Servicios, Nosotros, Contacto, etc.)\nDiseño responsivo (optimizado para computador y celular)\nIntegración de dominio\nHosting incluido\nFormulario de contacto\nIntegración con redes sociales\nOptimización SEO básico para mejorar presencia en Google\nVelocidad y Rendimiento Optimizados\nCapacitación completa para que puedas administrar tu pagina web\n60 días de garantía y mantención",
             "button_text": "Conoce más",
             "link": "shopify://pages/creacion-de-web-corporativa"
