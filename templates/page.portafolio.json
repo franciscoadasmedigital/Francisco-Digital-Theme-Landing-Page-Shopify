@@ -60,8 +60,8 @@
           "type": "project",
           "settings": {
             "image": "shopify://shop_images/piedras_lajas_web.png",
-            "category": "WordPress",
-            "badge_color": "#334fb4",
+            "category": "Shopify",
+            "badge_color": "#5db34d",
             "badge_text_color": "#ffffff",
             "title": "Piedras Lajas",
             "description": "Landing page desarrollada para una empresa de venta de piedra laja por m². Se creó para generar presencia digital, mostrar sus servicios de forma clara y facilitar la captación de clientes mediante contacto directo.",
