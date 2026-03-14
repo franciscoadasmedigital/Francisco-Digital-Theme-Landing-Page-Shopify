@@ -161,20 +161,20 @@
     "about_me_rFdU3K": {
       "type": "about-me",
       "blocks": {
-        "stat_VTwNqg": {
-          "type": "stat",
-          "settings": {
-            "number": "+5",
-            "label": "Clientes que confiaron en nuestro trabajo",
-            "color": "#6366f1"
-          }
-        },
         "stat_HP7Hta": {
           "type": "stat",
           "settings": {
             "number": "+5",
             "label": "Tiendas online creadas en Shopify",
             "color": "#10b981"
+          }
+        },
+        "stat_VTwNqg": {
+          "type": "stat",
+          "settings": {
+            "number": "+5",
+            "label": "Clientes que confiaron en nuestro trabajo",
+            "color": "#6366f1"
           }
         },
         "stat_x97PEz": {
@@ -187,8 +187,8 @@
         }
       },
       "block_order": [
-        "stat_VTwNqg",
         "stat_HP7Hta",
+        "stat_VTwNqg",
         "stat_x97PEz"
       ],
       "name": "Trayectoria Editorial",
