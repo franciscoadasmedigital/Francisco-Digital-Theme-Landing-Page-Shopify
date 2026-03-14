@@ -473,14 +473,14 @@
           "type": "faq",
           "settings": {
             "question": "¿Cuál es la modalidad de pago?",
-            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.<br/>Además lo métodos de pago que aceptamos son:</p><ul><li>Transferencia bancaria (solo para Chile)</li><li> Binance (en USDT)</li><li> PayPal / Stripe (solo pagos internacionales)</li></ul>"
+            "answer": "<p>Se paga el 60% al iniciar el proyecto y el 40% restante al finalizar la entrega.<br/>Además lo métodos de pago que aceptamos son:</p><ul><li>Transferencia bancaria (solo para Chile)</li><li> Binance (en USDT)</li><li> PayPal (solo pagos internacionales)</li></ul>"
           }
         },
         "faq_hhMDTx": {
           "type": "faq",
           "settings": {
             "question": "¿Tengo que pagar mensualidades por la página?",
-            "answer": "<p>Nuestro servicio de diseño y desarrollo es un pago único. Sin embargo, debes tener en cuenta los costos de terceros para mantener tu web activa: el Hosting, el Dominio anual y, en el caso de Shopify, la suscripción mensual a su plataforma.</p>"
+            "answer": "<p>Nuestro servicio de diseño y desarrollo es un pago único. Sin embargo, debes tener en cuenta los costos de terceros para mantener tu web activa: El Dominio anual y, en el caso de Shopify, la suscripción mensual a su plataforma.</p>"
           }
         },
         "faq_9BBhPc": {
@@ -494,14 +494,14 @@
           "type": "faq",
           "settings": {
             "question": "¿Qué pasa si necesito ayuda después de que la web esté lista?",
-            "answer": "<p>Todos nuestros planes incluyen un periodo de garantía y soporte (entre 30 y 90 días). Pasado ese tiempo, puedes contratar nuestros planes de mantenimiento mensual opcionales si quieres que nos encarguemos de las actualizaciones técnicas por ti.</p>"
+            "answer": "<p>Todos nuestros planes incluyen un periodo de garantía y soporte (entre 30 y 90 días). </p>"
           }
         },
         "faq_JwPakG": {
           "type": "faq",
           "settings": {
             "question": "¿Por qué usas Shopify?",
-            "answer": "<p>Elegimos esta plataforma porque son las líderes mundiales. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema.</p>"
+            "answer": "<p>Elegimos esta plataforma porque es la líder mundial. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema.</p>"
           }
         }
       },
