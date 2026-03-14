@@ -515,8 +515,8 @@
         "faq_JwPakG": {
           "type": "faq",
           "settings": {
-            "question": "¿Por qué usas Shopify y WordPress?",
-            "answer": "<p>Elegimos estas plataformas porque son las líderes mundiales. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema. WordPress es imbatible para flexibilidad, SEO y páginas corporativas.</p>"
+            "question": "¿Por qué usas Shopify?",
+            "answer": "<p>Elegimos esta plataforma porque son las líderes mundiales. Shopify es indiscutiblemente la mejor herramienta para comercio electrónico por su seguridad y ecosistema.</p>"
           }
         }
       },
