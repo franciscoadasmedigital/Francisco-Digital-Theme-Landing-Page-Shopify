@@ -42,7 +42,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: center;
   }
 
   @media (min-width: 990px) {
@@ -77,7 +77,7 @@
   .ed-title span {
     color: {{ section.settings.accent_color }};
     font-style: italic;
-    font-family: inherit; /* Puedes cambiar esto a una font cursiva si tienes una cargada */
+    font-family: inherit;
   }
 
   .ed-desc {
@@ -89,62 +89,52 @@
     max-width: 600px;
   }
 
-  /* Lado de Estadísticas */
+  /* Lado de Estadísticas - Ajustado para coincidir con la imagen */
   .ed-stats-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Mantenemos 1 columna para que se apilen como en la imagen */
     gap: 20px;
   }
 
-  @media (min-width: 600px) {
-    .ed-stats-grid { grid-template-columns: 1fr 1fr; }
-  }
-
   .ed-stat-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 30px;
-    border-radius: 30px;
-    transition: all 0.4s ease;
-    animation: ed-float-{{ section.id }} 6s ease-in-out infinite;
+    background: #111827; /* Fondo azul muy oscuro casi negro */
+    border: 1px solid #1e293b; /* Borde sutil */
+    padding: 32px 40px;
+    border-radius: 16px; /* Bordes redondeados más sutiles */
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
   .ed-stat-card:hover {
-    border-color: {{ section.settings.accent_color }};
-    background: rgba(255,255,255,0.05);
-    transform: scale(1.05);
-  }
-
-  .ed-stat-card.full-width {
-    grid-column: 1 / -1;
+    border-color: #334155;
+    background: #151d30;
+    transform: translateY(-5px); /* Efecto hover elegante en lugar de flotación constante */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   }
 
   .ed-stat-number {
     display: block;
-    font-size: 48px;
+    font-size: 56px; /* Número más grande */
     font-weight: 900;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   .ed-stat-label {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    color: #64748b;
+    color: #64748b; /* Gris azulado sutil */
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  @keyframes ed-float-{{ section.id }} {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-
   @media (max-width: 749px) {
-    .ed-stat-card { padding: 20px; border-radius: 20px; animation: none; }
-    .ed-stat-number { font-size: 40px; }
+    .ed-stat-card { padding: 24px 30px; }
+    .ed-stat-number { font-size: 48px; }
   }
 </style>
 
@@ -154,7 +144,6 @@
   <div class="ed-container">
     <div class="ed-grid">
       
-      <!-- Bloque de Texto -->
       <div class="ed-text-side">
         {% if section.settings.badge != blank %}
           <span class="ed-badge">{{ section.settings.badge }}</span>
@@ -171,13 +160,10 @@
         </div>
       </div>
 
-      <!-- Bloque de Stats -->
       <div class="ed-stats-side">
         <div class="ed-stats-grid">
           {% for block in section.blocks %}
-            <div class="ed-stat-card {% if forloop.last and section.blocks.size == 3 %}full-width{% endif %}" 
-                 style="animation-delay: {{ forloop.index | times: 0.8 }}s;" 
-                 {{ block.shopify_attributes }}>
+            <div class="ed-stat-card" {{ block.shopify_attributes }}>
               <span class="ed-stat-number" style="color: {{ block.settings.color }};">{{ block.settings.number }}</span>
               <span class="ed-stat-label">{{ block.settings.label }}</span>
             </div>
@@ -312,8 +298,8 @@
       "name": "Trayectoria Editorial",
       "blocks": [
         { "type": "stat", "settings": { "number": "+100", "label": "Clientes con éxito digital", "color": "#6366f1" } },
-        { "type": "stat", "settings": { "number": "+50", "label": "Ecosistemas Web Creados", "color": "#10b981" } },
-        { "type": "stat", "settings": { "number": "+7", "label": "Años de Estrategia Pura", "color": "#6366f1" } }
+        { "type": "stat", "settings": { "number": "+5", "label": "Ecosistemas Web Creados", "color": "#10b981" } },
+        { "type": "stat", "settings": { "number": "+1", "label": "Año de Estrategia Pura", "color": "#6366f1" } }
       ]
     }
   ]
