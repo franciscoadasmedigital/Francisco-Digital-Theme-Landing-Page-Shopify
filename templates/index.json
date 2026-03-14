@@ -402,8 +402,21 @@
     "pricing_section_fwzPpr": {
       "type": "pricing-section",
       "blocks": {
+        "plan_ETPDKH": {
+          "type": "plan",
+          "settings": {
+            "is_highlighted": false,
+            "badge_text": "Más contratado",
+            "title": "Rediseño de Tienda Online",
+            "price": "50 - 200",
+            "features": "Diseño único y animado\nOptimización de carga\nFormulario de contacto\nHosting y dominio incluido",
+            "button_text": "Conoce más",
+            "link": ""
+          }
+        },
         "plan_6x7m4U": {
           "type": "plan",
+          "disabled": true,
           "settings": {
             "is_highlighted": false,
             "badge_text": "Más contratado",
@@ -416,6 +429,7 @@
         },
         "plan_i4MLYn": {
           "type": "plan",
+          "disabled": true,
           "settings": {
             "is_highlighted": false,
             "badge_text": "Más contratado",
@@ -440,6 +454,7 @@
         }
       },
       "block_order": [
+        "plan_ETPDKH",
         "plan_6x7m4U",
         "plan_i4MLYn",
         "plan_N6Vh9J"
