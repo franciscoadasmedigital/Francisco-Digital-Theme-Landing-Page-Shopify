@@ -79,9 +79,9 @@
         "collapsible_tab_T7NNiw": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Demo",
+            "heading": "Tiendas Demo",
             "icon": "eye",
-            "content": "",
+            "content": "<p>Tiendas de demostración creadas con Shrine Pro</p><ul><li>Phero - Cosmetics ➡︎ <a href=\"https://shrine-pro-demo.myshopify.com/\" target=\"_blank\" title=\"https://shrine-pro-demo.myshopify.com/\">Échale un vistazo</a></li><li>Chug - Energy Milk ➡︎ <a href=\"https://shrine-pro-demo-2.myshopify.com/\" target=\"_blank\" title=\"https://shrine-pro-demo-2.myshopify.com/\">Échale un vistazo</a></li><li>Nowhey - Energy Drink ➡︎ <a href=\"https://drinknowhey.com/\" target=\"_blank\" title=\"https://drinknowhey.com/\">Échale un vistazo</a></li></ul>",
             "page": ""
           }
         },
