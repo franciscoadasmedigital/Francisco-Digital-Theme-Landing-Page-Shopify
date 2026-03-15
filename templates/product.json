@@ -76,6 +76,15 @@
             "page": ""
           }
         },
+        "collapsible_tab_T7NNiw": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Demo",
+            "icon": "eye",
+            "content": "",
+            "page": ""
+          }
+        },
         "share": {
           "type": "share",
           "disabled": true,
@@ -95,6 +104,7 @@
         "custom_liquid_Jzzrqz",
         "collapsible_tab_MbD7CR",
         "collapsible_tab_dwbNnj",
+        "collapsible_tab_T7NNiw",
         "share"
       ],
       "settings": {
