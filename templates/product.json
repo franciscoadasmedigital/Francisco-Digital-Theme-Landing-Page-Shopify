@@ -176,7 +176,7 @@
       "settings": {
         "title_start": "Preguntas",
         "title_accent": "Frecuentes",
-        "subtitle": "Resolvemos tus dudas antes de dar el siguiente paso.",
+        "subtitle": "",
         "primary_color": "#4f46e5",
         "secondary_color": "#10b981",
         "bg_color": "#f8fafc",
