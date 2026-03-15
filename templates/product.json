@@ -46,9 +46,23 @@
             "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
+        "collapsible_tab_MbD7CR": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Descripción",
+            "icon": "clipboard",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_dwbNnj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Entrega",
+            "icon": "box",
+            "content": "<p><strong>Descarga inmediata</strong></p><p>Los archivos estarán disponibles para descargar una vez que se confirme el pago.</p><p>No se admiten cambios, devoluciones ni cancelaciones de los artículos de descarga inmediata. Ponte en contacto con el vendedor si tienes algún problema con tu pedido.</p>",
+            "page": ""
+          }
         },
         "share": {
           "type": "share",
@@ -65,7 +79,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
+        "collapsible_tab_MbD7CR",
+        "collapsible_tab_dwbNnj",
         "share"
       ],
       "settings": {
