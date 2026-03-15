@@ -148,22 +148,22 @@
         "faq_xUMncJ": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Es una compra única?",
+            "answer": "<p>Si es una compra única, en el cual obtienes todas las funciones con las ultimas actualizaciones de este tema.</p>"
           }
         },
         "faq_GXDFhP": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Esta optimizado para dispositivos móviles?",
+            "answer": "<p>Sí, Shrine esta completamente optimizado para cualquier dispositivo.</p>"
           }
         },
         "faq_anaNnt": {
           "type": "faq",
           "settings": {
-            "question": "¿Cuánto tiempo tardan en crear mi página?",
-            "answer": "<p>El tiempo varía según la complejidad del proyecto, pero usualmente toma entre 2 y 5 semanas.</p>"
+            "question": "¿Puedo usar Shrine con mi tienda de Shopify existente?",
+            "answer": "<p>Sí, puedes aplicar Shrine fácilmente a tu tienda Shopify sin ningún riesgo de cierre de la licencia. </p>"
           }
         }
       },
@@ -181,10 +181,10 @@
         "secondary_color": "#10b981",
         "bg_color": "#f8fafc",
         "text_color": "#0f172a",
-        "link_text": "Escríbenos directamente",
+        "link_text": "",
         "link_url": "",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 68,
+        "padding_bottom": 68
       }
     }
   },
